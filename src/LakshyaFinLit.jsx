@@ -454,6 +454,7 @@ const EN = {
   'sidebar.budget': 'Budget Planner',
   'sidebar.quizzes': 'Quizzes',
   'sidebar.simulator': 'Simulator',
+  'sidebar.terms': 'Financial Terms',
   'sidebar.achievements': 'Achievements',
   'sidebar.settings': 'Settings',
 
@@ -831,6 +832,7 @@ const TE = {
   'sidebar.budget': 'బడ్జెట్ ప్లానర్',
   'sidebar.quizzes': 'క్విజ్‌లు',
   'sidebar.simulator': 'సిమ్యులేటర్',
+  'sidebar.terms': 'ఆర్థిక నిబంధనలు',
   'sidebar.achievements': 'విజయాలు',
   'sidebar.settings': 'సెట్టింగ్స్',
 
@@ -1396,6 +1398,7 @@ function LandingPage() {
             <button type="button" onClick={() => d({ type: 'go', v: 'landing' })} className="text-emerald-700 hover:text-emerald-800 transition font-bold">{t('nav.home')}</button>
             <button type="button" onClick={() => setShowVideo(true)} className="hover:text-emerald-700 transition">{t('nav.about')}</button>
             <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'modules' }); }} className="hover:text-emerald-700 transition">{t('nav.features')}</button>
+            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'terms' }); }} className="hover:text-emerald-700 transition">Financial Terms</button>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -1955,6 +1958,7 @@ function StudentSidebar() {
   const navItems = [
     { id: 'home', labelKey: 'sidebar.home', Icon: Home },
     { id: 'modules', labelKey: 'sidebar.modules', Icon: BookOpen },
+    { id: 'terms', labelKey: 'sidebar.terms', Icon: Lightbulb },
     { id: 'goals', labelKey: 'sidebar.goals', Icon: Target },
     { id: 'budget-planner', labelKey: 'sidebar.budget', Icon: Wallet },
     { id: 'quiz', labelKey: 'sidebar.quizzes', Icon: HelpCircle },
@@ -2278,6 +2282,27 @@ function HomeScreen() {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Featured Banner: Understand Financial Terms */}
+      <div className="bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900 rounded-3xl p-6 text-white shadow-sm border border-emerald-800/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+        <div className="space-y-1.5 max-w-xl">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-400/30">
+            <GraduationCap size={14} />
+            <span>Beginner Glossary</span>
+          </div>
+          <h2 className="text-lg sm:text-xl font-extrabold tracking-tight">Understand Financial Terms</h2>
+          <p className="text-emerald-100/80 text-xs sm:text-sm leading-relaxed">
+            Master SIP, SWP, Mutual Funds, NAV, ROI, Stocks, Bonds, Dividends, Compounding, Diversification, Inflation & Asset Allocation with real-world ₹ examples.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => d({ type: 'go', v: 'terms' })}
+          className="px-5 py-2.5 bg-emerald-400 hover:bg-emerald-300 text-emerald-950 font-bold rounded-xl text-xs sm:text-sm shadow transition shrink-0 flex items-center gap-2 cursor-pointer">
+          <span>Explore Financial Terms</span>
+          <ArrowRight size={16} />
+        </button>
       </div>
 
       {/* Badges and Progress Details */}
@@ -3152,13 +3177,22 @@ function LearningModulesHub() {
           <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Learning Modules & Video Lessons</h1>
           <p className="text-sm text-slate-500">Master essential money skills with video tutorials and interactive simulations</p>
         </div>
-        <button
-          type="button"
-          onClick={() => d({ type: 'go', v: 'quiz' })}
-          className="px-4 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-xs transition shadow-sm flex items-center gap-2 self-start sm:self-auto cursor-pointer">
-          <Play size={14} className="fill-white" />
-          <span>Take Video Quiz</span>
-        </button>
+        <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+          <button
+            type="button"
+            onClick={() => d({ type: 'go', v: 'terms' })}
+            className="px-3.5 py-2.5 border border-emerald-300 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 font-bold rounded-xl text-xs transition shadow-xs flex items-center gap-1.5 cursor-pointer">
+            <Lightbulb size={14} className="text-emerald-700" />
+            <span>Financial Terms</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => d({ type: 'go', v: 'quiz' })}
+            className="px-4 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-xs transition shadow-sm flex items-center gap-2 cursor-pointer">
+            <Play size={14} className="fill-white" />
+            <span>Take Video Quiz</span>
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -3204,6 +3238,27 @@ function LearningModulesHub() {
         })}
       </div>
 
+      {/* Understand Financial Terms Highlight Banner */}
+      <div className="bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 rounded-3xl p-6 text-white shadow-md flex flex-col md:flex-row items-center justify-between gap-6 border border-emerald-800/40">
+        <div className="space-y-2 max-w-xl">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-400/30">
+            <GraduationCap size={14} />
+            <span>Beginner Glossary</span>
+          </div>
+          <h2 className="text-xl font-extrabold tracking-tight">Understand Financial Terms</h2>
+          <p className="text-emerald-100/90 text-xs sm:text-sm leading-relaxed">
+            Demystify SIP, SWP, Mutual Funds, NAV, ROI, Stocks, Bonds, Dividends, Compounding, Diversification, Inflation & Asset Allocation with real-world ₹ examples.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => d({ type: 'go', v: 'terms' })}
+          className="px-6 py-3 bg-emerald-400 hover:bg-emerald-300 text-emerald-950 font-extrabold rounded-2xl text-xs sm:text-sm shadow transition shrink-0 flex items-center gap-2 cursor-pointer">
+          <span>Explore 12 Financial Terms</span>
+          <ArrowRight size={16} />
+        </button>
+      </div>
+
       {/* Video Modal for Module Lesson */}
       {selectedVideo && (
         <Modal title={`${selectedVideo.title} - Video Lesson`} maxWidth={680} onClose={() => setSelectedVideo(null)}>
@@ -3241,6 +3296,1317 @@ function LearningModulesHub() {
                 }}
                 className="py-3 px-4 border border-slate-300 text-slate-800 font-bold rounded-xl text-xs hover:bg-slate-50 transition cursor-pointer">
                 Take Quiz
+              </button>
+            </div>
+          </div>
+        </Modal>
+      )}
+    </div>
+  );
+}
+
+/* ============================================================================
+   UNDERSTAND FINANCIAL TERMS - 12 ESSENTIAL CONCEPTS FOR BEGINNERS
+   ========================================================================== */
+
+const FINANCIAL_TERMS = [
+  {
+    id: 'sip',
+    name: 'SIP',
+    fullForm: 'Systematic Investment Plan',
+    category: 'funds',
+    categoryLabel: 'Funds & Plans',
+    badgeColor: 'emerald',
+    icon: Calendar,
+    shortDesc: 'A disciplined method where you invest a fixed amount of money at regular intervals (like every month) into an investment fund instead of investing all at once.',
+    detailDesc: 'A Systematic Investment Plan (SIP) allows beginners to start small without timing the market. By investing fixed sums periodically across all market conditions, you automatically buy more units when market prices drop and fewer units when prices rise—a key principle known as "Rupee Cost Averaging". Over years, this turns disciplined pocket savings into substantial long-term wealth.',
+    example: {
+      headline: '₹1,000 Monthly Savings Habit',
+      scenario: 'Anusha decides to invest ₹1,000 on the 5th of every month from her part-time tutoring earnings.',
+      breakdown: [
+        'Month 1 (Market Dip): NAV is ₹20 ➔ She automatically receives 50 fund units.',
+        'Month 2 (Market Rise): NAV is ₹25 ➔ She automatically receives 40 fund units.',
+        'Total Invested: ₹2,000 across 2 months ➔ Total Units: 90 units (Average price per unit: ₹22.22).',
+        'Year 1 Total: ₹12,000 invested smoothly without needing any large lump sum.'
+      ],
+      lesson: 'She smoothed out price swings and avoided the anxiety of guessing market highs and lows.'
+    },
+    benefit: {
+      title: 'Rupee Cost Averaging & Discipline',
+      desc: 'Builds an automatic wealth-building habit starting from as little as ₹500/month, removing the urge to gamble or time the market.'
+    },
+    risk: {
+      title: 'Market Linked Volatility',
+      desc: 'Returns are linked to market performance and fluctuate over time. Continuing an SIP during tough market downturns is required, and returns are never guaranteed.'
+    },
+    keyRule: 'Consistency beats market timing. Keep your SIP active even when markets dip so you accumulate units at lower prices.'
+  },
+  {
+    id: 'swp',
+    name: 'SWP',
+    fullForm: 'Systematic Withdrawal Plan',
+    category: 'funds',
+    categoryLabel: 'Funds & Plans',
+    badgeColor: 'teal',
+    icon: RotateCcw,
+    shortDesc: 'A scheduled facility that allows you to withdraw a fixed predetermined amount from your accumulated investments at regular intervals.',
+    detailDesc: 'A Systematic Withdrawal Plan (SWP) is the exact reverse of an SIP. Instead of adding money each month, you instruct the fund to deposit a predetermined sum into your bank account on a fixed date. The remaining balance stays invested and continues participating in market returns, making it popular for monthly living expenses or college stipends.',
+    example: {
+      headline: '₹5,000 Regular Monthly Cash Flow',
+      scenario: 'Ramesh has an accumulated education fund of ₹3,00,000. He schedules an SWP of ₹5,000 on the 1st of every month to pay his semester book expenses.',
+      breakdown: [
+        'Total Accumulated Fund: ₹3,00,000 in a balanced hybrid mutual fund.',
+        'Monthly Payout: ₹5,000 is automatically credited to his savings bank account on the 1st.',
+        'Remaining Balance: ₹2,95,000 stays invested and continues to potentially grow.'
+      ],
+      lesson: 'Provides steady, predictable cash flow without selling off the entire investment at once.'
+    },
+    benefit: {
+      title: 'Steady Cash Flow & Tax Efficiency',
+      desc: 'Provides predictable monthly cash in your bank account while letting the untouched capital remain invested.'
+    },
+    risk: {
+      title: 'Capital Depletion Risk',
+      desc: 'If your monthly withdrawal rate is higher than the growth rate of your fund, your total invested balance will gradually shrink.'
+    },
+    keyRule: 'Keep withdrawal rates modest (typically 4% to 6% per year) so your accumulated capital outlives your expenses.'
+  },
+  {
+    id: 'mutual_funds',
+    name: 'Mutual Funds',
+    fullForm: 'Pooled Investment Vehicle',
+    category: 'funds',
+    categoryLabel: 'Funds & Plans',
+    badgeColor: 'blue',
+    icon: Users,
+    shortDesc: 'A trust that pools money from thousands of everyday investors to buy a professionally managed basket of stocks, bonds, or money market assets.',
+    detailDesc: 'Instead of having to research and buy dozens of individual company shares yourself, a mutual fund collects small sums from thousands of individuals. A certified professional Fund Manager invests this pooled money across a diversified portfolio of companies and debt securities. When you invest, you receive "units" representing your proportional ownership of that total basket.',
+    example: {
+      headline: '₹500 for a 50-Company Basket',
+      scenario: 'Kabir has only ₹500 to invest. Buying single shares of 50 top Indian companies individually would cost over ₹1,50,000.',
+      breakdown: [
+        'Pooled Investment: Kabir invests his ₹500 into an index mutual fund scheme.',
+        'Instant Ownership: He gets fund units representing a fractional slice of all 50 top companies.',
+        'Risk Absorption: If 2 companies have a rough quarter, the gains from the other 48 cushion the portfolio.'
+      ],
+      lesson: 'Instant diversification and expert management accessible even with small pocket budgets.'
+    },
+    benefit: {
+      title: 'Instant Diversification & Expertise',
+      desc: 'Spread your money across dozens of companies with professional portfolio management starting from ₹500.'
+    },
+    risk: {
+      title: 'Market Risk & Management Fees',
+      desc: 'Mutual funds are subject to market risks and NAV fluctuations. Fund houses also charge an annual Expense Ratio fee for management.'
+    },
+    keyRule: 'Select mutual funds matching your goal horizon: equity funds for 5+ years, debt/liquid funds for short-term safety.'
+  },
+  {
+    id: 'nav',
+    name: 'NAV',
+    fullForm: 'Net Asset Value',
+    category: 'funds',
+    categoryLabel: 'Funds & Plans',
+    badgeColor: 'cyan',
+    icon: Target,
+    shortDesc: 'The unit price of a mutual fund scheme, calculated daily by dividing the net market value of all assets by total outstanding units.',
+    detailDesc: 'Net Asset Value (NAV) represents the current market price per unit of a mutual fund scheme. At the end of every trading day, the fund calculates the total value of all stocks, bonds, and cash it holds, subtracts any expenses or liabilities, and divides by the total number of units held by all investors: NAV = (Total Assets - Liabilities) ÷ Units.',
+    example: {
+      headline: 'Calculating NAV with a ₹2,000 Investment',
+      scenario: 'A mutual fund holds ₹10,00,000 in net assets and has issued 50,000 units to investors.',
+      breakdown: [
+        'NAV Calculation: ₹10,00,000 ÷ 50,000 units = ₹20 per unit.',
+        'Your Investment: You invest ₹2,000 into the fund on that day.',
+        'Units Credited: ₹2,000 ÷ ₹20 = exactly 100 units credited to your folio.',
+        'Future Value: If NAV rises to ₹25 next year, your 100 units are worth 100 × ₹25 = ₹2,500.'
+      ],
+      lesson: 'NAV acts as the daily official price tag per unit for buying and selling.'
+    },
+    benefit: {
+      title: 'Transparent Daily Valuation',
+      desc: 'Provides a clean, regulated valuation published every business evening so you always know what your holdings are worth.'
+    },
+    risk: {
+      title: 'Common NAV Myth',
+      desc: 'A lower NAV (e.g. ₹15) does NOT mean a fund is "cheaper" or better than one with a ₹150 NAV. Growth depends purely on percentage gain of the underlying assets.'
+    },
+    keyRule: 'Never pick a fund simply because its NAV is low. Always check the portfolio quality and long-term track record.'
+  },
+  {
+    id: 'roi',
+    name: 'ROI',
+    fullForm: 'Return on Investment',
+    category: 'growth',
+    categoryLabel: 'Growth & Metrics',
+    badgeColor: 'emerald',
+    icon: TrendingUp,
+    shortDesc: 'A performance percentage metric measuring how much profit or loss you earned relative to the original amount invested.',
+    detailDesc: 'Return on Investment (ROI) evaluates the efficiency or profitability of an investment. It is calculated using the formula: ROI (%) = [(Ending Value - Initial Cost) ÷ Initial Cost] × 100. It allows you to directly compare gains across completely different avenues, such as fixed deposits, government bonds, or business projects.',
+    example: {
+      headline: 'Evaluating ROI on a ₹10,000 Investment',
+      scenario: 'Priya invests ₹10,000 into a government bond certificate. Two years later, her total proceeds equal ₹11,400.',
+      breakdown: [
+        'Initial Cost: ₹10,000.',
+        'Ending Value: ₹11,400 (Net Gain: ₹1,400).',
+        'Formula: (₹1,400 ÷ ₹10,000) × 100 = 14% total ROI.',
+        'Annualized Rate: Roughly 6.77% per year compounded over the 2-year period.'
+      ],
+      lesson: 'ROI provides a universal percentage snapshot to compare financial efficiency.'
+    },
+    benefit: {
+      title: 'Universal Comparison Metric',
+      desc: 'Simple to calculate and universally understood across all financial products, savings avenues, and personal ventures.'
+    },
+    risk: {
+      title: 'Ignores Holding Period & Risk Taken',
+      desc: 'A 20% ROI over 5 years is very different from a 20% ROI in 1 year. ROI alone also does not reveal how much market risk was taken.'
+    },
+    keyRule: 'Always evaluate ROI alongside the time horizon (annualized return) and the volatility taken to generate that return.'
+  },
+  {
+    id: 'stocks',
+    name: 'Stocks',
+    fullForm: 'Equities / Corporate Shares',
+    category: 'basics',
+    categoryLabel: 'Investing Basics',
+    badgeColor: 'purple',
+    icon: TrendingUp,
+    shortDesc: 'Units of partial ownership in a publicly listed company, giving you a fractional claim on its business assets and profits.',
+    detailDesc: 'When a company like Tata Motors, Infosys, or Reliance lists on a stock exchange (NSE/BSE), buying a share makes you an actual fractional owner (shareholder). If the company creates innovative products, grows sales, and increases its profits, the value of each share typically increases, creating capital gains. You may also receive a share of profits via dividends.',
+    example: {
+      headline: 'Buying 5 Shares for ₹2,000',
+      scenario: 'Neha buys 5 shares of a clean solar energy firm at ₹400 per share, spending a total of ₹2,000.',
+      breakdown: [
+        'Initial Purchase: 5 shares × ₹400 = ₹2,000.',
+        'Scenario A (Growth): The firm wins major solar power contracts. Share price rises to ₹520. Her 5 shares are now worth ₹2,600 (+₹600 profit).',
+        'Scenario B (Downturn): Raw material shortages hit the industry. Share price drops to ₹350. Her 5 shares are worth ₹1,750 (-₹250 paper loss).'
+      ],
+      lesson: 'Stock prices fluctuate daily based on company performance, industry trends, and market sentiments.'
+    },
+    benefit: {
+      title: 'High Long-Term Growth Potential',
+      desc: 'Equities have historically generated returns beating inflation and bank savings over extended 7–10+ year time horizons.'
+    },
+    risk: {
+      title: 'Price Volatility & Capital Loss',
+      desc: 'Stock prices can drop sharply during economic recessions or poor corporate earnings. No returns or capital protection are guaranteed.'
+    },
+    keyRule: 'Invest in businesses you understand with sustainable competitive advantages, and think like a long-term business partner.'
+  },
+  {
+    id: 'bonds',
+    name: 'Bonds',
+    fullForm: 'Fixed Income Debt Securities',
+    category: 'basics',
+    categoryLabel: 'Investing Basics',
+    badgeColor: 'amber',
+    icon: ShieldCheck,
+    shortDesc: 'A fixed-income loan you make to a government or corporation in exchange for regular periodic interest payments and principal return.',
+    detailDesc: 'When the Government of India or large corporations need capital to build railways, highways, or green energy plants, they issue bonds. When you buy a bond, you are acting as a lender. The issuer promises to pay you a predetermined interest rate (called the Coupon) at scheduled intervals, and return your original principal on the specified Maturity Date.',
+    example: {
+      headline: '₹10,000 Sovereign Bond with 7% Coupon',
+      scenario: 'Vikram invests ₹10,000 into a 5-year Government of India Sovereign Bond carrying a 7% annual coupon.',
+      breakdown: [
+        'Initial Investment: ₹10,000 face value.',
+        'Annual Payout: 7% of ₹10,000 = ₹700 paid every year into his bank account.',
+        'Over 5 Years: He collects 5 × ₹700 = ₹3,500 in predictable interest payouts.',
+        'Year 5 Maturity: The government repays his original ₹10,000 principal in full.'
+      ],
+      lesson: 'Bonds offer predictable income and act as a stabilizing anchor in an investment portfolio.'
+    },
+    benefit: {
+      title: 'Predictable Income & Capital Stability',
+      desc: 'Provides steady, scheduled interest cash flows and anchors your portfolio against wild stock market swings.'
+    },
+    risk: {
+      title: 'Interest Rate & Credit Risk',
+      desc: 'Existing bond prices fall when market interest rates rise. Corporate bonds also carry default risk if the issuing company struggles financially.'
+    },
+    keyRule: 'Sovereign government bonds carry minimal default risk; corporate bonds pay higher interest but carry higher default risk.'
+  },
+  {
+    id: 'dividends',
+    name: 'Dividends',
+    fullForm: 'Corporate Profit Share Distribution',
+    category: 'basics',
+    categoryLabel: 'Investing Basics',
+    badgeColor: 'emerald',
+    icon: Sparkles,
+    shortDesc: 'A portion of a company’s net profits paid out directly to shareholders in cash as a reward for holding their stock.',
+    detailDesc: 'When a mature, profitable corporation generates surplus cash after covering all business expenses and future expansion plans, its Board of Directors may vote to share a portion of those profits directly with shareholders. Dividends are declared per share (e.g., ₹15 per share) and deposited directly into your linked bank account without you needing to sell any of your shares.',
+    example: {
+      headline: '₹1,500 Direct Bank Credit',
+      scenario: 'Sunita owns 100 shares of a consumer goods company. The company declares a dividend of ₹15 per share.',
+      breakdown: [
+        'Shareholding: 100 shares in Sunita’s demat account.',
+        'Dividend Declared: ₹15 per share.',
+        'Bank Credit: 100 × ₹15 = ₹1,500 credited directly into Sunita’s bank account.',
+        'Portfolio Status: She keeps all 100 shares intact to continue participating in future business growth.'
+      ],
+      lesson: 'Earn tangible passive cash income without having to sell any underlying shares.'
+    },
+    benefit: {
+      title: 'Tangible Passive Cash Flow',
+      desc: 'Generates real periodic cash income into your bank account while letting your capital stay invested in the business.'
+    },
+    risk: {
+      title: 'Never Guaranteed or Legally Binding',
+      desc: 'Companies are never obligated to pay dividends. If profits shrink or cash is needed for debt, dividends can be reduced or eliminated.'
+    },
+    keyRule: 'Look for companies with consistent dividend track records and healthy cash reserves rather than chase unusually high yields.'
+  },
+  {
+    id: 'compounding',
+    name: 'Compounding',
+    fullForm: 'Compound Growth / Returns on Returns',
+    category: 'growth',
+    categoryLabel: 'Growth & Metrics',
+    badgeColor: 'blue',
+    icon: Zap,
+    shortDesc: 'The snowball process where the returns you earn on your money begin earning their own returns over time, accelerating growth.',
+    detailDesc: 'Compound interest has been called the 8th wonder of the world. With simple interest, you only earn returns on your initial principal. With compounding, all your earned returns are reinvested back into the base. Over decades, this creates an exponential curve where your returns far surpass your original contributions.',
+    example: {
+      headline: '₹5,000 Snowball over 20 Years',
+      scenario: 'Arun invests ₹5,000 in a balanced asset averaging a hypothetical 10% annual return, letting it compound without withdrawals.',
+      breakdown: [
+        'Year 1: ₹5,000 + 10% (₹500) = ₹5,500.',
+        'Year 2: 10% is calculated on ₹5,500 = ₹550 gain ➔ ₹6,050 total.',
+        'Year 10: The balance grows to ₹12,968 (gains alone are ₹7,968).',
+        'Year 20: The balance snowballs to ₹33,637 (gains are ₹28,637—nearly 6x the initial principal!).'
+      ],
+      lesson: 'Time is the secret multiplier in compounding. The longer money stays invested, the steeper the snowball accelerates.'
+    },
+    benefit: {
+      title: 'Exponential Wealth Multiplier',
+      desc: 'Allows small savings invested early in life to grow exponentially larger than big amounts invested late in life.'
+    },
+    risk: {
+      title: 'Works Against You on Debt',
+      desc: 'Compounding works in reverse on unpaid credit card dues or high-interest loans, causing debt to balloon dangerously fast.'
+    },
+    keyRule: 'Start as early as possible. In compounding, time in the market is vastly more powerful than timing the market.'
+  },
+  {
+    id: 'diversification',
+    name: 'Diversification',
+    fullForm: 'Risk Mitigation Strategy',
+    category: 'strategy',
+    categoryLabel: 'Risk & Strategy',
+    badgeColor: 'teal',
+    icon: ShieldCheck,
+    shortDesc: 'Spreading your investments across multiple asset classes, sectors, and companies to avoid catastrophic single-point failures.',
+    detailDesc: 'Diversification embodies the timeless wisdom: "Do not put all your eggs in one basket." If you put all your savings into a single company, an unexpected scandal or bankruptcy could wipe you out. By spreading capital across technology, banking, healthcare, government bonds, and gold, poor performance in one sector is cushioned by stability or gains in others.',
+    example: {
+      headline: '₹20,000 Portfolio with Sector Buffers',
+      scenario: 'Dev has ₹20,000. Instead of putting it all into one trendy EV startup, he diversifies across 4 sectors.',
+      breakdown: [
+        'Allocation: ₹5,000 in Tech, ₹5,000 in Healthcare, ₹5,000 in Banking, ₹5,000 in Government Bonds.',
+        'Year 1 Event: Tech stocks plunge -20% (-₹1,000 loss).',
+        'Cushioning: Healthcare rises +15% (+₹750), Banking rises +10% (+₹500), Bonds pay +7% (+₹350).',
+        'Overall Portfolio: +₹600 net profit despite a major tech collapse.'
+      ],
+      lesson: 'Dev avoided devastating financial loss and achieved steady net growth.'
+    },
+    benefit: {
+      title: 'Smooths Volatility & Protects Capital',
+      desc: 'Eliminates company-specific risk so no single corporate failure can derail your financial future.'
+    },
+    risk: {
+      title: 'Does Not Protect Against Systemic Crashes',
+      desc: 'During broad macroeconomic crises, all equity sectors can drop simultaneously. Over-diversification can also dilute superior returns.'
+    },
+    keyRule: 'Diversify across non-correlated assets (e.g., equities + bonds + gold) that do not always move in lockstep.'
+  },
+  {
+    id: 'inflation',
+    name: 'Inflation',
+    fullForm: 'Loss of Purchasing Power Over Time',
+    category: 'strategy',
+    categoryLabel: 'Risk & Strategy',
+    badgeColor: 'amber',
+    icon: Flame,
+    shortDesc: 'The steady upward rise in the general price of goods and services over time, eroding the purchasing power of idle cash.',
+    detailDesc: 'Inflation means your money buys less tomorrow than it did today. If inflation is 6% per year, a basket of groceries that costs ₹100 today will cost ₹106 next year. If you keep your money as physical cash inside a drawer or in a 2.5% savings account, your real wealth is silently shrinking every single year because your savings cannot keep up with rising costs.',
+    example: {
+      headline: 'The ₹100 Grocery Basket Dilemma',
+      scenario: 'A student keeps ₹10,000 as physical cash in an almirah for 5 years while inflation averages 6% annually.',
+      breakdown: [
+        'Day 1: ₹10,000 buys 100 movie tickets at ₹100 each.',
+        'After 5 Years: Due to inflation, ticket prices rise to ₹134 each.',
+        'Purchasing Power: His ₹10,000 cash can now buy only 74 tickets instead of 100!',
+        'Invisible Loss: He lost 26% of real purchasing power even though he still holds ten ₹1,000 notes.'
+      ],
+      lesson: 'Cash feels safe, but inflation silently taxes idle money.'
+    },
+    benefit: {
+      title: 'Economic Indicator of Growth',
+      desc: 'Moderate inflation (around 4% in India) signals healthy consumer demand, higher wages, and business expansion.'
+    },
+    risk: {
+      title: 'Silent Wealth Destroyer',
+      desc: 'Any investment earning less than the inflation rate is mathematically losing purchasing power each year.'
+    },
+    keyRule: 'Invest in productive growth assets (like equities and mutual funds) for long-term goals to stay comfortably ahead of inflation.'
+  },
+  {
+    id: 'asset_allocation',
+    name: 'Asset Allocation',
+    fullForm: 'Portfolio Distribution Framework',
+    category: 'strategy',
+    categoryLabel: 'Risk & Strategy',
+    badgeColor: 'purple',
+    icon: PieChart,
+    shortDesc: 'Distributing your investment money across different asset buckets (Equity, Debt, Gold, Cash) based on your goals and risk tolerance.',
+    detailDesc: 'Asset Allocation is the foundational blueprint of successful investing. Research shows that over 90% of portfolio performance variation comes from your asset allocation mix—not individual stock picking. By balancing Growth assets (Stocks for capital appreciation) with Defensive assets (Bonds for stability, Gold for hedge, and Cash for liquidity), you achieve a smoother financial journey.',
+    example: {
+      headline: '₹50,000 College Fund Allocation',
+      scenario: 'Sneha has ₹50,000 saved for college expenses coming up in 4 years. She allocates across 4 buckets.',
+      breakdown: [
+        '50% Equity Funds (₹25,000): For inflation-beating capital growth.',
+        '35% Debt Bonds (₹17,500): For steady coupon returns and capital safety.',
+        '10% Sovereign Gold (₹5,000): For inflation and geopolitical hedge.',
+        '5% Liquid Cash (₹2,500): For immediate emergency buffer.'
+      ],
+      lesson: 'When equities wobble, debt and gold stabilize the portfolio, giving peace of mind.'
+    },
+    benefit: {
+      title: 'Optimizes Risk vs Return',
+      desc: 'Custom-tailored to your unique time horizon and risk tolerance, preventing panic selling during market drops.'
+    },
+    risk: {
+      title: 'Requires Periodic Rebalancing',
+      desc: 'Over time, strong-performing assets will grow faster and distort your target allocation, requiring annual rebalancing.'
+    },
+    keyRule: 'Match your allocation to your timeline: short-term goals need high debt/cash; long-term goals (7+ yrs) thrive on equity.'
+  }
+];
+
+function TermIllustration({ id, size = 'sm' }) {
+  const isLg = size === 'lg';
+  const h = isLg ? 160 : 110;
+  const viewBox = isLg ? '0 0 400 160' : '0 0 280 110';
+
+  switch (id) {
+    case 'sip':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-sip" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#ECFDF5" />
+              <stop offset="100%" stopColor="#D1FAE5" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-sip)" />
+          {/* Calendar on left */}
+          <g transform={isLg ? 'translate(40, 30)' : 'translate(25, 18)'}>
+            <rect x="0" y="0" width="60" height="65" rx="10" fill="#FFFFFF" stroke="#059669" strokeWidth="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.05))" />
+            <path d="M 0 16 L 60 16" stroke="#059669" strokeWidth="2" />
+            <rect x="0" y="0" width="60" height="16" rx="10" fill="#059669" />
+            <circle cx="15" cy="8" r="2.5" fill="#FFFFFF" />
+            <circle cx="45" cy="8" r="2.5" fill="#FFFFFF" />
+            <text x="30" y="44" textAnchor="middle" fill="#064E3B" fontSize="20" fontWeight="900" fontFamily="sans-serif">05</text>
+            <text x="30" y="58" textAnchor="middle" fill="#059669" fontSize="8" fontWeight="700" fontFamily="sans-serif">MONTHLY</text>
+          </g>
+          {/* Curved trajectory path with coins */}
+          <path d={isLg ? 'M 115 65 Q 180 20 230 80' : 'M 95 50 Q 145 15 185 62'} fill="none" stroke="#10B981" strokeWidth="3" strokeDasharray="5 5" />
+          {/* 3 coins jumping along trajectory */}
+          <g transform={isLg ? 'translate(145, 30)' : 'translate(120, 22)'}>
+            <circle cx="0" cy="0" r="10" fill="#F59E0B" stroke="#D97706" strokeWidth="2" />
+            <text x="0" y="4" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="bold">₹</text>
+          </g>
+          <g transform={isLg ? 'translate(185, 45)' : 'translate(150, 34)'}>
+            <circle cx="0" cy="0" r="9" fill="#FBBF24" stroke="#D97706" strokeWidth="1.5" />
+            <text x="0" y="3.5" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold">₹</text>
+          </g>
+          {/* Plant Sprout Pot */}
+          <g transform={isLg ? 'translate(250, 45)' : 'translate(195, 32)'}>
+            <path d="M 10 40 L 40 40 L 35 65 L 15 65 Z" fill="#92400E" />
+            <rect x="8" y="36" width="34" height="6" rx="2" fill="#78350F" />
+            {/* Sprout Stem */}
+            <path d="M 25 36 Q 25 15 28 6" stroke="#059669" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+            {/* Leaves */}
+            <path d="M 27 18 Q 42 12 40 2 Z" fill="#10B981" stroke="#047857" strokeWidth="1.5" />
+            <path d="M 25 24 Q 10 18 12 8 Z" fill="#34D399" stroke="#047857" strokeWidth="1.5" />
+            <circle cx="38" cy="4" r="2" fill="#FDE047" />
+            <circle cx="10" cy="10" r="1.5" fill="#FDE047" />
+          </g>
+          {/* Badge */}
+          <g transform={isLg ? 'translate(310, 25)' : 'translate(215, 14)'}>
+            <rect width="60" height="20" rx="10" fill="#064E3B" />
+            <text x="30" y="14" textAnchor="middle" fill="#ECFDF5" fontSize="9" fontWeight="bold">+₹500/mo</text>
+          </g>
+        </svg>
+      );
+
+    case 'swp':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-swp" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#F0FDFA" />
+              <stop offset="100%" stopColor="#CCFBF1" />
+            </linearGradient>
+            <linearGradient id="g-tank" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#2DD4BF" />
+              <stop offset="100%" stopColor="#0D9488" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-swp)" />
+          {/* Reservoir Tank */}
+          <g transform={isLg ? 'translate(50, 25)' : 'translate(30, 15)'}>
+            <rect x="0" y="0" width="70" height="80" rx="12" fill="#FFFFFF" stroke="#0D9488" strokeWidth="2.5" />
+            {/* Fluid */}
+            <rect x="4" y="24" width="62" height="52" rx="8" fill="url(#g-tank)" opacity="0.85" />
+            <line x1="8" y1="38" x2="22" y2="38" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+            <line x1="8" y1="52" x2="18" y2="52" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+            <line x1="8" y1="64" x2="22" y2="64" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+            <text x="35" y="16" textAnchor="middle" fill="#0F766E" fontSize="9" fontWeight="bold">FUND</text>
+            <text x="44" y="55" fill="#FFFFFF" fontSize="12" fontWeight="900">₹</text>
+          </g>
+          {/* Tap / Valve */}
+          <g transform={isLg ? 'translate(125, 60)' : 'translate(104, 45)'}>
+            <rect x="0" y="0" width="28" height="12" rx="3" fill="#64748B" />
+            <path d="M 14 0 L 14 -12 M 6 -12 L 22 -12" stroke="#334155" strokeWidth="3.5" strokeLinecap="round" />
+            <path d="M 28 6 L 40 6 L 40 22" fill="none" stroke="#64748B" strokeWidth="4" strokeLinecap="round" />
+          </g>
+          {/* Coin Flowing Out */}
+          <g transform={isLg ? 'translate(175, 75)' : 'translate(152, 58)'}>
+            <circle cx="0" cy="0" r="11" fill="#F59E0B" stroke="#D97706" strokeWidth="2" />
+            <text x="0" y="4" textAnchor="middle" fill="#FFFFFF" fontSize="12" fontWeight="bold">₹</text>
+          </g>
+          {/* Wallet / Bank Account Card */}
+          <g transform={isLg ? 'translate(225, 45)' : 'translate(185, 30)'}>
+            <rect x="0" y="0" width="65" height="46" rx="8" fill="#1E293B" stroke="#0F766E" strokeWidth="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.1))" />
+            <rect x="0" y="10" width="65" height="10" fill="#334155" />
+            <circle cx="50" cy="32" r="5" fill="#10B981" />
+            <rect x="8" y="28" width="24" height="6" rx="2" fill="#94A3B8" />
+          </g>
+          {/* Badge */}
+          <g transform={isLg ? 'translate(285, 20)' : 'translate(185, 12)'}>
+            <rect width="80" height="20" rx="10" fill="#0D9488" />
+            <text x="40" y="14" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="bold">₹5k Payout</text>
+          </g>
+        </svg>
+      );
+
+    case 'mutual_funds':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-mf" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#EFF6FF" />
+              <stop offset="100%" stopColor="#DBEAFE" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-mf)" />
+          {/* 3 Investor Avatars pooling in */}
+          <g transform={isLg ? 'translate(45, 40)' : 'translate(25, 25)'}>
+            <circle cx="16" cy="14" r="10" fill="#3B82F6" />
+            <path d="M 4 36 C 4 28, 28 28, 28 36 Z" fill="#1D4ED8" />
+            <circle cx="45" cy="10" r="10" fill="#10B981" />
+            <path d="M 33 32 C 33 24, 57 24, 57 32 Z" fill="#047857" />
+            <circle cx="30" cy="45" r="9" fill="#8B5CF6" />
+            <path d="M 19 64 C 19 56, 41 56, 41 64 Z" fill="#6D28D9" />
+          </g>
+          {/* Golden pooling arrows */}
+          <path d={isLg ? 'M 115 65 L 155 65' : 'M 85 45 L 125 45'} stroke="#F59E0B" strokeWidth="3" strokeDasharray="4 4" />
+          {/* Central Pooled Treasure Vault Basket */}
+          <g transform={isLg ? 'translate(170, 30)' : 'translate(135, 20)'}>
+            <rect x="0" y="14" width="60" height="48" rx="8" fill="#1E3A8A" stroke="#3B82F6" strokeWidth="2.5" />
+            <path d="M 10 14 C 10 0, 50 0, 50 14" fill="none" stroke="#F59E0B" strokeWidth="4" />
+            <circle cx="30" cy="38" r="8" fill="#FBBF24" />
+            <text x="30" y="42" textAnchor="middle" fill="#78350F" fontSize="11" fontWeight="bold">₹</text>
+          </g>
+          {/* Diversified branches to 3 assets */}
+          <g transform={isLg ? 'translate(250, 25)' : 'translate(205, 18)'}>
+            <line x1="0" y1="35" x2="25" y2="12" stroke="#2563EB" strokeWidth="2" />
+            <line x1="0" y1="35" x2="28" y2="35" stroke="#2563EB" strokeWidth="2" />
+            <line x1="0" y1="35" x2="25" y2="58" stroke="#2563EB" strokeWidth="2" />
+            {/* Asset 1: Company Stock */}
+            <circle cx="42" cy="10" r="10" fill="#DBEAFE" stroke="#2563EB" strokeWidth="1.5" />
+            <text x="42" y="14" textAnchor="middle" fill="#1E40AF" fontSize="9" fontWeight="bold">EQ</text>
+            {/* Asset 2: Bond */}
+            <circle cx="45" cy="35" r="10" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.5" />
+            <text x="45" y="39" textAnchor="middle" fill="#92400E" fontSize="9" fontWeight="bold">BD</text>
+            {/* Asset 3: Gold */}
+            <circle cx="42" cy="60" r="10" fill="#D1FAE5" stroke="#059669" strokeWidth="1.5" />
+            <text x="42" y="64" textAnchor="middle" fill="#065F46" fontSize="9" fontWeight="bold">GD</text>
+          </g>
+        </svg>
+      );
+
+    case 'nav':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-nav" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#ECFEFF" />
+              <stop offset="100%" stopColor="#CFFAFE" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-nav)" />
+          {/* Balance Scale */}
+          <g transform={isLg ? 'translate(80, 30)' : 'translate(45, 20)'}>
+            {/* Fulcrum and Base */}
+            <path d="M 55 70 L 45 78 L 65 78 Z" fill="#0E7490" />
+            <line x1="55" y1="20" x2="55" y2="70" stroke="#0E7490" strokeWidth="4" />
+            <circle cx="55" cy="20" r="4.5" fill="#155E75" />
+            {/* Beam */}
+            <line x1="10" y1="20" x2="100" y2="20" stroke="#0891B2" strokeWidth="3.5" />
+            {/* Left Pan (Assets) */}
+            <line x1="10" y1="20" x2="0" y2="44" stroke="#64748B" strokeWidth="1.5" />
+            <line x1="10" y1="20" x2="20" y2="44" stroke="#64748B" strokeWidth="1.5" />
+            <path d="M -5 44 Q 10 52 25 44 Z" fill="#0891B2" />
+            {/* Left Gold bars / assets */}
+            <rect x="0" y="34" width="20" height="9" rx="2" fill="#F59E0B" stroke="#B45309" strokeWidth="1" />
+            <text x="10" y="30" textAnchor="middle" fill="#0E7490" fontSize="7" fontWeight="bold">ASSETS</text>
+            {/* Right Pan (Units) */}
+            <line x1="100" y1="20" x2="90" y2="44" stroke="#64748B" strokeWidth="1.5" />
+            <line x1="100" y1="20" x2="110" y2="44" stroke="#64748B" strokeWidth="1.5" />
+            <path d="M 85 44 Q 100 52 115 44 Z" fill="#0891B2" />
+            {/* Right stacked unit coins */}
+            <circle cx="100" cy="38" r="6" fill="#38BDF8" stroke="#0284C7" strokeWidth="1" />
+            <text x="100" y="30" textAnchor="middle" fill="#0E7490" fontSize="7" fontWeight="bold">UNITS</text>
+          </g>
+          {/* Calculator Tag */}
+          <g transform={isLg ? 'translate(230, 35)' : 'translate(170, 22)'}>
+            <rect x="0" y="0" width="85" height="58" rx="10" fill="#FFFFFF" stroke="#0891B2" strokeWidth="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.06))" />
+            <rect x="8" y="8" width="69" height="18" rx="4" fill="#E0F2FE" />
+            <text x="42" y="21" textAnchor="middle" fill="#0369A1" fontSize="10" fontWeight="900">₹20.00</text>
+            <text x="42" y="38" textAnchor="middle" fill="#64748B" fontSize="8" fontWeight="bold">PER UNIT</text>
+            <text x="42" y="49" textAnchor="middle" fill="#0891B2" fontSize="7" fontWeight="extrabold">NAV PRICE</text>
+          </g>
+        </svg>
+      );
+
+    case 'roi':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-roi" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#F0FDF4" />
+              <stop offset="100%" stopColor="#DCFCE7" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-roi)" />
+          {/* Base Bar Chart */}
+          <g transform={isLg ? 'translate(50, 25)' : 'translate(30, 16)'}>
+            {/* Axis */}
+            <line x1="0" y1="80" x2="120" y2="80" stroke="#94A3B8" strokeWidth="2" />
+            {/* Bar 1: Cost */}
+            <rect x="15" y="40" width="30" height="40" rx="4" fill="#3B82F6" />
+            <text x="30" y="92" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="bold">Cost</text>
+            <text x="30" y="34" textAnchor="middle" fill="#1D4ED8" fontSize="9" fontWeight="bold">₹10k</text>
+            {/* Bar 2: Value (Cost + Gain) */}
+            <rect x="65" y="40" width="30" height="40" fill="#3B82F6" />
+            <rect x="65" y="15" width="30" height="25" rx="4" fill="#10B981" />
+            <text x="80" y="92" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="bold">Value</text>
+            <text x="80" y="10" textAnchor="middle" fill="#047857" fontSize="9" fontWeight="extrabold">₹11.4k</text>
+          </g>
+          {/* Magnifying Glass focusing on Gain */}
+          <g transform={isLg ? 'translate(190, 25)' : 'translate(145, 18)'}>
+            <circle cx="35" cy="35" r="28" fill="#FFFFFF" stroke="#059669" strokeWidth="3" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.08))" />
+            <line x1="56" y1="56" x2="78" y2="78" stroke="#059669" strokeWidth="6" strokeLinecap="round" />
+            <text x="35" y="32" textAnchor="middle" fill="#047857" fontSize="13" fontWeight="900">+14%</text>
+            <text x="35" y="46" textAnchor="middle" fill="#10B981" fontSize="9" fontWeight="bold">ROI</text>
+          </g>
+          {/* Upward Arrow */}
+          <g transform={isLg ? 'translate(290, 45)' : 'translate(225, 30)'}>
+            <circle cx="15" cy="15" r="14" fill="#059669" />
+            <path d="M 10 18 L 15 10 L 20 18 M 15 10 L 15 22" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          </g>
+        </svg>
+      );
+
+    case 'stocks':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-stocks" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#F5F3FF" />
+              <stop offset="100%" stopColor="#EDE9FE" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-stocks)" />
+          {/* Company Building */}
+          <g transform={isLg ? 'translate(45, 25)' : 'translate(25, 15)'}>
+            <rect x="0" y="15" width="55" height="65" rx="6" fill="#FFFFFF" stroke="#6D28D9" strokeWidth="2" />
+            <rect x="18" y="0" width="18" height="15" fill="#6D28D9" />
+            {/* Windows */}
+            <rect x="8" y="24" width="10" height="9" rx="2" fill="#DDD6FE" />
+            <rect x="23" y="24" width="10" height="9" rx="2" fill="#DDD6FE" />
+            <rect x="37" y="24" width="10" height="9" rx="2" fill="#DDD6FE" />
+            <rect x="8" y="38" width="10" height="9" rx="2" fill="#DDD6FE" />
+            <rect x="23" y="38" width="10" height="9" rx="2" fill="#DDD6FE" />
+            <rect x="37" y="38" width="10" height="9" rx="2" fill="#DDD6FE" />
+            <rect x="20" y="58" width="15" height="22" fill="#6D28D9" />
+          </g>
+          {/* Candlestick Charts Moving Up */}
+          <g transform={isLg ? 'translate(130, 25)' : 'translate(100, 15)'}>
+            {/* Candle 1 (Green) */}
+            <line x1="15" y1="35" x2="15" y2="65" stroke="#10B981" strokeWidth="2" />
+            <rect x="9" y="40" width="12" height="18" rx="2" fill="#10B981" />
+            {/* Candle 2 (Small Red Dip) */}
+            <line x1="38" y1="38" x2="38" y2="60" stroke="#EF4444" strokeWidth="2" />
+            <rect x="32" y="42" width="12" height="12" rx="2" fill="#EF4444" />
+            {/* Candle 3 (Strong Green Surge) */}
+            <line x1="61" y1="12" x2="61" y2="52" stroke="#10B981" strokeWidth="2" />
+            <rect x="55" y="18" width="12" height="24" rx="2" fill="#10B981" />
+            {/* Upward Line */}
+            <path d="M 5 50 Q 38 48 70 18" fill="none" stroke="#7C3AED" strokeWidth="2.5" strokeLinecap="round" />
+          </g>
+          {/* Certificate Badge */}
+          <g transform={isLg ? 'translate(245, 30)' : 'translate(185, 20)'}>
+            <rect x="0" y="0" width="75" height="52" rx="8" fill="#FFFFFF" stroke="#7C3AED" strokeWidth="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.06))" />
+            <text x="37" y="18" textAnchor="middle" fill="#6D28D9" fontSize="9" fontWeight="900">SHARE</text>
+            <text x="37" y="32" textAnchor="middle" fill="#4B5563" fontSize="8" fontWeight="bold">Part Owner</text>
+            <circle cx="37" cy="42" r="5" fill="#F59E0B" />
+          </g>
+        </svg>
+      );
+
+    case 'bonds':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-bonds" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#FFFBEB" />
+              <stop offset="100%" stopColor="#FEF3C7" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-bonds)" />
+          {/* Parchment Certificate */}
+          <g transform={isLg ? 'translate(50, 20)' : 'translate(30, 12)'}>
+            <rect x="0" y="0" width="115" height="78" rx="8" fill="#FFFFFF" stroke="#D97706" strokeWidth="2.5" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.06))" />
+            <rect x="5" y="5" width="105" height="68" rx="4" fill="none" stroke="#FDE68A" strokeWidth="1.5" />
+            <text x="57" y="24" textAnchor="middle" fill="#92400E" fontSize="11" fontWeight="900">GOVT BOND</text>
+            <line x1="20" y1="32" x2="95" y2="32" stroke="#E5E7EB" strokeWidth="2" />
+            <text x="57" y="44" textAnchor="middle" fill="#78350F" fontSize="9" fontWeight="bold">Principal: ₹10,000</text>
+            <text x="57" y="56" textAnchor="middle" fill="#059669" fontSize="9" fontWeight="extrabold">Fixed: 7.0% p.a.</text>
+            {/* Wax Seal */}
+            <circle cx="95" cy="62" r="9" fill="#DC2626" />
+            <circle cx="95" cy="62" r="6" fill="#EF4444" />
+            <text x="95" y="65" textAnchor="middle" fill="#FFFFFF" fontSize="8" fontWeight="bold">★</text>
+          </g>
+          {/* Scheduled Coupon Stack */}
+          <g transform={isLg ? 'translate(200, 30)' : 'translate(165, 20)'}>
+            <rect x="0" y="0" width="90" height="22" rx="6" fill="#F59E0B" />
+            <text x="45" y="15" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold">₹700 / Year</text>
+            <rect x="5" y="28" width="80" height="20" rx="6" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.5" />
+            <text x="45" y="42" textAnchor="middle" fill="#92400E" fontSize="9" fontWeight="bold">5-Yr Maturity</text>
+          </g>
+        </svg>
+      );
+
+    case 'dividends':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-div" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#FEFCE8" />
+              <stop offset="100%" stopColor="#FEF08A" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-div)" />
+          {/* Money Tree */}
+          <g transform={isLg ? 'translate(60, 20)' : 'translate(35, 12)'}>
+            {/* Trunk */}
+            <path d="M 40 45 L 40 80 M 35 80 L 45 80" stroke="#78350F" strokeWidth="8" strokeLinecap="round" />
+            {/* Foliage */}
+            <circle cx="40" cy="30" r="28" fill="#10B981" opacity="0.9" />
+            <circle cx="25" cy="35" r="18" fill="#059669" />
+            <circle cx="55" cy="35" r="18" fill="#047857" />
+            <circle cx="40" cy="18" r="16" fill="#34D399" />
+            {/* Gold coins on tree branches */}
+            <circle cx="30" cy="22" r="5" fill="#FBBF24" stroke="#B45309" strokeWidth="1" />
+            <circle cx="50" cy="24" r="5" fill="#FBBF24" stroke="#B45309" strokeWidth="1" />
+            <circle cx="40" cy="36" r="5" fill="#FBBF24" stroke="#B45309" strokeWidth="1" />
+          </g>
+          {/* Coins Falling Like Fruit */}
+          <g transform={isLg ? 'translate(150, 40)' : 'translate(125, 28)'}>
+            <circle cx="0" cy="0" r="8" fill="#F59E0B" stroke="#B45309" strokeWidth="1.5" />
+            <text x="0" y="3" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="bold">₹</text>
+            <circle cx="20" cy="18" r="9" fill="#FBBF24" stroke="#B45309" strokeWidth="1.5" />
+            <text x="20" y="22" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold">₹</text>
+          </g>
+          {/* Harvest Basket */}
+          <g transform={isLg ? 'translate(210, 35)' : 'translate(175, 22)'}>
+            <path d="M 5 25 L 55 25 L 48 55 L 12 55 Z" fill="#D97706" stroke="#92400E" strokeWidth="2" />
+            <line x1="8" y1="35" x2="52" y2="35" stroke="#FDE68A" strokeWidth="2" />
+            <line x1="12" y1="45" x2="48" y2="45" stroke="#FDE68A" strokeWidth="2" />
+            <text x="30" y="16" textAnchor="middle" fill="#065F46" fontSize="10" fontWeight="bold">+₹1,500</text>
+            <rect x="0" y="60" width="60" height="16" rx="4" fill="#047857" />
+            <text x="30" y="72" textAnchor="middle" fill="#FFFFFF" fontSize="8" fontWeight="bold">PROFIT SHARE</text>
+          </g>
+        </svg>
+      );
+
+    case 'compounding':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-comp" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#F0F9FF" />
+              <stop offset="100%" stopColor="#E0F2FE" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-comp)" />
+          {/* Downhill Exponential Slope Curve */}
+          <path d={isLg ? 'M 30 30 Q 180 35 340 130' : 'M 20 22 Q 130 26 250 95'} fill="none" stroke="#0284C7" strokeWidth="3" />
+          {/* Stage 1: Small Snowball */}
+          <g transform={isLg ? 'translate(50, 25)' : 'translate(35, 18)'}>
+            <circle cx="0" cy="0" r="7" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2" />
+            <text x="0" y="-12" textAnchor="middle" fill="#0369A1" fontSize="8" fontWeight="bold">Yr 1</text>
+            <text x="0" y="18" textAnchor="middle" fill="#475569" fontSize="7">₹5k</text>
+          </g>
+          {/* Stage 2: Medium Snowball */}
+          <g transform={isLg ? 'translate(160, 50)' : 'translate(120, 36)'}>
+            <circle cx="0" cy="0" r="14" fill="#BAE6FD" stroke="#0284C7" strokeWidth="2.5" />
+            <text x="0" y="-18" textAnchor="middle" fill="#0369A1" fontSize="9" fontWeight="bold">Yr 10</text>
+            <text x="0" y="24" textAnchor="middle" fill="#475569" fontSize="8">₹12.9k</text>
+          </g>
+          {/* Stage 3: Giant Glowing Snowball */}
+          <g transform={isLg ? 'translate(290, 85)' : 'translate(210, 60)'}>
+            <circle cx="0" cy="0" r="24" fill="#38BDF8" stroke="#0369A1" strokeWidth="3" filter="drop-shadow(0 4px 8px rgba(2,132,199,0.25))" />
+            <text x="0" y="-28" textAnchor="middle" fill="#0369A1" fontSize="10" fontWeight="900">Yr 20</text>
+            <text x="0" y="4" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="extrabold">₹33.6k</text>
+            {/* Sparkles */}
+            <circle cx="26" cy="-16" r="3" fill="#FDE047" />
+            <circle cx="-26" cy="16" r="2.5" fill="#FDE047" />
+          </g>
+          {/* Tag */}
+          <g transform={isLg ? 'translate(120, 10)' : 'translate(85, 8)'}>
+            <rect width="90" height="18" rx="9" fill="#0369A1" />
+            <text x="45" y="12" textAnchor="middle" fill="#FFFFFF" fontSize="8" fontWeight="bold">Interest on Interest</text>
+          </g>
+        </svg>
+      );
+
+    case 'diversification':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-divs" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#FFF1F2" />
+              <stop offset="100%" stopColor="#FFE4E6" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-divs)" />
+          {/* Cloud & Lightning above */}
+          <g transform={isLg ? 'translate(50, 20)' : 'translate(30, 14)'}>
+            <ellipse cx="25" cy="14" rx="20" ry="10" fill="#94A3B8" />
+            <ellipse cx="38" cy="12" rx="14" ry="10" fill="#64748B" />
+            <path d="M 28 24 L 22 34 L 28 34 L 24 44" fill="none" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" />
+          </g>
+          {/* Sturdy Multi-Colored Umbrella Shield */}
+          <g transform={isLg ? 'translate(140, 25)' : 'translate(100, 18)'}>
+            <path d="M 0 35 Q 40 -8 80 35 Z" fill="#E11D48" stroke="#BE123C" strokeWidth="2" />
+            <path d="M 20 35 Q 40 -8 60 35 Z" fill="#F43F5E" />
+            <line x1="40" y1="20" x2="40" y2="60" stroke="#475569" strokeWidth="3" strokeLinecap="round" />
+            <path d="M 40 60 C 40 68, 30 68, 30 62" fill="none" stroke="#475569" strokeWidth="3" strokeLinecap="round" />
+          </g>
+          {/* 4 Distinct Safe Baskets below */}
+          <g transform={isLg ? 'translate(240, 35)' : 'translate(170, 25)'}>
+            {/* Basket 1: Stocks */}
+            <circle cx="10" cy="15" r="9" fill="#DBEAFE" stroke="#2563EB" strokeWidth="1.5" />
+            <text x="10" y="18" textAnchor="middle" fill="#1E40AF" fontSize="8" fontWeight="bold">EQ</text>
+            {/* Basket 2: Bonds */}
+            <circle cx="35" cy="15" r="9" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.5" />
+            <text x="35" y="18" textAnchor="middle" fill="#92400E" fontSize="8" fontWeight="bold">BD</text>
+            {/* Basket 3: Gold */}
+            <circle cx="60" cy="15" r="9" fill="#FCE7F3" stroke="#DB2777" strokeWidth="1.5" />
+            <text x="60" y="18" textAnchor="middle" fill="#9D174D" fontSize="8" fontWeight="bold">GD</text>
+            {/* Basket 4: Cash */}
+            <circle cx="85" cy="15" r="9" fill="#D1FAE5" stroke="#059669" strokeWidth="1.5" />
+            <text x="85" y="18" textAnchor="middle" fill="#065F46" fontSize="8" fontWeight="bold">CS</text>
+            <rect x="0" y="32" width="95" height="16" rx="4" fill="#0F766E" />
+            <text x="47" y="43" textAnchor="middle" fill="#FFFFFF" fontSize="8" fontWeight="bold">4 BASKETS</text>
+          </g>
+        </svg>
+      );
+
+    case 'inflation':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-inf" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#FFF7ED" />
+              <stop offset="100%" stopColor="#FFEDD5" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-inf)" />
+          {/* Ground Purchasing Power scale / diminishing rupee */}
+          <g transform={isLg ? 'translate(45, 50)' : 'translate(25, 36)'}>
+            <circle cx="20" cy="20" r="18" fill="#FDBA74" stroke="#EA580C" strokeWidth="2" opacity="0.6" />
+            <text x="20" y="26" textAnchor="middle" fill="#9A3412" fontSize="18" fontWeight="bold">₹</text>
+            <text x="20" y="48" textAnchor="middle" fill="#C2410C" fontSize="8" fontWeight="bold">Idle Cash Shrinks</text>
+          </g>
+          {/* Rising Hot Air Balloon */}
+          <g transform={isLg ? 'translate(150, 15)' : 'translate(105, 10)'}>
+            {/* Balloon Dome */}
+            <path d="M 15 45 C -15 10, 65 10, 35 45 Z" fill="#EA580C" stroke="#C2410C" strokeWidth="2" />
+            <path d="M 20 45 C 5 20, 45 20, 30 45 Z" fill="#FDBA74" />
+            <text x="25" y="28" textAnchor="middle" fill="#FFFFFF" fontSize="14" fontWeight="900">%</text>
+            {/* Ropes and Basket */}
+            <line x1="20" y1="45" x2="22" y2="54" stroke="#78350F" strokeWidth="1.5" />
+            <line x1="30" y1="45" x2="28" y2="54" stroke="#78350F" strokeWidth="1.5" />
+            <rect x="18" y="54" width="14" height="12" rx="2" fill="#78350F" />
+          </g>
+          {/* Price Tags Escalator */}
+          <g transform={isLg ? 'translate(250, 25)' : 'translate(180, 16)'}>
+            <rect x="0" y="0" width="70" height="20" rx="6" fill="#FEE2E2" stroke="#EF4444" strokeWidth="1.5" />
+            <text x="35" y="14" textAnchor="middle" fill="#B91C1C" fontSize="9" fontWeight="bold">Yr 1: ₹100</text>
+            <rect x="10" y="26" width="70" height="20" rx="6" fill="#FEE2E2" stroke="#EF4444" strokeWidth="1.5" />
+            <text x="45" y="40" textAnchor="middle" fill="#B91C1C" fontSize="9" fontWeight="bold">Yr 5: ₹134</text>
+            <path d="M 60 52 L 72 52 L 72 48 M 72 52 L 67 47" stroke="#DC2626" strokeWidth="2" strokeLinecap="round" />
+          </g>
+        </svg>
+      );
+
+    case 'asset_allocation':
+      return (
+        <svg viewBox={viewBox} className="w-full object-contain rounded-xl" style={{ height: h }}>
+          <defs>
+            <linearGradient id="g-aa" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#FAF5FF" />
+              <stop offset="100%" stopColor="#F3E8FF" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="16" fill="url(#g-aa)" />
+          {/* Balanced Donut Pie Chart on Left */}
+          <g transform={isLg ? 'translate(75, 45)' : 'translate(50, 32)'}>
+            {/* Donut Segments */}
+            {/* Top Right: Equity 50% */}
+            <path d="M 0 0 L 0 -36 A 36 36 0 0 1 36 0 A 36 36 0 0 1 0 36 Z" fill="#10B981" />
+            {/* Bottom Left: Bonds 35% */}
+            <path d="M 0 0 L 0 36 A 36 36 0 0 1 -34 -10 Z" fill="#3B82F6" />
+            {/* Top Left: Gold 10% */}
+            <path d="M 0 0 L -34 -10 A 36 36 0 0 1 -18 -31 Z" fill="#F59E0B" />
+            {/* Cash 5% */}
+            <path d="M 0 0 L -18 -31 A 36 36 0 0 1 0 -36 Z" fill="#06B6D4" />
+            {/* Center Hole */}
+            <circle cx="0" cy="0" r="16" fill="#FAF5FF" />
+            <circle cx="0" cy="0" r="5" fill="#7C3AED" />
+          </g>
+          {/* Allocation Legend */}
+          <g transform={isLg ? 'translate(180, 20)' : 'translate(130, 14)'}>
+            <circle cx="6" cy="10" r="5" fill="#10B981" />
+            <text x="18" y="14" fill="#0F172A" fontSize="9" fontWeight="bold">50% Equity (Growth)</text>
+            <circle cx="6" cy="28" r="5" fill="#3B82F6" />
+            <text x="18" y="32" fill="#0F172A" fontSize="9" fontWeight="bold">35% Bonds (Safety)</text>
+            <circle cx="6" cy="46" r="5" fill="#F59E0B" />
+            <text x="18" y="50" fill="#0F172A" fontSize="9" fontWeight="bold">10% Gold (Hedge)</text>
+            <circle cx="6" cy="64" r="5" fill="#06B6D4" />
+            <text x="18" y="68" fill="#0F172A" fontSize="9" fontWeight="bold">5% Cash (Buffer)</text>
+          </g>
+        </svg>
+      );
+
+    default:
+      return null;
+  }
+}
+
+function FinancialTermsScreen() {
+  const { d } = useApp();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [selectedTerm, setSelectedTerm] = useState(null);
+  const [learnedTerms, setLearnedTerms] = useState(new Set());
+
+  const categories = [
+    { id: 'all', label: 'All Terms', count: FINANCIAL_TERMS.length },
+    { id: 'basics', label: 'Investing Basics', count: FINANCIAL_TERMS.filter((t) => t.category === 'basics').length },
+    { id: 'funds', label: 'Funds & Plans', count: FINANCIAL_TERMS.filter((t) => t.category === 'funds').length },
+    { id: 'growth', label: 'Growth & Metrics', count: FINANCIAL_TERMS.filter((t) => t.category === 'growth').length },
+    { id: 'strategy', label: 'Risk & Strategy', count: FINANCIAL_TERMS.filter((t) => t.category === 'strategy').length },
+  ];
+
+  const filteredTerms = useMemo(() => {
+    return FINANCIAL_TERMS.filter((term) => {
+      const matchesCategory = activeCategory === 'all' || term.category === activeCategory;
+      const q = searchTerm.trim().toLowerCase();
+      if (!q) return matchesCategory;
+      const matchesSearch =
+        term.name.toLowerCase().includes(q) ||
+        term.fullForm.toLowerCase().includes(q) ||
+        term.shortDesc.toLowerCase().includes(q) ||
+        term.detailDesc.toLowerCase().includes(q) ||
+        term.categoryLabel.toLowerCase().includes(q) ||
+        term.example.scenario.toLowerCase().includes(q);
+      return matchesCategory && matchesSearch;
+    });
+  }, [searchTerm, activeCategory]);
+
+  const toggleLearned = (id, e) => {
+    if (e) e.stopPropagation();
+    try { playCorrectSound(); } catch (err) {}
+    setLearnedTerms((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const handleOpenTerm = (term) => {
+    try { playCorrectSound(); } catch (err) {}
+    setSelectedTerm(term);
+  };
+
+  const handleNextTerm = () => {
+    if (!selectedTerm) return;
+    const currentIndex = FINANCIAL_TERMS.findIndex((t) => t.id === selectedTerm.id);
+    const nextIndex = (currentIndex + 1) % FINANCIAL_TERMS.length;
+    setSelectedTerm(FINANCIAL_TERMS[nextIndex]);
+  };
+
+  const handlePrevTerm = () => {
+    if (!selectedTerm) return;
+    const currentIndex = FINANCIAL_TERMS.findIndex((t) => t.id === selectedTerm.id);
+    const prevIndex = (currentIndex - 1 + FINANCIAL_TERMS.length) % FINANCIAL_TERMS.length;
+    setSelectedTerm(FINANCIAL_TERMS[prevIndex]);
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Top Banner & Header */}
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="space-y-2 max-w-2xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
+            <GraduationCap size={15} />
+            <span>FinLeap Beginner's Financial Dictionary</span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Understand Financial Terms
+          </h1>
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Demystify essential investing jargon in plain language. Every concept is broken down with a real-world Indian Rupee (₹) example, balanced benefit & risk analysis, and unique visual illustrations.
+          </p>
+          <div className="pt-1 flex items-center gap-2 text-[11px] text-amber-800 font-semibold bg-amber-50 px-3 py-1.5 rounded-xl border border-amber-200 w-fit">
+            <AlertTriangle size={14} className="text-amber-600 shrink-0" />
+            <span>Educational Guide: Returns shown in examples are illustrative. Investments fluctuate and are not guaranteed.</span>
+          </div>
+        </div>
+
+        {/* Learning Progress Widget */}
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4 shrink-0 w-full md:w-auto justify-between md:justify-start">
+          <div className="space-y-0.5">
+            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Concepts Learned</span>
+            <div className="text-xl font-extrabold text-emerald-900">
+              {learnedTerms.size} of {FINANCIAL_TERMS.length}
+            </div>
+            <span className="text-[10px] text-emerald-700 font-semibold block">Click card star to track</span>
+          </div>
+          <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 font-extrabold text-sm border-2 border-emerald-300">
+            {Math.round((learnedTerms.size / FINANCIAL_TERMS.length) * 100)}%
+          </div>
+        </div>
+      </div>
+
+      {/* Search and Category Filters */}
+      <div className="bg-white rounded-3xl p-5 border border-slate-200/90 shadow-sm space-y-4">
+        {/* Search Bar */}
+        <div className="relative">
+          <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search financial terms (e.g., SIP, SWP, Mutual Funds, NAV, ROI, Stocks, Inflation...)"
+            className="w-full pl-11 pr-10 py-3 rounded-2xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent text-slate-800 font-medium placeholder-slate-400"
+          />
+          {searchTerm && (
+            <button
+              type="button"
+              onClick={() => setSearchTerm('')}
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 rounded-full cursor-pointer"
+              title="Clear search">
+              <X size={16} />
+            </button>
+          )}
+        </div>
+
+        {/* Category Pills */}
+        <div className="flex flex-wrap items-center gap-2 pt-1">
+          {categories.map((cat) => {
+            const active = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                  active
+                    ? 'bg-emerald-800 text-white shadow-sm'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/60'
+                }`}>
+                <span>{cat.label}</span>
+                <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold ${
+                  active ? 'bg-emerald-700 text-white' : 'bg-slate-200 text-slate-600'
+                }`}>
+                  {cat.count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Results Count */}
+        <div className="text-xs text-slate-500 font-medium flex items-center justify-between pt-1 border-t border-slate-100">
+          <span>Showing {filteredTerms.length} of {FINANCIAL_TERMS.length} financial terms</span>
+          {searchTerm && (
+            <button
+              type="button"
+              onClick={() => { setSearchTerm(''); setActiveCategory('all'); }}
+              className="text-emerald-700 hover:underline font-bold cursor-pointer">
+              Reset search & filters
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Grid of 12 Financial Term Cards */}
+      {filteredTerms.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {filteredTerms.map((term) => {
+            const isLearned = learnedTerms.has(term.id);
+            return (
+              <div
+                key={term.id}
+                onClick={() => handleOpenTerm(term)}
+                className="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md hover:border-emerald-500 transition-all duration-200 flex flex-col justify-between overflow-hidden cursor-pointer group">
+                <div>
+                  {/* Card Illustration Header */}
+                  <div className="p-3 bg-slate-50/50 border-b border-slate-100 relative">
+                    <TermIllustration id={term.id} size="sm" />
+                    {/* Category Tag on Illustration */}
+                    <span className="absolute top-4 left-4 px-2.5 py-0.5 rounded-full bg-white/95 text-slate-800 text-[10px] font-extrabold shadow-xs border border-slate-200/70">
+                      {term.categoryLabel}
+                    </span>
+                    {/* Bookmark / Learned Star Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => toggleLearned(term.id, e)}
+                      title={isLearned ? 'Marked as Learned' : 'Click to mark as Learned'}
+                      className={`absolute top-4 right-4 w-7 h-7 rounded-full flex items-center justify-center transition shadow-xs cursor-pointer ${
+                        isLearned
+                          ? 'bg-amber-400 text-white'
+                          : 'bg-white/90 text-slate-400 hover:text-amber-500 border border-slate-200/80'
+                      }`}>
+                      <Star size={14} className={isLearned ? 'fill-white' : ''} />
+                    </button>
+                  </div>
+
+                  {/* Card Content Body */}
+                  <div className="p-5 space-y-3">
+                    <div>
+                      <div className="flex items-center justify-between gap-2">
+                        <h2 className="text-lg font-black text-slate-900 group-hover:text-emerald-800 transition">
+                          {term.name}
+                        </h2>
+                        {isLearned && (
+                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                            Learned
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-xs font-bold text-slate-500 mt-0.5">
+                        {term.fullForm}
+                      </div>
+                    </div>
+
+                    {/* Simple Beginner Explanation */}
+                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                      {term.shortDesc}
+                    </p>
+
+                    {/* Real-World Rupee Example Callout Box */}
+                    <div className="p-3 rounded-2xl bg-emerald-50/60 border border-emerald-100 text-xs space-y-1">
+                      <div className="font-extrabold text-emerald-950 flex items-center gap-1.5 text-[11px]">
+                        <span className="w-4 h-4 rounded-full bg-emerald-700 text-white flex items-center justify-center text-[10px] font-black">₹</span>
+                        <span>Example: {term.example.headline}</span>
+                      </div>
+                      <p className="text-emerald-900/90 text-[11px] leading-relaxed line-clamp-2">
+                        {term.example.scenario}
+                      </p>
+                    </div>
+
+                    {/* Key Benefit or Risk Tag */}
+                    <div className="pt-1">
+                      {term.category === 'strategy' && term.id === 'inflation' ? (
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-amber-50 text-amber-900 text-[11px] font-bold border border-amber-200">
+                          <AlertTriangle size={13} className="text-amber-700 shrink-0" />
+                          <span className="truncate">Key Risk: {term.risk.title}</span>
+                        </div>
+                      ) : (
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-900 text-[11px] font-bold border border-emerald-200">
+                          <CheckCircle2 size={13} className="text-emerald-700 shrink-0" />
+                          <span className="truncate">Key Benefit: {term.benefit.title}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Action Footer */}
+                <div className="px-5 py-3.5 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-800 group-hover:text-emerald-900">
+                  <span>Deep Dive & Visual Guide</span>
+                  <ArrowRight size={15} className="group-hover:translate-x-1 transition" />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 space-y-3">
+          <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto text-2xl">
+            🔍
+          </div>
+          <h3 className="text-base font-extrabold text-slate-800">No matching financial terms found</h3>
+          <p className="text-xs text-slate-500 max-w-sm mx-auto">
+            We couldn't find any financial terms matching "{searchTerm}". Try checking your spelling or explore another category.
+          </p>
+          <button
+            type="button"
+            onClick={() => { setSearchTerm(''); setActiveCategory('all'); }}
+            className="px-5 py-2.5 bg-emerald-800 text-white rounded-xl text-xs font-bold hover:bg-emerald-900 transition cursor-pointer">
+            View All 12 Terms
+          </button>
+        </div>
+      )}
+
+      {/* Detailed Modal Popup for Selected Financial Term */}
+      {selectedTerm && (
+        <Modal
+          title={`${selectedTerm.name} — ${selectedTerm.fullForm}`}
+          maxWidth={680}
+          onClose={() => setSelectedTerm(null)}>
+          <div className="space-y-5 text-left p-1">
+            {/* Modal Header Badge Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-slate-100">
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold">
+                  {selectedTerm.categoryLabel}
+                </span>
+                <span className="text-xs text-slate-500 font-medium">2 min beginner read</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => toggleLearned(selectedTerm.id)}
+                className={`px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 transition cursor-pointer ${
+                  learnedTerms.has(selectedTerm.id)
+                    ? 'bg-amber-400 text-white'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                }`}>
+                <Star size={13} className={learnedTerms.has(selectedTerm.id) ? 'fill-white' : ''} />
+                <span>{learnedTerms.has(selectedTerm.id) ? 'Marked as Learned' : 'Mark as Learned'}</span>
+              </button>
+            </div>
+
+            {/* Large Bespoke Illustration */}
+            <div className="bg-slate-50 rounded-2xl p-3 border border-slate-200/80 shadow-inner flex items-center justify-center">
+              <TermIllustration id={selectedTerm.id} size="lg" />
+            </div>
+
+            {/* Section 1: Plain English Beginner Breakdown */}
+            <div className="space-y-1.5">
+              <h3 className="text-sm font-extrabold text-slate-900 flex items-center gap-2">
+                <Lightbulb size={16} className="text-emerald-700" />
+                <span>What is {selectedTerm.name}?</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                {selectedTerm.detailDesc}
+              </p>
+            </div>
+
+            {/* Section 2: Real-World Indian Rupee (₹) Example */}
+            <div className="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-4 space-y-2.5">
+              <div className="flex items-center gap-2 font-black text-xs text-emerald-950">
+                <span className="w-5 h-5 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-extrabold">₹</span>
+                <span>Real-World Scenario: {selectedTerm.example.headline}</span>
+              </div>
+              <p className="text-xs text-slate-700 font-medium">
+                {selectedTerm.example.scenario}
+              </p>
+              <div className="space-y-1.5 pt-1">
+                {selectedTerm.example.breakdown.map((step, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-xs text-emerald-900 font-medium bg-white/70 p-2 rounded-xl border border-emerald-100">
+                    <span className="font-bold text-emerald-700 shrink-0">•</span>
+                    <span>{step}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="pt-1 text-xs text-emerald-950 font-bold flex items-center gap-1.5">
+                <CheckCircle2 size={14} className="text-emerald-700 shrink-0" />
+                <span>Key Takeaway: {selectedTerm.example.lesson}</span>
+              </div>
+            </div>
+
+            {/* Section 3: Two Column Benefit vs Risk Assessment */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {/* Benefit Card */}
+              <div className="bg-emerald-50/50 border border-emerald-200/90 rounded-2xl p-3.5 space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-extrabold text-emerald-900">
+                  <CheckCircle2 size={15} className="text-emerald-700" />
+                  <span>Key Benefit</span>
+                </div>
+                <div className="text-xs font-bold text-slate-800">{selectedTerm.benefit.title}</div>
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  {selectedTerm.benefit.desc}
+                </p>
+              </div>
+
+              {/* Risk & Caution Card */}
+              <div className="bg-amber-50/60 border border-amber-200/90 rounded-2xl p-3.5 space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-extrabold text-amber-950">
+                  <AlertTriangle size={15} className="text-amber-700" />
+                  <span>Key Risk & Caution</span>
+                </div>
+                <div className="text-xs font-bold text-slate-800">{selectedTerm.risk.title}</div>
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  {selectedTerm.risk.desc}
+                </p>
+              </div>
+            </div>
+
+            {/* Section 4: Golden Rule Memory Hook */}
+            <div className="bg-slate-100/80 rounded-2xl p-3.5 border border-slate-200 text-xs flex items-start gap-2.5">
+              <span className="text-base shrink-0">💡</span>
+              <div>
+                <span className="font-black text-slate-900 block">The Golden Rule to Remember:</span>
+                <span className="text-slate-600 leading-relaxed">{selectedTerm.keyRule}</span>
+              </div>
+            </div>
+
+            {/* Section 5: Educational Disclaimer */}
+            <div className="text-[10px] text-slate-400 bg-slate-50 p-2.5 rounded-xl border border-slate-200 leading-relaxed text-center font-medium">
+              FinLeap Educational Notice: Investment values fluctuate based on market movements. Past examples or illustrations do not guarantee future returns. Always assess your risk tolerance before investing real money.
+            </div>
+
+            {/* Modal Bottom Controls: Previous / Next Navigation */}
+            <div className="flex items-center justify-between pt-2 border-t border-slate-100 gap-2">
+              <button
+                type="button"
+                onClick={handlePrevTerm}
+                className="px-3.5 py-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-50 transition flex items-center gap-1.5 cursor-pointer">
+                <ChevronLeft size={15} />
+                <span>Previous Term</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setSelectedTerm(null)}
+                className="px-4 py-2 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition cursor-pointer">
+                Done Reading
+              </button>
+
+              <button
+                type="button"
+                onClick={handleNextTerm}
+                className="px-3.5 py-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-50 transition flex items-center gap-1.5 cursor-pointer">
+                <span>Next Term</span>
+                <ChevronRight size={15} />
               </button>
             </div>
           </div>
@@ -4523,6 +5889,7 @@ export default function App({ initial }) {
     ['invest-sim', InvestingSimulatorScreen],
     ['quiz', ScamQuizScreen],
     ['modules', LearningModulesHub],
+    ['terms', FinancialTermsScreen],
     ['budget', BudgetGame],
     ['save', SaveGame],
     ['invest', InvestGame],
