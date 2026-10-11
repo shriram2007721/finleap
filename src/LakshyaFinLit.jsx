@@ -391,6 +391,125 @@ const EN = {
   'a.sort': 'Sort by {col}', 'a.scaled': 'KPIs and charts are scaled from {n} matching sample records to the full cohort.',
   'a.export': 'Export CSV', 'a.export.ok': 'CSV download started.', 'a.export.alt': 'No download? Copy the CSV instead',
   'a.export.title': 'Copy the CSV', 'a.export.d': 'Anonymised columns only. Select all and copy, or use the button.', 'a.copy': 'Copy', 'a.copied': 'Copied',
+
+  // FinLeap Brand & Landing
+  'brand.tag': 'Learn • Plan • Grow',
+  'nav.home': 'Home',
+  'nav.about': 'About',
+  'nav.features': 'Features',
+  'nav.login': 'Login',
+  'hero.title1': 'Small steps today,',
+  'hero.title2': 'big financial dreams',
+  'hero.title3': 'tomorrow.',
+  'hero.sub': 'FinLeap is your personal financial literacy companion — designed for Grade 11–12 students. Learn real-life money skills through interactive lessons, games and simulations.',
+  'hero.watchVideo': 'Watch Video',
+  'hero.card1.title': 'Plan & Budget',
+  'hero.card1.sub': 'Make smart choices',
+  'hero.card2.title': 'Save & Manage',
+  'hero.card2.sub': 'Build your goals',
+  'hero.card3.title': 'Understand Investing',
+  'hero.card3.sub': 'Grow your money',
+  'hero.card4.title': 'Stay Financially Safe',
+  'hero.card4.sub': 'Spot risks, stay secure',
+
+  // FinLeap Auth / Welcome
+  'auth.journey': 'Your journey to financial confidence starts here.',
+  'auth.simple': 'Simple',
+  'auth.interactive': 'Interactive',
+  'auth.safe': 'Safe',
+  'auth.welcomeBack': 'Welcome Back!',
+  'auth.welcomeSub': 'Login to continue your learning journey',
+  'auth.studentTab': 'Student Portal',
+  'auth.ngoTab': 'NGO Portal',
+  'auth.loginId': 'Username / Login ID',
+  'auth.password': 'Password',
+  'auth.loginBtn': 'Login',
+  'auth.noAccount': "Don't have an account? Sign Up",
+  'auth.hasAccount': 'Already have an account? Login',
+  'auth.demoBtn': 'Quick Demo as Deepa (Grade 11)',
+  'auth.tagline': 'For a financially literate tomorrow 💚',
+
+  // FinLeap Dashboard & Sidebar
+  'dash.welcome': 'Welcome back, {name}!',
+  'dash.welcomeSub': 'Keep learning, keep growing!',
+  'dash.kpi.progress': 'Learning Progress',
+  'dash.kpi.lessons': '6 of 12 lessons',
+  'dash.kpi.points': 'Total Points',
+  'dash.kpi.level': 'Level {n}',
+  'dash.kpi.goals': 'Goals Achieved',
+  'dash.kpi.activeGoals': 'Active goals',
+  'dash.kpi.accuracy': 'Quiz Accuracy',
+  'dash.kpi.lastQuiz': 'Last quiz',
+  'dash.modules.title': 'Learning Modules',
+  'dash.modules.sub': 'Pick a module to build your money confidence',
+  'dash.modules.viewAll': 'View All',
+  'dash.challenge.title': "Today's Challenge",
+  'dash.challenge.desc': 'You have ₹600 for the week. Make a budget, set a savings goal and handle an unexpected expense.',
+  'dash.challenge.btn': 'Start Challenge',
+  'dash.challenge.hint': 'Earn points • See the outcome • Try again',
+  'sidebar.home': 'Home',
+  'sidebar.modules': 'Learning Modules',
+  'sidebar.goals': 'My Goals',
+  'sidebar.budget': 'Budget Planner',
+  'sidebar.quizzes': 'Quizzes',
+  'sidebar.simulator': 'Simulator',
+  'sidebar.achievements': 'Achievements',
+  'sidebar.settings': 'Settings',
+
+  // Budget Planner
+  'bp.title': 'Budget Planner',
+  'bp.sub': 'Plan your money. Build better habits.',
+  'bp.income': 'Monthly Income',
+  'bp.allocate': 'Allocate Your Budget',
+  'bp.food': 'Food',
+  'bp.transport': 'Transport',
+  'bp.education': 'Education',
+  'bp.entertainment': 'Entertainment',
+  'bp.savings': 'Savings',
+  'bp.total': 'Total',
+  'bp.tip': 'Great! You are saving 20% of your income. Keep it up!',
+  'bp.saveBtn': 'Save',
+
+  // Savings Goals
+  'goals.title': 'Savings Goals',
+  'goals.sub': 'Dream it. Save for it. Achieve it.',
+  'goals.addBtn': 'Add Goal',
+  'goals.due': 'Due: {date}',
+  'goals.add500': '+ Add ₹500',
+  'goals.motTitle': 'Small savings today, big dreams tomorrow!',
+  'goals.motDesc': 'Saving just ₹50 a week builds the habit that makes college prep, a new laptop, or an emergency buffer possible without stress.',
+
+  // Virtual Investing Simulator
+  'sim.title': 'Virtual Investing Simulator',
+  'sim.sub': 'Learn how your money can grow over time.',
+  'sim.initial': 'Initial Investment',
+  'sim.years': 'Time Period',
+  'sim.yearsVal': '{n} years',
+  'sim.startBtn': 'Start Simulation',
+  'sim.growthTitle': 'Potential Growth (Hypothetical)',
+  'sim.low': 'Low Risk',
+  'sim.med': 'Medium Risk',
+  'sim.high': 'High Risk',
+  'sim.note': 'Note: This is a simulation for learning purposes only. It does not guarantee returns.',
+
+  // Scam Awareness Quiz
+  'sq.title': 'Scam Awareness Quiz',
+  'sq.sub': 'Can you spot the red flags?',
+  'sq.count': 'Question {a} of {b}',
+  'sq.qSafe': 'Is this message safe?',
+  'sq.optA': 'A. Yes, it looks genuine',
+  'sq.optB': 'B. No, this is a scam',
+  'sq.optC': "C. I'm not sure",
+  'sq.correct': 'Correct!',
+  'sq.wrong': 'Be careful!',
+  'sq.remember': 'Remember:',
+  'sq.next': 'Next',
+
+  // Brand Footer
+  'foot.today': 'Financial literacy today',
+  'foot.tomorrow': 'Independence tomorrow',
+  'foot.students': 'For Grade 11–12 Students',
+  'foot.community': 'Especially from underserved communities',
 };
 
 const TE = {
@@ -649,6 +768,125 @@ const TE = {
   'a.sort': '{col} ప్రకారం సార్ట్ చేయి', 'a.scaled': 'KPIలు, చార్ట్‌లు సరిపోలిన {n} నమూనా రికార్డుల నుంచి మొత్తం బ్యాచ్‌కి స్కేల్ చేసినవి.',
   'a.export': 'CSV ఎక్స్‌పోర్ట్', 'a.export.ok': 'CSV డౌన్‌లోడ్ మొదలైంది.', 'a.export.alt': 'డౌన్‌లోడ్ కాలేదా? CSVని కాపీ చేసుకో',
   'a.export.title': 'CSV కాపీ చేయి', 'a.export.d': 'పేరు లేని కాలమ్‌లు మాత్రమే. అంతా సెలెక్ట్ చేసి కాపీ చేయి, లేదా బటన్ వాడు.', 'a.copy': 'కాపీ', 'a.copied': 'కాపీ అయింది',
+
+  // FinLeap Brand & Landing
+  'brand.tag': 'నేర్చుకో • ప్లాన్ చేయి • ఎదగండి',
+  'nav.home': 'హోమ్',
+  'nav.about': 'గురించి',
+  'nav.features': 'ఫీచర్లు',
+  'nav.login': 'లాగిన్',
+  'hero.title1': 'నేటి చిన్న అడుగులు,',
+  'hero.title2': 'రేపటి పెద్ద ఆర్థిక కలలు',
+  'hero.title3': 'సాకారం.',
+  'hero.sub': 'FinLeap మీ వ్యక్తిగత ఆర్థిక అక్షరాస్యత నేస్తం — 11-12వ తరగతి విద్యార్థుల కోసం రూపొందించబడింది. సరదా ఆటలు, కథలు మరియు సిమ్యులేషన్ల ద్వారా నిజ జీవిత డబ్బు నైపుణ్యాలను నేర్చుకోండి.',
+  'hero.watchVideo': 'వీడియో చూడండి',
+  'hero.card1.title': 'ప్లాన్ & బడ్జెట్',
+  'hero.card1.sub': 'తెలివైన నిర్ణయాలు తీసుకోండి',
+  'hero.card2.title': 'పొదుపు & నిర్వహణ',
+  'hero.card2.sub': 'లక్ష్యాలను నిర్మించుకోండి',
+  'hero.card3.title': 'పెట్టుబడి అర్థం చేసుకోండి',
+  'hero.card3.sub': 'డబ్బును వృద్ధి చేయండి',
+  'hero.card4.title': 'ఆర్థికంగా సురక్షితంగా ఉండండి',
+  'hero.card4.sub': 'రిస్క్‌లను గుర్తించి సురక్షితంగా ఉండండి',
+
+  // FinLeap Auth / Welcome
+  'auth.journey': 'మీ ఆర్థిక ఆత్మవిశ్వాస ప్రయాణం ఇక్కడే మొదలవుతుంది.',
+  'auth.simple': 'సులభం',
+  'auth.interactive': 'ఇంటరాక్టివ్',
+  'auth.safe': 'సురక్షితం',
+  'auth.welcomeBack': 'స్వాగతం!',
+  'auth.welcomeSub': 'మీ అభ్యాస ప్రయాణాన్ని కొనసాగించడానికి లాగిన్ అవ్వండి',
+  'auth.studentTab': 'స్టూడెంట్ పోర్టల్',
+  'auth.ngoTab': 'NGO పోర్టల్',
+  'auth.loginId': 'యూజర్‌నేమ్ / లాగిన్ ID',
+  'auth.password': 'పాస్‌వర్డ్',
+  'auth.loginBtn': 'లాగిన్',
+  'auth.noAccount': 'ఖాతా లేదా? సైన్ అప్ చేయండి',
+  'auth.hasAccount': 'ఇప్పటికే ఖాతా ఉందా? లాగిన్ అవ్వండి',
+  'auth.demoBtn': 'దీపాగా త్వరిత డెమో (11వ తరగతి)',
+  'auth.tagline': 'ఆర్థికంగా అక్షరాస్యులైన రేపటి కోసం 💚',
+
+  // FinLeap Dashboard & Sidebar
+  'dash.welcome': 'స్వాగతం, {name}!',
+  'dash.welcomeSub': 'నేర్చుకుంటూ ఎదుగుతూ ఉండండి!',
+  'dash.kpi.progress': 'నేర్చుకునే ప్రోగ్రెస్',
+  'dash.kpi.lessons': '12లో 6 పాఠాలు',
+  'dash.kpi.points': 'మొత్తం పాయింట్లు',
+  'dash.kpi.level': 'లెవెల్ {n}',
+  'dash.kpi.goals': 'సాధించిన లక్ష్యాలు',
+  'dash.kpi.activeGoals': 'యాక్టివ్ లక్ష్యాలు',
+  'dash.kpi.accuracy': 'క్విజ్ ఖచ్చితత్వం',
+  'dash.kpi.lastQuiz': 'చివరి క్విజ్',
+  'dash.modules.title': 'లెర్నింగ్ మాడ్యూల్స్',
+  'dash.modules.sub': 'డబ్బుపై నమ్మకం పెంచుకోవడానికి ఒక మాడ్యూల్‌ని ఎంచుకోండి',
+  'dash.modules.viewAll': 'అన్నీ చూడండి',
+  'dash.challenge.title': 'నేటి ఛాలెంజ్',
+  'dash.challenge.desc': 'ఈ వారానికి మీ వద్ద ₹600 ఉన్నాయి. బడ్జెట్ వేసి, పొదుపు లక్ష్యాన్ని నిర్ణయించి, అనుకోని ఖర్చును ఎదుర్కోండి.',
+  'dash.challenge.btn': 'ఛాలెంజ్ ప్రారంభించండి',
+  'dash.challenge.hint': 'పాయింట్లు సంపాదించండి • ఫలితాన్ని చూడండి • మళ్ళీ ప్రయత్నించండి',
+  'sidebar.home': 'హోమ్',
+  'sidebar.modules': 'లెర్నింగ్ మాడ్యూల్స్',
+  'sidebar.goals': 'నా లక్ష్యాలు',
+  'sidebar.budget': 'బడ్జెట్ ప్లానర్',
+  'sidebar.quizzes': 'క్విజ్‌లు',
+  'sidebar.simulator': 'సిమ్యులేటర్',
+  'sidebar.achievements': 'విజయాలు',
+  'sidebar.settings': 'సెట్టింగ్స్',
+
+  // Budget Planner
+  'bp.title': 'బడ్జెట్ ప్లానర్',
+  'bp.sub': 'మీ డబ్బును ప్లాన్ చేసుకోండి. మంచి అలవాట్లను నిర్మించుకోండి.',
+  'bp.income': 'నెలవారీ ఆదాయం',
+  'bp.allocate': 'మీ బడ్జెట్‌ను కేటాయించండి',
+  'bp.food': 'ఆహారం',
+  'bp.transport': 'ప్రయాణం',
+  'bp.education': 'విద్య',
+  'bp.entertainment': 'వినోదం',
+  'bp.savings': 'పొదుపు',
+  'bp.total': 'మొత్తం',
+  'bp.tip': 'అద్భుతం! మీరు మీ ఆదాయంలో 20% పొదుపు చేస్తున్నారు. ఇలాగే కొనసాగించండి!',
+  'bp.saveBtn': 'సేవ్ చేయండి',
+
+  // Savings Goals
+  'goals.title': 'పొదుపు లక్ష్యాలు',
+  'goals.sub': 'కల కనండి. పొదుపు చేయండి. సాధించండి.',
+  'goals.addBtn': 'లక్ష్యం జోడించు',
+  'goals.due': 'గడువు: {date}',
+  'goals.add500': '+ ₹500 జోడించు',
+  'goals.motTitle': 'నేటి చిన్న పొదుపు, రేపటి పెద్ద కలలు!',
+  'goals.motDesc': 'వారానికి కేవలం ₹50 పొదుపు చేసినా కాలేజీ ఫీజులు, కొత్త ల్యాప్‌టాప్ లేదా ఎమర్జెన్సీ ఫండ్ ఒత్తిడి లేకుండా సమకూరుతాయి.',
+
+  // Virtual Investing Simulator
+  'sim.title': 'వర్చువల్ ఇన్వెస్టింగ్ సిమ్యులేటర్',
+  'sim.sub': 'సమయంతో పాటు మీ డబ్బు ఎలా పెరుగుతుందో తెలుసుకోండి.',
+  'sim.initial': 'ప్రారంభ పెట్టుబడి',
+  'sim.years': 'సమయం (సంవత్సరాలు)',
+  'sim.yearsVal': '{n} సంవత్సరాలు',
+  'sim.startBtn': 'సిమ్యులేషన్ ప్రారంభించు',
+  'sim.growthTitle': 'ఊహాజనిత పెరుగుదల',
+  'sim.low': 'తక్కువ రిస్క్',
+  'sim.med': 'మధ్యస్థ రిస్క్',
+  'sim.high': 'అధిక రిస్క్',
+  'sim.note': 'గమనిక: ఇది నేర్చుకోవడానికి మాత్రమే ఉద్దేశించిన సిమ్యులేషన్. రాబడికి హామీ ఇవ్వదు.',
+
+  // Scam Awareness Quiz
+  'sq.title': 'స్కామ్ అవేర్‌నెస్ క్విజ్',
+  'sq.sub': 'మోసపు హెచ్చరికలను గుర్తించగలరా?',
+  'sq.count': 'ప్రశ్న {a} / {b}',
+  'sq.qSafe': 'ఈ మెసేజ్ సురక్షితమైనదేనా?',
+  'sq.optA': 'A. అవును, నిజమైనదే అనిపిస్తోంది',
+  'sq.optB': 'B. కాదు, ఇది మోసం',
+  'sq.optC': 'C. నాకు కచ్చితంగా తెలియదు',
+  'sq.correct': 'సరిగ్గా చెప్పారు!',
+  'sq.wrong': 'జాగ్రత్తగా ఉండండి!',
+  'sq.remember': 'గుర్తుంచుకోండి:',
+  'sq.next': 'తర్వాత ప్రశ్న',
+
+  // Brand Footer
+  'foot.today': 'నేడు ఆర్థిక అక్షరాస్యత',
+  'foot.tomorrow': 'రేపు ఆర్థిక స్వాతంత్ర్యం',
+  'foot.students': '11–12వ తరగతి విద్యార్థుల కోసం',
+  'foot.community': 'ముఖ్యంగా వెనుకబడిన వర్గాల కోసం',
 };
 
 const DICT = { en: EN, te: TE };
@@ -944,19 +1182,22 @@ const Logo = ({ size = 36, white = false }) => (
   </svg>
 );
 
-const FinLeapBrand = ({ dark = false }) => (
-  <div className="flex items-center gap-2.5">
-    <Logo size={36} white={dark} />
-    <div className="text-left">
-      <div className={`font-extrabold text-lg leading-tight tracking-tight ${dark ? 'text-white' : 'text-slate-900'}`}>
-        FinLeap
-      </div>
-      <div className={`text-[10px] tracking-wider uppercase font-semibold ${dark ? 'text-emerald-300' : 'text-emerald-700'}`}>
-        Learn • Plan • Grow
+const FinLeapBrand = ({ dark = false }) => {
+  const { t } = useApp() || {};
+  return (
+    <div className="flex items-center gap-2.5">
+      <Logo size={36} white={dark} />
+      <div className="text-left">
+        <div className={`font-extrabold text-lg leading-tight tracking-tight ${dark ? 'text-white' : 'text-slate-900'}`}>
+          FinLeap
+        </div>
+        <div className={`text-[10px] tracking-wider uppercase font-semibold ${dark ? 'text-emerald-300' : 'text-emerald-700'}`}>
+          {t ? t('brand.tag') : 'Learn • Plan • Grow'}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 function FinLeapFooter() {
   const { t } = useApp();
@@ -966,14 +1207,14 @@ function FinLeapFooter() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <FinLeapBrand dark />
         <div className="flex items-center gap-2 text-sm text-emerald-100 font-medium">
-          <span>Financial literacy today</span>
+          <span>{t('foot.today')}</span>
           <ArrowRight size={16} className="text-emerald-400" />
-          <span className="text-emerald-300 font-bold">Independence tomorrow</span>
+          <span className="text-emerald-300 font-bold">{t('foot.tomorrow')}</span>
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-3 text-xs text-emerald-200/80 md:text-right">
           <div>
-            <div>For Grade 11–12 Students</div>
-            <div>Especially from underserved communities</div>
+            <div>{t('foot.students')}</div>
+            <div>{t('foot.community')}</div>
           </div>
           <button type="button" onClick={() => setOpen(true)} className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold bg-emerald-800/80 text-emerald-100 hover:bg-emerald-700 transition">
             <Lock size={12} aria-hidden="true" />{t('privacy.chip')}<Info size={12} aria-hidden="true" />
@@ -1001,7 +1242,7 @@ function TopBar() {
           <Logo size={32} white />
           <div>
             <div className="font-extrabold text-base leading-tight tracking-tight text-white">FinLeap</div>
-            <div className="text-[10px] text-emerald-200 tracking-wider uppercase font-semibold">Learn • Plan • Grow</div>
+            <div className="text-[10px] text-emerald-200 tracking-wider uppercase font-semibold">{t('brand.tag')}</div>
           </div>
         </button>
         <div className="flex items-center gap-2">
@@ -1010,10 +1251,6 @@ function TopBar() {
             {s.role === 'admin' ? t('role.student') : t('role.admin')}
           </button>
           <Seg dark label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
-          <Seg dark label={t('view.label')} value={s.viewMode || 'desktop'} onChange={(v) => d({ type: 'viewMode', v })} options={[
-            { value: 'mobile', label: t('view.mobile'), icon: <Smartphone size={16} aria-hidden="true" /> },
-            { value: 'desktop', label: t('view.desktop'), icon: <Monitor size={16} aria-hidden="true" /> },
-          ]} />
         </div>
       </div>
     </header>
@@ -1128,43 +1365,43 @@ function LandingPage() {
           <FinLeapBrand />
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-            <button type="button" onClick={() => d({ type: 'go', v: 'landing' })} className="text-emerald-700 hover:text-emerald-800 transition font-bold">Home</button>
-            <button type="button" onClick={() => setShowVideo(true)} className="hover:text-emerald-700 transition">About</button>
-            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'modules' }); }} className="hover:text-emerald-700 transition">Features</button>
+            <button type="button" onClick={() => d({ type: 'go', v: 'landing' })} className="text-emerald-700 hover:text-emerald-800 transition font-bold">{t('nav.home')}</button>
+            <button type="button" onClick={() => setShowVideo(true)} className="hover:text-emerald-700 transition">{t('nav.about')}</button>
+            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'modules' }); }} className="hover:text-emerald-700 transition">{t('nav.features')}</button>
           </nav>
 
           <div className="flex items-center gap-3">
             <Seg dark={false} label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
             <button type="button" onClick={() => d({ type: 'go', v: 'welcome' })}
               className="px-6 py-2.5 rounded-full font-bold text-sm bg-emerald-800 hover:bg-emerald-900 text-white shadow-sm transition">
-              Login
+              {t('nav.login')}
             </button>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
-            Small steps today,<br />
-            <span className="text-emerald-600">big financial dreams</span><br />
-            tomorrow.
+            {t('hero.title1')}<br />
+            <span className="text-emerald-600">{t('hero.title2')}</span><br />
+            {t('hero.title3')}
           </h1>
 
           <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
-            FinLeap is your personal financial literacy companion — designed for Grade 11–12 students. Learn real-life money skills through interactive lessons, games and simulations.
+            {t('hero.sub')}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'home' }); }}
+            <button type="button" onClick={() => d({ type: 'go', v: 'persona' })}
               className="px-8 py-3.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-full shadow-lg shadow-emerald-700/20 transition flex items-center gap-2 text-base cursor-pointer">
               {t('wel.cta')} <ChevronRight size={18} />
             </button>
 
             <button type="button" onClick={() => setShowVideo(true)}
               className="px-7 py-3.5 border-2 border-slate-300 hover:border-slate-400 text-slate-800 font-bold rounded-full transition flex items-center gap-2 text-base bg-white shadow-sm cursor-pointer">
-              <Play size={18} className="text-emerald-600 fill-emerald-600" /> Watch Video
+              <Play size={18} className="text-emerald-600 fill-emerald-600" /> {t('hero.watchVideo')}
             </button>
           </div>
 
@@ -1176,8 +1413,8 @@ function LandingPage() {
                 <Wallet size={22} />
               </span>
               <div>
-                <div className="font-bold text-sm text-slate-900 leading-tight">Plan & Budget</div>
-                <div className="text-xs text-slate-500 mt-0.5">Make smart choices</div>
+                <div className="font-bold text-sm text-slate-900 leading-tight">{t('hero.card1.title')}</div>
+                <div className="text-xs text-slate-500 mt-0.5">{t('hero.card1.sub')}</div>
               </div>
             </button>
 
@@ -1187,8 +1424,8 @@ function LandingPage() {
                 <PiggyBank size={22} />
               </span>
               <div>
-                <div className="font-bold text-sm text-slate-900 leading-tight">Save & Manage</div>
-                <div className="text-xs text-slate-500 mt-0.5">Build your goals</div>
+                <div className="font-bold text-sm text-slate-900 leading-tight">{t('hero.card2.title')}</div>
+                <div className="text-xs text-slate-500 mt-0.5">{t('hero.card2.sub')}</div>
               </div>
             </button>
 
@@ -1198,8 +1435,8 @@ function LandingPage() {
                 <TrendingUp size={22} />
               </span>
               <div>
-                <div className="font-bold text-sm text-slate-900 leading-tight">Understand Investing</div>
-                <div className="text-xs text-slate-500 mt-0.5">Grow your money</div>
+                <div className="font-bold text-sm text-slate-900 leading-tight">{t('hero.card3.title')}</div>
+                <div className="text-xs text-slate-500 mt-0.5">{t('hero.card3.sub')}</div>
               </div>
             </button>
 
@@ -1209,8 +1446,8 @@ function LandingPage() {
                 <ShieldCheck size={22} />
               </span>
               <div>
-                <div className="font-bold text-sm text-slate-900 leading-tight">Stay Financially Safe</div>
-                <div className="text-xs text-slate-500 mt-0.5">Spot risks, stay secure</div>
+                <div className="font-bold text-sm text-slate-900 leading-tight">{t('hero.card4.title')}</div>
+                <div className="text-xs text-slate-500 mt-0.5">{t('hero.card4.sub')}</div>
               </div>
             </button>
           </div>
@@ -1265,7 +1502,7 @@ function LandingPage() {
             </svg>
           </div>
         </div>
-      </section>
+      </main>
 
       {/* Video Modal */}
       {showVideo && (
@@ -1392,7 +1629,7 @@ function Welcome() {
           <div>
             <FinLeapBrand dark />
             <h2 className="text-2xl sm:text-3xl font-extrabold mt-8 leading-tight tracking-tight">
-              Your journey to financial confidence starts here.
+              {t('auth.journey')}
             </h2>
           </div>
 
@@ -1410,19 +1647,19 @@ function Welcome() {
               <span className="w-8 h-8 rounded-full bg-emerald-800/80 flex items-center justify-center text-emerald-300 mb-1">
                 <Smile size={18} />
               </span>
-              <span className="text-xs font-semibold text-emerald-100">Simple</span>
+              <span className="text-xs font-semibold text-emerald-100">{t('auth.simple')}</span>
             </div>
             <div className="flex flex-col items-center">
               <span className="w-8 h-8 rounded-full bg-emerald-800/80 flex items-center justify-center text-emerald-300 mb-1">
                 <Gamepad2 size={18} />
               </span>
-              <span className="text-xs font-semibold text-emerald-100">Interactive</span>
+              <span className="text-xs font-semibold text-emerald-100">{t('auth.interactive')}</span>
             </div>
             <div className="flex flex-col items-center">
               <span className="w-8 h-8 rounded-full bg-emerald-800/80 flex items-center justify-center text-emerald-300 mb-1">
                 <ShieldCheck size={18} />
               </span>
-              <span className="text-xs font-semibold text-emerald-100">Safe</span>
+              <span className="text-xs font-semibold text-emerald-100">{t('auth.safe')}</span>
             </div>
           </div>
         </div>
@@ -1431,30 +1668,33 @@ function Welcome() {
         <div className="md:col-span-7 p-6 sm:p-10 flex flex-col justify-between bg-white">
           <div>
             {/* Top Switcher Tabs */}
-            <div className="flex items-center justify-between mb-6 pb-3 border-b border-slate-100">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-6 pb-3 border-b border-slate-100">
               <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200">
                 <button type="button" onClick={() => { setRole('student'); setErrorMsg(''); setSuccessMsg(''); }}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${role === 'student' ? 'bg-white text-emerald-900 shadow-sm' : 'text-slate-600'}`}>
-                  Student Portal
+                  {t('auth.studentTab')}
                 </button>
                 <button type="button" onClick={() => { setRole('admin'); setErrorMsg(''); setSuccessMsg(''); }}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${role === 'admin' ? 'bg-white text-emerald-900 shadow-sm' : 'text-slate-600'}`}>
-                  NGO Portal
+                  {t('auth.ngoTab')}
                 </button>
               </div>
 
-              <button type="button" onClick={() => d({ type: 'go', v: 'landing' })}
-                className="text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1 cursor-pointer">
-                <ChevronLeft size={14} /> Back to Home
-              </button>
+              <div className="flex items-center gap-2">
+                <Seg dark={false} label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
+                <button type="button" onClick={() => d({ type: 'go', v: 'landing' })}
+                  className="text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1 cursor-pointer">
+                  <ChevronLeft size={14} /> {t('nav.home')}
+                </button>
+              </div>
             </div>
 
             <div className="text-left mb-6">
               <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                {mode === 'login' ? 'Welcome Back!' : (isNgo ? 'Register an NGO' : 'Create Student Profile')}
+                {mode === 'login' ? t('auth.welcomeBack') : (isNgo ? 'Register an NGO' : 'Create Student Profile')}
               </h1>
               <p className="text-sm text-slate-500 mt-1">
-                {mode === 'login' ? 'Login to continue your learning journey' : 'Fill details below to create your account'}
+                {mode === 'login' ? t('auth.welcomeSub') : 'Fill details below to create your account'}
               </p>
             </div>
 
@@ -1477,7 +1717,7 @@ function Welcome() {
               {mode === 'login' ? (
                 <>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">{isNgo ? 'Official Email Address' : 'Username / Login ID'}</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">{isNgo ? 'Official Email Address' : t('auth.loginId')}</label>
                     <div className="relative">
                       <input type={isNgo ? 'email' : 'text'} required value={isNgo ? ngoEmail : loginId}
                         onChange={e => isNgo ? setNgoEmail(e.target.value) : setLoginId(e.target.value)}
@@ -1487,7 +1727,7 @@ function Welcome() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Password</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">{t('auth.password')}</label>
                     <div className="relative">
                       <input type={showPwd ? 'text' : 'password'} required value={password} onChange={e => setPassword(e.target.value)}
                         placeholder="••••••••"
@@ -1588,19 +1828,19 @@ function Welcome() {
 
               <button type="submit"
                 className="w-full py-3 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl shadow-md transition text-sm cursor-pointer mt-2">
-                {mode === 'login' ? 'Login' : 'Create Account'}
+                {mode === 'login' ? t('auth.loginBtn') : 'Create Account'}
               </button>
             </form>
 
             <div className="mt-4 pt-3 border-t border-slate-100 flex flex-col gap-2">
               <button type="button" onClick={() => { setMode(mode === 'login' ? 'register' : 'login'); setErrorMsg(''); setSuccessMsg(''); }}
                 className="text-xs font-bold text-emerald-800 hover:text-emerald-900 text-center cursor-pointer">
-                {mode === 'login' ? "Don't have an account? Sign Up" : 'Already have an account? Login'}
+                {mode === 'login' ? t('auth.noAccount') : t('auth.hasAccount')}
               </button>
 
               <button type="button" onClick={() => { d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'home' }); }}
                 className="w-full py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 rounded-xl font-bold text-xs border border-emerald-200 transition text-center cursor-pointer">
-                Quick Demo as Deepa (Grade 11)
+                {t('auth.demoBtn')}
               </button>
             </div>
           </div>
@@ -1623,7 +1863,7 @@ function Welcome() {
               <rect x="440" y="15" width="45" height="65" />
             </svg>
             <p className="text-[11px] font-semibold text-slate-500">
-              For a financially literate tomorrow 💚
+              {t('auth.tagline')}
             </p>
           </div>
         </div>
@@ -1661,14 +1901,14 @@ function PersonaPick() {
 function StudentSidebar() {
   const { s, d, t } = useApp();
   const navItems = [
-    { id: 'home', label: 'Home', Icon: Home },
-    { id: 'modules', label: 'Learning Modules', Icon: BookOpen },
-    { id: 'goals', label: 'My Goals', Icon: Target },
-    { id: 'budget-planner', label: 'Budget Planner', Icon: Wallet },
-    { id: 'quiz', label: 'Quizzes', Icon: HelpCircle },
-    { id: 'invest-sim', label: 'Simulator', Icon: TrendingUp },
-    { id: 'achievements', label: 'Achievements', Icon: Trophy },
-    { id: 'settings', label: 'Settings', Icon: Settings },
+    { id: 'home', labelKey: 'sidebar.home', Icon: Home },
+    { id: 'modules', labelKey: 'sidebar.modules', Icon: BookOpen },
+    { id: 'goals', labelKey: 'sidebar.goals', Icon: Target },
+    { id: 'budget-planner', labelKey: 'sidebar.budget', Icon: Wallet },
+    { id: 'quiz', labelKey: 'sidebar.quizzes', Icon: HelpCircle },
+    { id: 'invest-sim', labelKey: 'sidebar.simulator', Icon: TrendingUp },
+    { id: 'achievements', labelKey: 'sidebar.achievements', Icon: Trophy },
+    { id: 'settings', labelKey: 'sidebar.settings', Icon: Settings },
   ];
 
   return (
@@ -1678,7 +1918,7 @@ function StudentSidebar() {
           <FinLeapBrand dark />
         </div>
 
-        <nav className="mt-6 space-y-1">
+        <div className="mt-6 space-y-1">
           {navItems.map((item) => {
             const on = s.screen === item.id;
             return (
@@ -1687,11 +1927,11 @@ function StudentSidebar() {
                   on ? 'bg-emerald-800 text-white shadow-sm' : 'text-emerald-100/80 hover:bg-emerald-800/50 hover:text-white'
                 }`}>
                 <item.Icon size={18} className={on ? 'text-emerald-300' : 'text-emerald-200/70'} />
-                <span>{item.label}</span>
+                <span>{t(item.labelKey)}</span>
               </button>
             );
           })}
-        </nav>
+        </div>
       </div>
 
       {/* Student Badge at bottom */}
@@ -1715,19 +1955,37 @@ function StudentSidebar() {
 }
 
 function StudentTopBar() {
-  const { s, d, t } = useApp();
+  const { s, d, t, P } = useApp();
   const [showBell, setShowBell] = useState(false);
+  const name = s.userName || (P ? t(`per.${P.id}.name`) : 'Deepa');
 
   return (
-    <header className="bg-white border-b border-slate-200/80 px-6 py-4 flex items-center justify-between gap-4 sticky top-0 z-30 shadow-xs">
+    <header className="bg-white border-b border-slate-200/80 px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-30 shadow-xs">
       <div>
         <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-          Welcome back, {s.userName || 'Deepa'}!
+          {t('dash.welcome', { name })}
         </h1>
-        <p className="text-xs text-slate-500 font-medium">Keep learning, keep growing!</p>
+        <p className="text-xs text-slate-500 font-medium">
+          {t('dash.welcomeSub')}
+        </p>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-2">
+        {/* Switch Persona */}
+        <button type="button" onClick={() => d({ type: 'go', v: 'persona' })}
+          className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition cursor-pointer">
+          {t('per.switch')}
+        </button>
+
+        {/* Portal Switch */}
+        <button type="button" onClick={() => d({ type: 'role', v: 'admin' })}
+          className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition cursor-pointer">
+          {t('role.admin')}
+        </button>
+
+        {/* Language selector */}
+        <Seg dark={false} label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
+
         {/* Notification Bell */}
         <div className="relative">
           <button type="button" onClick={() => setShowBell(!showBell)}
@@ -1750,15 +2008,6 @@ function StudentTopBar() {
             </div>
           )}
         </div>
-
-        {/* Language selector */}
-        <Seg dark={false} label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
-
-        {/* Portal Switch */}
-        <button type="button" onClick={() => d({ type: 'role', v: 'admin' })}
-          className="hidden sm:inline-flex px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition cursor-pointer">
-          NGO Portal
-        </button>
       </div>
     </header>
   );
@@ -1772,6 +2021,33 @@ function HomeScreen() {
 
   return (
     <div className="space-y-6">
+      {/* Student Wallet & Persona Status Banner */}
+      <div className="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <span className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-xl shrink-0">
+            {s.avatar || P?.e || '👩🏽'}
+          </span>
+          <div>
+            <div className="font-bold text-sm text-slate-900">{t('home.hi', { name: s.userName || (P ? t(`per.${P.id}.name`) : 'Deepa') })}</div>
+            <div className="text-xs text-slate-500">{t('per.grade', { n: P?.grade || 11 })} · {t(P?.hard ? 'per.hard' : 'per.easy')}</div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div className="bg-emerald-50 px-3.5 py-1.5 rounded-xl border border-emerald-200 flex items-center gap-2">
+            <Wallet size={16} className="text-emerald-700" />
+            <div>
+              <span className="text-[10px] text-emerald-800 font-bold block">{t('home.wallet')}</span>
+              <span className="text-sm font-extrabold text-emerald-950">{inr(run?.wallet ?? P?.wallet ?? 1000)}</span>
+            </div>
+          </div>
+          <button type="button" onClick={() => d({ type: 'go', v: 'persona' })}
+            className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition cursor-pointer">
+            {t('per.switch')}
+          </button>
+        </div>
+      </div>
+
       {/* 4 Summary Metric Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 1: Learning Progress */}
@@ -1780,9 +2056,9 @@ function HomeScreen() {
             <span className="text-xs font-extrabold text-slate-800">{overall}%</span>
           </Ring>
           <div>
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Learning Progress</div>
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t('dash.kpi.progress')}</div>
             <div className="text-xl font-extrabold text-slate-900">{overall}%</div>
-            <div className="text-xs text-emerald-600 font-semibold">6 of 12 lessons</div>
+            <div className="text-xs text-emerald-600 font-semibold">{t('dash.kpi.lessons')}</div>
           </div>
         </div>
 
@@ -1792,9 +2068,9 @@ function HomeScreen() {
             <Star size={24} className="fill-amber-400" />
           </div>
           <div>
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Points</div>
-            <div className="text-xl font-extrabold text-slate-900">{s.xp || 240}</div>
-            <div className="text-xs text-amber-600 font-semibold">Level {lv + 1}</div>
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t('dash.kpi.points')}</div>
+            <div className="text-xl font-extrabold text-slate-900">{s.xp} XP</div>
+            <div className="text-xs text-amber-600 font-semibold">{t('dash.kpi.level', { n: lv + 1 })}</div>
           </div>
         </div>
 
@@ -1804,9 +2080,9 @@ function HomeScreen() {
             <Target size={24} />
           </div>
           <div>
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Goals Achieved</div>
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t('dash.kpi.goals')}</div>
             <div className="text-xl font-extrabold text-slate-900">1 of 3</div>
-            <div className="text-xs text-purple-600 font-semibold">Active goals</div>
+            <div className="text-xs text-purple-600 font-semibold">{t('dash.kpi.activeGoals')}</div>
           </div>
         </div>
 
@@ -1816,9 +2092,9 @@ function HomeScreen() {
             <Trophy size={24} />
           </div>
           <div>
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Quiz Accuracy</div>
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t('dash.kpi.accuracy')}</div>
             <div className="text-xl font-extrabold text-slate-900">85%</div>
-            <div className="text-xs text-blue-600 font-semibold">Last quiz</div>
+            <div className="text-xs text-blue-600 font-semibold">{t('dash.kpi.lastQuiz')}</div>
           </div>
         </div>
       </div>
@@ -1829,12 +2105,12 @@ function HomeScreen() {
         <div className="lg:col-span-8 bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm">
           <div className="flex items-center justify-between mb-5">
             <div>
-              <h2 className="text-lg font-bold text-slate-900">Learning Modules</h2>
-              <p className="text-xs text-slate-500">Pick a module to build your money confidence</p>
+              <h2 className="text-lg font-bold text-slate-900">{t('dash.modules.title')}</h2>
+              <p className="text-xs text-slate-500">{t('dash.modules.sub')}</p>
             </div>
             <button type="button" onClick={() => d({ type: 'go', v: 'modules' })}
               className="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 cursor-pointer">
-              View All <ArrowRight size={14} />
+              {t('dash.modules.viewAll')} <ArrowRight size={14} />
             </button>
           </div>
 
@@ -1842,63 +2118,93 @@ function HomeScreen() {
             {/* Module 1: Plan & Budget */}
             <div className="p-4 rounded-2xl border border-teal-100 bg-teal-50/40 flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-3">
-                  <Wallet size={20} />
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center">
+                    <Wallet size={20} />
+                  </div>
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-teal-100/70 text-teal-800">
+                    {run?.prog?.budget?.st === 2 && <Check size={11} className="inline mr-0.5" />}
+                    {t(`st.${run?.prog?.budget?.st ?? 0}`)}
+                  </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-base">Plan & Budget</h3>
-                <p className="text-xs text-slate-600 mt-1">Needs, wants and spending plans</p>
+                <h3 className="font-bold text-slate-900 text-base">{t('pl.budget')}</h3>
+                <p className="text-xs text-slate-600 mt-1">{t('pl.budget.sub')}</p>
               </div>
               <button type="button" onClick={() => d({ type: 'go', v: 'budget' })}
                 className="mt-4 w-full py-2 bg-teal-700 hover:bg-teal-800 text-white rounded-xl text-xs font-bold transition cursor-pointer">
-                Start
+                {t('c.start')}
               </button>
             </div>
 
             {/* Module 2: Save & Manage */}
             <div className="p-4 rounded-2xl border border-emerald-100 bg-emerald-50/40 flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
-                  <PiggyBank size={20} />
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                    <PiggyBank size={20} />
+                  </div>
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-100/70 text-emerald-800">
+                    {run?.prog?.save?.st === 2 && <Check size={11} className="inline mr-0.5" />}
+                    {t(`st.${run?.prog?.save?.st ?? 0}`)}
+                  </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-base">Save & Manage</h3>
-                <p className="text-xs text-slate-600 mt-1">Goals and unexpected expenses</p>
+                <h3 className="font-bold text-slate-900 text-base">{t('pl.save')}</h3>
+                <p className="text-xs text-slate-600 mt-1">{t('pl.save.sub')}</p>
               </div>
               <button type="button" onClick={() => d({ type: 'go', v: 'save' })}
                 className="mt-4 w-full py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition cursor-pointer">
-                Start
+                {t('c.start')}
               </button>
             </div>
 
             {/* Module 3: Understand Investing */}
             <div className="p-4 rounded-2xl border border-blue-100 bg-blue-50/40 flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-3">
-                  <TrendingUp size={20} />
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
+                    <TrendingUp size={20} />
+                  </div>
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-blue-100/70 text-blue-800">
+                    {run?.prog?.invest?.st === 2 && <Check size={11} className="inline mr-0.5" />}
+                    {t(`st.${run?.prog?.invest?.st ?? 0}`)}
+                  </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-base">Understand Investing</h3>
-                <p className="text-xs text-slate-600 mt-1">Risk, time and compounding</p>
+                <h3 className="font-bold text-slate-900 text-base">{t('pl.invest')}</h3>
+                <p className="text-xs text-slate-600 mt-1">{t('pl.invest.sub')}</p>
               </div>
               <button type="button" onClick={() => d({ type: 'go', v: 'invest' })}
                 className="mt-4 w-full py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold transition cursor-pointer">
-                Start
+                {t('c.start')}
               </button>
             </div>
 
             {/* Module 4: Stay Financially Safe */}
             <div className="p-4 rounded-2xl border border-purple-100 bg-purple-50/40 flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center mb-3">
-                  <ShieldCheck size={20} />
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center">
+                    <ShieldCheck size={20} />
+                  </div>
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-purple-100/70 text-purple-800">
+                    {run?.prog?.safe?.st === 2 && <Check size={11} className="inline mr-0.5" />}
+                    {t(`st.${run?.prog?.safe?.st ?? 0}`)}
+                  </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-base">Stay Financially Safe</h3>
-                <p className="text-xs text-slate-600 mt-1">Scams and information protection</p>
+                <h3 className="font-bold text-slate-900 text-base">{t('pl.safe')}</h3>
+                <p className="text-xs text-slate-600 mt-1">{t('pl.safe.sub')}</p>
               </div>
               <button type="button" onClick={() => d({ type: 'go', v: 'safe' })}
                 className="mt-4 w-full py-2 bg-purple-700 hover:bg-purple-800 text-white rounded-xl text-xs font-bold transition cursor-pointer">
-                Start
+                {t('c.start')}
               </button>
             </div>
           </div>
+
+          {run && PILLARS.every((p) => run.prog[p.id].st === 2) && (
+            <div className="mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-center text-sm font-bold text-emerald-900">
+              🎉 {t('home.allDone')}
+            </div>
+          )}
         </div>
 
         {/* Right Column: Today's Challenge */}
@@ -1908,21 +2214,21 @@ function HomeScreen() {
               <span className="p-2 rounded-xl bg-amber-50 text-amber-500">
                 <Trophy size={20} />
               </span>
-              <h2 className="font-bold text-base text-slate-900">Today's Challenge</h2>
+              <h2 className="font-bold text-base text-slate-900">{t('dash.challenge.title')}</h2>
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
-              You have ₹500 for the week. Make a budget, set a savings goal and handle an unexpected expense.
+              {t('dash.challenge.desc')}
             </p>
           </div>
 
           <div className="mt-6">
             <button type="button" onClick={() => d({ type: 'go', v: 'budget' })}
               className="w-full py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl text-sm transition shadow-sm cursor-pointer">
-              Start Challenge
+              {t('dash.challenge.btn')}
             </button>
             <p className="text-[11px] text-center text-slate-400 mt-2 font-medium">
-              Earn points • See the outcome • Try again
+              {t('dash.challenge.hint')}
             </p>
           </div>
         </div>
@@ -1978,11 +2284,11 @@ function BudgetPlannerScreen() {
   const [incomeVal, setIncomeVal] = useState(b.income);
 
   const categories = [
-    { id: 'food', label: 'Food', val: b.food, color: '#F59E0B', icon: '🍔' },
-    { id: 'transport', label: 'Transport', val: b.transport, color: '#3B82F6', icon: '🚌' },
-    { id: 'education', label: 'Education', val: b.education, color: '#8B5CF6', icon: '📚' },
-    { id: 'entertainment', label: 'Entertainment', val: b.entertainment, color: '#EC4899', icon: '🎮' },
-    { id: 'savings', label: 'Savings', val: b.savings, color: '#10B981', icon: '💰' },
+    { id: 'food', label: t('bp.food'), val: b.food, color: '#F59E0B', icon: '🍔' },
+    { id: 'transport', label: t('bp.transport'), val: b.transport, color: '#3B82F6', icon: '🚌' },
+    { id: 'education', label: t('bp.education'), val: b.education, color: '#8B5CF6', icon: '📚' },
+    { id: 'entertainment', label: t('bp.entertainment'), val: b.entertainment, color: '#EC4899', icon: '🎮' },
+    { id: 'savings', label: t('bp.savings'), val: b.savings, color: '#10B981', icon: '💰' },
   ];
 
   const totalAllocated = categories.reduce((sum, c) => sum + c.val, 0);
@@ -2007,12 +2313,12 @@ function BudgetPlannerScreen() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Budget Planner</h1>
-          <p className="text-sm text-slate-500">Plan your money. Build better habits.</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">{t('bp.title')}</h1>
+          <p className="text-sm text-slate-500">{t('bp.sub')}</p>
         </div>
         <button type="button" onClick={() => d({ type: 'go', v: 'home' })}
           className="px-6 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition shadow-sm cursor-pointer">
-          Save
+          {t('bp.saveBtn')}
         </button>
       </div>
 
@@ -2022,14 +2328,14 @@ function BudgetPlannerScreen() {
           {/* Monthly Income Card */}
           <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between">
             <div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Monthly Income</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t('bp.income')}</div>
               {editingIncome ? (
                 <div className="flex items-center gap-2 mt-1">
                   <span className="text-lg font-bold text-slate-800">₹</span>
                   <input type="number" value={incomeVal} onChange={(e) => setIncomeVal(Number(e.target.value))}
                     className="w-32 px-2 py-1 border rounded-lg font-bold text-xl" />
                   <button type="button" onClick={() => { d({ type: 'updateBudget', v: { income: incomeVal } }); setEditingIncome(false); }}
-                    className="px-3 py-1 bg-emerald-700 text-white text-xs font-bold rounded-lg">Save</button>
+                    className="px-3 py-1 bg-emerald-700 text-white text-xs font-bold rounded-lg">{t('bp.saveBtn')}</button>
                 </div>
               ) : (
                 <div className="text-2xl font-extrabold text-slate-900 mt-1">{inr(b.income)}</div>
@@ -2043,7 +2349,7 @@ function BudgetPlannerScreen() {
 
           {/* Allocate Your Budget */}
           <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-            <h2 className="font-bold text-base text-slate-900 mb-4">Allocate Your Budget</h2>
+            <h2 className="font-bold text-base text-slate-900 mb-4">{t('bp.allocate')}</h2>
             <div className="space-y-4">
               {categories.map((c) => {
                 const pct = Math.round((c.val / (b.income || 1)) * 100);
@@ -2094,7 +2400,7 @@ function BudgetPlannerScreen() {
               </svg>
               <div className="absolute text-center">
                 <div className="text-xl font-extrabold text-slate-900">{inr(b.income)}</div>
-                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total</div>
+                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">{t('bp.total')}</div>
               </div>
             </div>
 
@@ -2120,7 +2426,7 @@ function BudgetPlannerScreen() {
             <span className="text-xl">💡</span>
             <div>
               <div className="font-bold text-xs text-emerald-900">
-                {savingsPct >= 20 ? `Great! You are saving ${savingsPct}% of your income. Keep it up!` : `Tip: Try to aim for at least 20% savings (₹${Math.round(b.income * 0.2)}).`}
+                {savingsPct >= 20 ? t('bp.tip') : `Tip: Try to aim for at least 20% savings (₹${Math.round(b.income * 0.2)}).`}
               </div>
               <p className="text-[11px] text-emerald-700 mt-0.5">
                 Balancing your needs first ensures you never need high-interest debt when an unexpected expense arises.
@@ -2162,12 +2468,12 @@ function GoalsScreen() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Savings Goals</h1>
-          <p className="text-sm text-slate-500">Dream it. Save for it. Achieve it.</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">{t('goals.title')}</h1>
+          <p className="text-sm text-slate-500">{t('goals.sub')}</p>
         </div>
         <button type="button" onClick={() => setShowAdd(true)}
           className="px-5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition shadow-sm flex items-center gap-2 cursor-pointer">
-          <Plus size={16} /> Add Goal
+          <Plus size={16} /> {t('goals.addBtn')}
         </button>
       </div>
 
@@ -2185,12 +2491,12 @@ function GoalsScreen() {
                     </span>
                     <div>
                       <h3 className="font-bold text-base text-slate-900">{g.name}</h3>
-                      <div className="text-xs text-slate-500 font-medium">Due: {g.due}</div>
+                      <div className="text-xs text-slate-500 font-medium">{t('goals.due', { date: g.due })}</div>
                     </div>
                   </div>
                   <button type="button" onClick={() => handleDeposit(g.id)}
                     className="px-3 py-1.5 rounded-lg border border-emerald-600 text-emerald-700 hover:bg-emerald-50 text-xs font-bold transition cursor-pointer">
-                    + Add ₹500
+                    {t('goals.add500')}
                   </button>
                 </div>
 
@@ -2213,9 +2519,9 @@ function GoalsScreen() {
           <div className="w-24 h-24 rounded-full bg-white shadow-md border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4">
             <PiggyBank size={48} />
           </div>
-          <h3 className="font-extrabold text-slate-900 text-lg">Small savings today, big dreams tomorrow!</h3>
+          <h3 className="font-extrabold text-slate-900 text-lg">{t('goals.motTitle')}</h3>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed max-w-xs">
-            Saving just ₹50 a week builds the habit that makes college prep, a new laptop, or an emergency buffer possible without stress.
+            {t('goals.motDesc')}
           </p>
         </div>
       </div>
@@ -2292,15 +2598,15 @@ function InvestingSimulatorScreen() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Virtual Investing Simulator</h1>
-        <p className="text-sm text-slate-500">Learn how your money can grow over time.</p>
+        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">{t('sim.title')}</h1>
+        <p className="text-sm text-slate-500">{t('sim.sub')}</p>
       </div>
 
       {/* Simulator Controls Card */}
       <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
         <div className="md:col-span-5 space-y-1.5">
           <div className="flex justify-between text-xs font-bold text-slate-700">
-            <span>Initial Investment</span>
+            <span>{t('sim.initial')}</span>
             <span className="text-emerald-700 font-extrabold text-sm">{inr(initial)}</span>
           </div>
           <input type="range" min="1000" max="25000" step="1000" value={initial} onChange={e => setInitial(Number(e.target.value))}
@@ -2309,8 +2615,8 @@ function InvestingSimulatorScreen() {
 
         <div className="md:col-span-4 space-y-1.5">
           <div className="flex justify-between text-xs font-bold text-slate-700">
-            <span>Time Period</span>
-            <span className="text-emerald-700 font-extrabold text-sm">{years} years</span>
+            <span>{t('sim.years')}</span>
+            <span className="text-emerald-700 font-extrabold text-sm">{t('sim.yearsVal', { n: years })}</span>
           </div>
           <input type="range" min="1" max="20" step="1" value={years} onChange={e => setYears(Number(e.target.value))}
             className="w-full h-2 bg-slate-100 rounded-lg cursor-pointer" style={{ accentColor: '#059669' }} />
@@ -2319,7 +2625,7 @@ function InvestingSimulatorScreen() {
         <div className="md:col-span-3">
           <button type="button" onClick={() => d({ type: 'updateInvestSim', v: { initial, years } })}
             className="w-full py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-xs transition shadow-sm cursor-pointer">
-            Start Simulation
+            {t('sim.startBtn')}
           </button>
         </div>
       </div>
@@ -2327,16 +2633,16 @@ function InvestingSimulatorScreen() {
       {/* Potential Growth Chart Card */}
       <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-          <h2 className="font-bold text-base text-slate-900">Potential Growth (Hypothetical)</h2>
+          <h2 className="font-bold text-base text-slate-900">{t('sim.growthTitle')}</h2>
           <div className="flex items-center gap-4 text-xs font-bold">
             <span className="flex items-center gap-1.5 text-teal-600">
-              <span className="w-2.5 h-2.5 rounded-full bg-teal-500" /> Low Risk
+              <span className="w-2.5 h-2.5 rounded-full bg-teal-500" /> {t('sim.low')}
             </span>
             <span className="flex items-center gap-1.5 text-amber-500">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" /> Medium Risk
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" /> {t('sim.med')}
             </span>
             <span className="flex items-center gap-1.5 text-blue-600">
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-500" /> High Risk
+              <span className="w-2.5 h-2.5 rounded-full bg-blue-500" /> {t('sim.high')}
             </span>
           </div>
         </div>
@@ -2374,24 +2680,24 @@ function InvestingSimulatorScreen() {
         {/* Comparative Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
           <div className="p-3.5 rounded-xl border border-teal-100 bg-teal-50/50">
-            <div className="text-xs font-bold text-teal-800">Low Risk (~6%)</div>
+            <div className="text-xs font-bold text-teal-800">{t('sim.low')} (~6%)</div>
             <div className="text-lg font-extrabold text-slate-900 mt-0.5">{inr(lowVal)}</div>
             <div className="text-[10px] text-teal-700 font-medium mt-0.5">Safe, stable value preserve</div>
           </div>
           <div className="p-3.5 rounded-xl border border-amber-100 bg-amber-50/50">
-            <div className="text-xs font-bold text-amber-800">Medium Risk (~11%)</div>
+            <div className="text-xs font-bold text-amber-800">{t('sim.med')} (~11%)</div>
             <div className="text-lg font-extrabold text-slate-900 mt-0.5">{inr(medVal)}</div>
             <div className="text-[10px] text-amber-700 font-medium mt-0.5">Balanced growth trajectory</div>
           </div>
           <div className="p-3.5 rounded-xl border border-blue-100 bg-blue-50/50">
-            <div className="text-xs font-bold text-blue-800">High Risk (~15%)</div>
+            <div className="text-xs font-bold text-blue-800">{t('sim.high')} (~15%)</div>
             <div className="text-lg font-extrabold text-slate-900 mt-0.5">{inr(highVal)}</div>
             <div className="text-[10px] text-blue-700 font-medium mt-0.5">High compounding with swings</div>
           </div>
         </div>
 
         <p className="text-[11px] text-slate-400 italic pt-2">
-          Note: This is a simulation for learning purposes only. It does not guarantee returns.
+          {t('sim.note')}
         </p>
       </div>
     </div>
@@ -2452,11 +2758,11 @@ function ScamQuizScreen() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Scam Awareness Quiz</h1>
-          <p className="text-sm text-slate-500">Can you spot the red flags?</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">{t('sq.title')}</h1>
+          <p className="text-sm text-slate-500">{t('sq.sub')}</p>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-xs font-bold text-slate-600">Question {qIndex + 1} of {quizQuestions.length}</span>
+          <span className="text-xs font-bold text-slate-600">{t('sq.count', { a: qIndex + 1, b: quizQuestions.length })}</span>
           <button type="button" onClick={() => d({ type: 'go', v: 'home' })} className="p-1.5 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition cursor-pointer">
             <X size={18} />
           </button>
@@ -2477,13 +2783,13 @@ function ScamQuizScreen() {
 
         {/* Question Options */}
         <div className="space-y-3">
-          <h3 className="font-bold text-sm text-slate-900">Is this message safe?</h3>
+          <h3 className="font-bold text-sm text-slate-900">{t('sq.qSafe')}</h3>
           <div className="grid gap-2.5">
             <button type="button" onClick={() => handleSelect('safe')}
               className={`p-3.5 rounded-xl border text-left text-sm font-semibold flex items-center justify-between transition cursor-pointer ${
                 selected === 'safe' ? (isCorrect ? 'border-emerald-600 bg-emerald-50 text-emerald-900' : 'border-rose-600 bg-rose-50 text-rose-900') : 'border-slate-200 hover:border-slate-300 bg-white'
               }`}>
-              <span>A. Yes, it looks genuine</span>
+              <span>{t('sq.optA')}</span>
               {selected === 'safe' && (isCorrect ? <CheckCircle2 size={18} className="text-emerald-600" /> : <X size={18} className="text-rose-600" />)}
             </button>
 
@@ -2491,7 +2797,7 @@ function ScamQuizScreen() {
               className={`p-3.5 rounded-xl border text-left text-sm font-semibold flex items-center justify-between transition cursor-pointer ${
                 selected === 'scam' ? (isCorrect ? 'border-emerald-600 bg-emerald-50 text-emerald-900' : 'border-rose-600 bg-rose-50 text-rose-900') : 'border-slate-200 hover:border-slate-300 bg-white'
               }`}>
-              <span>B. No, this is a scam</span>
+              <span>{t('sq.optB')}</span>
               {selected === 'scam' && (isCorrect ? <CheckCircle2 size={18} className="text-emerald-600" /> : <X size={18} className="text-rose-600" />)}
             </button>
 
@@ -2499,7 +2805,7 @@ function ScamQuizScreen() {
               className={`p-3.5 rounded-xl border text-left text-sm font-semibold flex items-center justify-between transition cursor-pointer ${
                 selected === 'unsure' ? 'border-amber-500 bg-amber-50 text-amber-900' : 'border-slate-200 hover:border-slate-300 bg-white'
               }`}>
-              <span>C. I'm not sure</span>
+              <span>{t('sq.optC')}</span>
               {selected === 'unsure' && <HelpCircle size={18} className="text-amber-600" />}
             </button>
           </div>
@@ -2510,11 +2816,11 @@ function ScamQuizScreen() {
           <div className={`p-4 rounded-2xl border space-y-2.5 ${isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-amber-50 border-amber-200 text-amber-900'}`}>
             <div className="flex items-center gap-2 font-bold text-sm">
               {isCorrect ? <CheckCircle2 size={18} className="text-emerald-700" /> : <AlertTriangle size={18} className="text-amber-700" />}
-              <span>{isCorrect ? 'Correct!' : 'Rethink!'}</span>
+              <span>{isCorrect ? t('sq.correct') : t('sq.wrong')}</span>
             </div>
             <p className="text-xs leading-relaxed">{curr.why}</p>
             <div className="pt-2 border-t border-current/15 text-[11px] font-medium">
-              <b>Remember:</b> {curr.tip}
+              <b>{t('sq.remember')}</b> {curr.tip}
             </div>
           </div>
         )}
@@ -2522,7 +2828,7 @@ function ScamQuizScreen() {
         {answered && (
           <button type="button" onClick={handleNext}
             className="w-full py-3 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition shadow-sm cursor-pointer">
-            Next Question
+            {t('sq.next')}
           </button>
         )}
       </div>
@@ -3286,9 +3592,10 @@ function InvestGame() {
               <p className="text-xs font-semibold mt-2" style={{ color: C.muted }}>ⓘ {t('i.disclaimer')}</p>
             </div>
           )}
-          <div className="grid grid-cols-2 gap-2 mt-3">
+          <div className="grid grid-cols-3 gap-2 mt-3">
             <Btn kind="ghost" onClick={() => setStep(1)}><ChevronLeft size={18} aria-hidden="true" />{t('c.back')}</Btn>
-            <Btn bg={pillar.color} fg={pillar.on} onClick={() => setStep(3)}>{t('i.toStock')}</Btn>
+            <Btn kind="soft" onClick={() => setStep(3)}>{t('i.toStock')}</Btn>
+            <Btn bg={pillar.color} fg={pillar.on} onClick={() => setStep(4)}>{t('i.toQuiz')}</Btn>
           </div>
         </Card>
       )}
@@ -3647,17 +3954,23 @@ function Admin() {
   const field = 'w-full rounded-xl px-3 bg-white text-base';
   const fieldStyle = { minHeight: 48, border: '2px solid #CFC4C6' };
   return (
-    <div className={`mx-auto p-3 sm:p-6 ${s.viewMode === 'mobile' ? '' : 'max-w-6xl'}`} style={{ maxWidth: s.viewMode === 'mobile' ? 430 : undefined }}>
+    <div className="mx-auto p-3 sm:p-6 max-w-6xl">
       <div className="flex flex-wrap items-center gap-2">
         <h1 className="text-2xl font-bold" style={{ color: C.burgundy }}>{t('a.title')}</h1>
         <span className="rounded-full px-3 py-1 text-xs font-bold" style={{ background: C.amber, color: C.ink }}>{t('a.sample')}</span>
-        <Btn kind="ghost" className="ml-auto" onClick={() => d({ type: 'logout' })}>Log Out</Btn>
+        <div className="ml-auto flex items-center gap-2">
+          <button type="button" onClick={() => d({ type: 'role', v: 'student' })}
+            className="px-3 py-1.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-800 hover:bg-slate-100 transition cursor-pointer">
+            {t('role.student')}
+          </button>
+          <Btn kind="ghost" onClick={() => d({ type: 'logout' })}>Log Out</Btn>
+        </div>
       </div>
       <p className="text-sm mt-1 flex items-start gap-1" style={{ color: C.muted }}><Lock size={14} aria-hidden="true" className="mt-0.5 shrink-0" />{t('a.demo')}</p>
 
       <Card className="mt-4">
         <h2 className="sr-only">{t('a.filters')}</h2>
-        <div className={`grid gap-3 items-end ${s.viewMode !== 'mobile' ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
+        <div className="grid gap-3 items-end grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           <label className="block text-sm font-semibold">{t('a.f.batch')}
             <select className={`${field} mt-1`} style={fieldStyle} value={f.batch} onChange={(e) => filter({ batch: e.target.value })}>
               <option value="all">{t('a.f.all')}</option>
@@ -3684,7 +3997,7 @@ function Admin() {
         </div>
       </Card>
 
-      <div className={`grid gap-3 mt-3 ${s.viewMode !== 'mobile' ? 'grid-cols-2 lg:grid-cols-4' : 'grid-cols-2'}`}>
+      <div className="grid gap-3 mt-3 grid-cols-2 lg:grid-cols-4">
         {kpis.map(([key, value, sub, Icon]) => (
           <Card key={key}>
             <div className="text-sm font-semibold flex items-center gap-1" style={{ color: C.muted }}><Icon size={16} aria-hidden="true" />{t(`a.k.${key}`)}</div>
@@ -3702,7 +4015,7 @@ function Admin() {
 
       {n === 0 ? <Card className="mt-3 text-center"><p className="font-semibold py-6">🔍 {t('a.empty')}</p></Card> : (
         <>
-          <div className={`grid gap-3 mt-3 ${s.viewMode !== 'mobile' ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'}`}>
+          <div className="grid gap-3 mt-3 grid-cols-1 md:grid-cols-2">
             <ChartCard title={t('a.c.score')} summary={t('a.c.score.sum', { list: PILLARS.map((p, k) => `${t(`pl.${p.id}`)} ${avg[k]}%`).join(', ') })}>
               <div className="grid grid-cols-4 gap-3 items-end" style={{ height: 150 }}>
                 {PILLARS.map((p, k) => (
@@ -3737,7 +4050,7 @@ function Admin() {
 
           <Card className="mt-3">
             <h2 className="font-bold text-lg flex items-center gap-2"><Lightbulb size={20} aria-hidden="true" style={{ color: C.burgundy }} />{t('a.conf.title')}</h2>
-            <ol className={`grid gap-3 mt-3 ${s.viewMode !== 'mobile' ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
+            <ol className="grid gap-3 mt-3 grid-cols-1 md:grid-cols-2">
               {conf.map((c, i) => (
                 <li key={c.key} className="rounded-xl p-3" style={{ background: '#FBF7F6', border: `1px solid ${C.line}` }}>
                   <div className="flex gap-2 font-semibold"><span className="inline-flex items-center justify-center rounded-full text-white text-sm shrink-0" style={{ width: 26, height: 26, background: C.burgundy }}>{i + 1}</span><span>{t(`cf.${c.key}`, { n: c.pct })}</span></div>
@@ -3829,7 +4142,7 @@ export default function App({ initial }) {
   const t = useMemo(() => makeT(s.lang), [s.lang]);
   const P = s.persona ? PERSONAS[s.persona] : null;
   const run = P ? s.runs[s.persona] : null;
-  const inGame = !!P && s.screen !== 'welcome' && s.screen !== 'persona';
+  const inGame = !!P && s.screen !== 'welcome' && s.screen !== 'persona' && s.screen !== 'landing';
 
   useEffect(() => { saveState(s); }, [s]);
   useScrollTop(`${s.screen}|${s.role}`);
@@ -3840,28 +4153,70 @@ export default function App({ initial }) {
     return () => window.removeEventListener('resize', set);
   }, [s.lang]);
 
-  const games = [['home', HomeScreen], ['budget', BudgetGame], ['save', SaveGame], ['invest', InvestGame], ['safe', SafeGame]];
+  const screens = [
+    ['home', HomeScreen],
+    ['budget-planner', BudgetPlannerScreen],
+    ['goals', GoalsScreen],
+    ['invest-sim', InvestingSimulatorScreen],
+    ['quiz', ScamQuizScreen],
+    ['modules', LearningModulesHub],
+    ['budget', BudgetGame],
+    ['save', SaveGame],
+    ['invest', InvestGame],
+    ['safe', SafeGame],
+    ['achievements', AchievementsScreen],
+    ['settings', SettingsScreen],
+  ];
+
   return (
     <Ctx.Provider value={{ s, d, t, P, run }}>
-      <div ref={root} className="lf min-h-screen" lang={s.lang} style={{ background: '#F1E9E9' }}>
+      <div ref={root} className="lf min-h-screen bg-slate-50 font-sans text-slate-900" lang={s.lang}>
         <style>{STYLE}</style>
-        <TopBar />
-        <div hidden={s.role !== 'student'}>
-          <div className={`mx-auto w-full flex flex-col sm:shadow-xl ${s.viewMode !== 'mobile' ? 'max-w-6xl' : ''}`} style={{ maxWidth: s.viewMode === 'mobile' ? 430 : undefined, minHeight: 'calc(100vh - var(--lf-top, 112px))', background: '#FBF7F6' }}>
-            <main className="flex-1 p-4">
-              {s.screen === 'welcome' && <Welcome />}
-              {s.screen === 'persona' && <PersonaPick />}
-              {P && (
-                <div key={`${s.persona}-${s.epoch}`} hidden={!inGame}>
-                  {games.map(([id, Screen]) => <div key={id} hidden={s.screen !== id}><Screen /></div>)}
-                </div>
-              )}
-              <Footer />
-            </main>
-            {inGame && <TabBar />}
-          </div>
-        </div>
         <div hidden={s.role !== 'admin'}><Admin /></div>
+        <div hidden={s.role !== 'student'}>
+          {s.screen === 'landing' && <LandingPage />}
+          {s.screen === 'welcome' && <Welcome />}
+          {s.screen === 'persona' && (
+            <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
+              <TopBar />
+              <main className="flex-1 p-4"><PersonaPick /></main>
+              <Footer />
+            </div>
+          )}
+          {inGame && (
+            <div className="min-h-screen flex flex-col bg-slate-100/70">
+              <TopBar />
+              <div className="flex-1 flex w-full">
+                {/* Desktop Sidebar (FinLeap Deep Forest Green) */}
+                <div className="hidden md:flex shrink-0">
+                  <StudentSidebar />
+                </div>
+
+                {/* Main Content Area */}
+                <div className="flex-1 flex flex-col min-w-0">
+                  <StudentTopBar />
+                  <main className="flex-1 p-3 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto">
+                    {P && (
+                      <div key={`${s.persona}-${s.epoch}`}>
+                        {screens.map(([id, Screen]) => (
+                          <div key={id} hidden={s.screen !== id}>
+                            <Screen />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    <Footer />
+                  </main>
+
+                  {/* Mobile TabBar */}
+                  <div className="md:hidden sticky bottom-0 z-30">
+                    <TabBar />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </Ctx.Provider>
   );
