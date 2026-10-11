@@ -1150,7 +1150,7 @@ const Feedback = ({ tone = 'good', title, why, real, realLabel, children }) => {
   );
 };
 
-function Modal({ title, onClose, children }) {
+function Modal({ title, onClose, maxWidth = 480, children }) {
   const { t } = useApp(); const btn = useRef(null); const close = useRef(onClose);
   close.current = onClose;
   useEffect(() => {
@@ -1161,7 +1161,7 @@ function Modal({ title, onClose, children }) {
   }, []);
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-3" style={{ background: 'rgba(31,31,31,.6)' }} onClick={onClose}>
-      <div role="dialog" aria-modal="true" aria-label={title} className="lf-pop bg-white rounded-2xl p-5 w-full" style={{ maxWidth: 440 }} onClick={(e) => e.stopPropagation()}>
+      <div role="dialog" aria-modal="true" aria-label={title} className="lf-pop bg-white rounded-2xl p-5 w-full max-h-[92vh] overflow-y-auto" style={{ maxWidth }} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-start gap-3 mb-2">
           <h2 className="text-lg font-bold flex-1">{title}</h2>
           <button ref={btn} type="button" aria-label={t('c.close')} onClick={onClose} className="rounded-full inline-flex items-center justify-center shrink-0"
@@ -1506,23 +1506,47 @@ function LandingPage() {
 
       {/* Video Modal */}
       {showVideo && (
-        <Modal title="About FinLeap - Tour" onClose={() => setShowVideo(false)}>
-          <div className="p-2 text-center">
-            <div className="w-full aspect-video bg-gradient-to-br from-emerald-800 to-teal-950 rounded-2xl flex flex-col items-center justify-center text-white p-6 shadow-inner">
-              <Play size={48} className="text-emerald-400 fill-emerald-400 mb-3" />
-              <h3 className="font-bold text-lg">Interactive Financial Literacy Tour</h3>
-              <p className="text-xs text-emerald-200 mt-1 max-w-sm">Learn budgeting, safety jars, investing growth curves, and scam detection with real-life student scenarios.</p>
+        <Modal title="FinLeap Video Showcase & Quiz" maxWidth={680} onClose={() => setShowVideo(false)}>
+          <div className="p-1 space-y-4 text-left">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-inner border border-slate-100">
+              <video
+                src="/finleap-video.mp4"
+                controls
+                autoPlay
+                playsInline
+                className="w-full h-full object-contain"
+              >
+                Your browser does not support HTML5 video.
+              </video>
             </div>
-            <div className="mt-4 grid grid-cols-2 gap-2 text-left text-xs font-semibold text-slate-700">
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">✅ 4 Progressive Game Modules</div>
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">✅ Dynamic Budget & Goals Engine</div>
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">✅ Real-time Scam Quiz Analyzer</div>
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">✅ Available in English & Telugu</div>
+
+            <div className="space-y-1">
+              <h3 className="font-bold text-base text-slate-900">Watch the demonstration and test your financial knowledge</h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Take the video quiz directly inside the student portal to test your knowledge of budgeting, saving emergency buffers, and dodging digital scams.
+              </p>
             </div>
-            <button type="button" onClick={() => { setShowVideo(false); if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'home' }); }}
-              className="w-full mt-4 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl transition">
-              Jump into FinLeap
-            </button>
+
+            <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
+              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">🎥 Full Walkthrough Demonstration</div>
+              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">🎯 Interactive Checkpoint Questions</div>
+              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">💡 Instant Explanations & Tips</div>
+              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">🏆 Earn Points & Track Mastery</div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowVideo(false);
+                  if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' });
+                  d({ type: 'go', v: 'quiz' });
+                }}
+                className="w-full py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl transition cursor-pointer text-center text-sm shadow-sm flex items-center justify-center gap-2">
+                <span>Start Video Quiz Challenge</span>
+                <ChevronRight size={16} />
+              </button>
+            </div>
           </div>
         </Modal>
       )}
@@ -2696,130 +2720,226 @@ function InvestingSimulatorScreen() {
 }
 
 function ScamQuizScreen() {
-  const { s, d, t } = useApp();
-  const [qIndex, setQIndex] = useState(1); // 0-based question
+  const { d, t } = useApp();
+  const [qIndex, setQIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [answered, setAnswered] = useState(false);
+  const [score, setScore] = useState(0);
+  const [showVideoModal, setShowVideoModal] = useState(false);
+  const videoRef = useRef(null);
 
-  const quizQuestions = [
+  const videoQuestions = [
     {
       id: 1,
-      sender: 'SMS from VK-WIN50',
-      text: "You've won a ₹50,000 gift card! Click the link below to claim now: https://bit.ly/win50000",
-      correct: 'scam',
-      why: 'This is a scam. Be careful with messages that promise big rewards, ask for your personal information or include suspicious links.',
-      tip: 'Never share your OTP, password or bank details. Think twice before clicking a link.'
+      tag: 'Budgeting & Daily Living',
+      text: 'According to the FinLeap budgeting rules demonstrated in the app, what should you allocate first?',
+      options: [
+        { key: 'wants', label: 'Wants & Entertainment purchases' },
+        { key: 'needs', label: 'Essential Needs (Food, Transport, Rent)' },
+        { key: 'lottery', label: 'High-risk speculative schemes' }
+      ],
+      correct: 'needs',
+      why: 'Needs are essential life foundations that must be funded before discretionary wants and savings.',
+      tip: 'The 50/30/20 guideline recommends fulfilling needs first to avoid high-interest borrowing.'
     },
     {
       id: 2,
-      sender: 'Chat from Unknown Buyer',
-      text: "I am sending ₹2,000 for your old textbook. Scan this QR code and enter your UPI PIN to receive money.",
-      correct: 'scam',
-      why: 'Entering your UPI PIN ALWAYS sends money, never receives money. You never need a PIN to receive payments.',
-      tip: 'PIN = Pay. You never enter a PIN to receive cash.'
+      tag: 'Digital Safety & Scam Alerts',
+      text: 'A buyer sends you a QR code claiming: "Scan this and enter your UPI PIN to receive payment." What should you do?',
+      options: [
+        { key: 'scan', label: 'Scan and enter your PIN immediately' },
+        { key: 'block', label: 'Decline and block: entering a PIN ALWAYS sends money, never receives money' },
+        { key: 'half', label: 'Enter half the PIN code to test' }
+      ],
+      correct: 'block',
+      why: 'Entering your UPI PIN authorizes an outgoing transfer from your account. You NEVER need a PIN to receive payments.',
+      tip: 'Remember: PIN = Pay out. Never enter your PIN to receive money.'
     },
     {
       id: 3,
-      sender: 'SMS from Bank-Official',
-      text: "OTP for transaction of ₹350 at College Bookstore is 849201. Valid for 10 minutes. Do not share.",
-      correct: 'safe',
-      why: 'This is a legitimate OTP alert sent after an action you initiated. Never share it with anyone calling you.',
-      tip: 'Legitimate banks never call and ask for your OTP over phone.'
+      tag: 'Emergency Fund & Savings Jar',
+      text: 'What is the primary benefit of maintaining an Emergency Savings buffer during unexpected expense shocks?',
+      options: [
+        { key: 'buffer', label: 'It cushions emergencies so you do not have to borrow at high interest rates' },
+        { key: 'spend', label: 'It allows you to spend freely without tracking transactions' },
+        { key: 'lottery', label: 'It guarantees 100% stock market returns' }
+      ],
+      correct: 'buffer',
+      why: 'A buffer protects your daily living stability and shields your long-term goals when surprise repairs or medical bills strike.',
+      tip: 'Aim for at least 1-3 months of essential expenses in your emergency reserve.'
+    },
+    {
+      id: 4,
+      tag: 'Smart Long-term Investing',
+      text: 'When investing for long horizons, what minimizes the impact of bad market years?',
+      options: [
+        { key: 'one', label: 'Putting all savings into a single hot stock' },
+        { key: 'diversify', label: 'Diversification across multiple asset baskets and holding patiently' },
+        { key: 'panic', label: 'Selling everything whenever market swings occur' }
+      ],
+      correct: 'diversify',
+      why: 'Diversification spreads risk so that down years in one sector are cushioned by resilience in others.',
+      tip: 'Compound growth rewards consistency and patience over market timing.'
     }
   ];
 
-  const curr = quizQuestions[qIndex] || quizQuestions[0];
+  const curr = videoQuestions[qIndex] || videoQuestions[0];
 
-  const handleSelect = (ans) => {
+  const handleSelect = (key) => {
     if (answered) return;
-    setSelected(ans);
+    setSelected(key);
     setAnswered(true);
+    if (key === curr.correct) {
+      setScore(s => s + 1);
+    }
   };
 
   const handleNext = () => {
     setSelected(null);
     setAnswered(false);
-    setQIndex((qIndex + 1) % quizQuestions.length);
+    if (qIndex < videoQuestions.length - 1) {
+      setQIndex(qIndex + 1);
+    } else {
+      setQIndex(0); // restart loop or review
+    }
   };
 
   const isCorrect = selected === curr.correct;
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-4xl mx-auto space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">{t('sq.title')}</h1>
-          <p className="text-sm text-slate-500">{t('sq.sub')}</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Interactive Video & Quiz Challenge</h1>
+          <p className="text-xs sm:text-sm text-slate-500">Watch the FinLeap demonstration video below and answer the checkpoints</p>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="text-xs font-bold text-slate-600">{t('sq.count', { a: qIndex + 1, b: quizQuestions.length })}</span>
+        <div className="flex items-center gap-2 self-start sm:self-auto">
+          <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+            Score: {score} / {videoQuestions.length}
+          </span>
           <button type="button" onClick={() => d({ type: 'go', v: 'home' })} className="p-1.5 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition cursor-pointer">
             <X size={18} />
           </button>
         </div>
       </div>
 
-      {/* Simulated Message Card */}
-      <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-6">
-        <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex items-start gap-3">
-          <span className="p-1 rounded-full bg-amber-400 text-white shrink-0 mt-0.5">
-            <AlertTriangle size={16} />
-          </span>
-          <div>
-            <div className="text-[10px] font-bold uppercase tracking-wider text-amber-800">{curr.sender}</div>
-            <div className="text-sm font-semibold text-slate-900 mt-1 leading-snug">{curr.text}</div>
+      {/* Video Player Card */}
+      <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 text-sm font-bold text-slate-800">
+            <Play size={18} className="text-emerald-600 fill-emerald-600" />
+            <span>FinLeap Video Demonstration</span>
           </div>
+          <span className="text-xs text-slate-500 font-medium">Watch then answer below</span>
         </div>
 
-        {/* Question Options */}
+        <div className="relative w-full rounded-2xl overflow-hidden bg-black shadow-inner border border-slate-100 aspect-video">
+          <video
+            ref={videoRef}
+            src="/finleap-video.mp4"
+            controls
+            playsInline
+            className="w-full h-full object-contain"
+            poster=""
+          >
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs text-slate-500 border-t border-slate-100">
+          <span>💡 Tip: Pay attention to the budgeting pillars, emergency reserves, and safety rules shown.</span>
+          <button
+            type="button"
+            onClick={() => {
+              if (videoRef.current) {
+                videoRef.current.currentTime = 0;
+                videoRef.current.play();
+              }
+            }}
+            className="font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 cursor-pointer">
+            <RotateCcw size={13} /> Replay Video
+          </button>
+        </div>
+      </div>
+
+      {/* Question Card */}
+      <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-700 text-xs font-bold uppercase tracking-wider">
+              {curr.tag}
+            </span>
+          </div>
+          <span className="text-xs font-bold text-slate-500">
+            Question {qIndex + 1} of {videoQuestions.length}
+          </span>
+        </div>
+
+        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+            {curr.text}
+          </h2>
+        </div>
+
+        {/* Options */}
         <div className="space-y-3">
-          <h3 className="font-bold text-sm text-slate-900">{t('sq.qSafe')}</h3>
           <div className="grid gap-2.5">
-            <button type="button" onClick={() => handleSelect('safe')}
-              className={`p-3.5 rounded-xl border text-left text-sm font-semibold flex items-center justify-between transition cursor-pointer ${
-                selected === 'safe' ? (isCorrect ? 'border-emerald-600 bg-emerald-50 text-emerald-900' : 'border-rose-600 bg-rose-50 text-rose-900') : 'border-slate-200 hover:border-slate-300 bg-white'
-              }`}>
-              <span>{t('sq.optA')}</span>
-              {selected === 'safe' && (isCorrect ? <CheckCircle2 size={18} className="text-emerald-600" /> : <X size={18} className="text-rose-600" />)}
-            </button>
+            {curr.options.map((opt) => {
+              const isSelected = selected === opt.key;
+              const isOptCorrect = opt.key === curr.correct;
+              let styleClass = 'border-slate-200 hover:border-slate-300 bg-white text-slate-800';
 
-            <button type="button" onClick={() => handleSelect('scam')}
-              className={`p-3.5 rounded-xl border text-left text-sm font-semibold flex items-center justify-between transition cursor-pointer ${
-                selected === 'scam' ? (isCorrect ? 'border-emerald-600 bg-emerald-50 text-emerald-900' : 'border-rose-600 bg-rose-50 text-rose-900') : 'border-slate-200 hover:border-slate-300 bg-white'
-              }`}>
-              <span>{t('sq.optB')}</span>
-              {selected === 'scam' && (isCorrect ? <CheckCircle2 size={18} className="text-emerald-600" /> : <X size={18} className="text-rose-600" />)}
-            </button>
+              if (answered) {
+                if (isSelected) {
+                  styleClass = isCorrect ? 'border-emerald-600 bg-emerald-50 text-emerald-900 font-bold' : 'border-rose-600 bg-rose-50 text-rose-900 font-bold';
+                } else if (isOptCorrect) {
+                  styleClass = 'border-emerald-500 bg-emerald-50/50 text-emerald-800 font-semibold';
+                } else {
+                  styleClass = 'border-slate-200 opacity-60 bg-slate-50 text-slate-500';
+                }
+              }
 
-            <button type="button" onClick={() => handleSelect('unsure')}
-              className={`p-3.5 rounded-xl border text-left text-sm font-semibold flex items-center justify-between transition cursor-pointer ${
-                selected === 'unsure' ? 'border-amber-500 bg-amber-50 text-amber-900' : 'border-slate-200 hover:border-slate-300 bg-white'
-              }`}>
-              <span>{t('sq.optC')}</span>
-              {selected === 'unsure' && <HelpCircle size={18} className="text-amber-600" />}
-            </button>
+              return (
+                <button
+                  key={opt.key}
+                  type="button"
+                  onClick={() => handleSelect(opt.key)}
+                  className={`p-4 rounded-2xl border text-left text-sm font-medium flex items-center justify-between transition cursor-pointer ${styleClass}`}>
+                  <span>{opt.label}</span>
+                  {answered && isSelected && (
+                    isCorrect ? <CheckCircle2 size={18} className="text-emerald-600 shrink-0 ml-2" /> : <X size={18} className="text-rose-600 shrink-0 ml-2" />
+                  )}
+                  {answered && !isSelected && isOptCorrect && (
+                    <CheckCircle2 size={18} className="text-emerald-600 shrink-0 ml-2" />
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Feedback Section */}
         {answered && (
-          <div className={`p-4 rounded-2xl border space-y-2.5 ${isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-amber-50 border-amber-200 text-amber-900'}`}>
+          <div className={`p-4 rounded-2xl border space-y-2 ${isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-amber-50 border-amber-200 text-amber-900'}`}>
             <div className="flex items-center gap-2 font-bold text-sm">
               {isCorrect ? <CheckCircle2 size={18} className="text-emerald-700" /> : <AlertTriangle size={18} className="text-amber-700" />}
-              <span>{isCorrect ? t('sq.correct') : t('sq.wrong')}</span>
+              <span>{isCorrect ? 'Correct Answer!' : 'Not quite right'}</span>
             </div>
             <p className="text-xs leading-relaxed">{curr.why}</p>
             <div className="pt-2 border-t border-current/15 text-[11px] font-medium">
-              <b>{t('sq.remember')}</b> {curr.tip}
+              <b>Key Takeaway:</b> {curr.tip}
             </div>
           </div>
         )}
 
         {answered && (
-          <button type="button" onClick={handleNext}
-            className="w-full py-3 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition shadow-sm cursor-pointer">
-            {t('sq.next')}
+          <button
+            type="button"
+            onClick={handleNext}
+            className="w-full py-3.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition shadow-sm cursor-pointer flex items-center justify-center gap-2">
+            <span>{qIndex < videoQuestions.length - 1 ? 'Next Question' : 'Complete / Restart Quiz'}</span>
+            <ChevronRight size={18} />
           </button>
         )}
       </div>
