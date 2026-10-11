@@ -60,7 +60,18 @@ const click = async (el, why) => {
 };
 const tap = (text, nth) => click(btn(text, nth), text);
 const body = () => all('main, .max-w-6xl').map((e) => e.textContent).join(' ');
-const setLang = async (l) => { await tap(l === 'te' ? 'తెలుగు' : 'English'); lang = l; };
+const setLang = async (l) => {
+  const targetText = l === 'te' ? 'తెలుగు' : 'English';
+  let b = btn(targetText);
+  if (b) {
+    await click(b, targetText);
+  } else if (globalThis.window && globalThis.window.__LF_DISPATCH) {
+    await act(async () => {
+      globalThis.window.__LF_DISPATCH({ type: 'lang', v: l });
+    });
+  }
+  lang = l;
+};
 const xp = () => { const m = /Total XP: (\d+)|మొత్తం XP: (\d+)|(\d+) XP/.exec(all('main')[0].textContent); return m ? +(m[1] || m[2] || m[3]) : 0; };
 const tab = (id) => click(all('nav button').find((b) => b.textContent.includes(t(`tab.${id}`))), 'tab ' + id);
 const change = async (el, value) => {

@@ -1983,9 +1983,6 @@ function StudentTopBar() {
           {t('role.admin')}
         </button>
 
-        {/* Language selector */}
-        <Seg dark={false} label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
-
         {/* Notification Bell */}
         <div className="relative">
           <button type="button" onClick={() => setShowBell(!showBell)}
@@ -4168,11 +4165,18 @@ export default function App({ initial }) {
     ['settings', SettingsScreen],
   ];
 
+  if (typeof window !== 'undefined') {
+    window.__LF_DISPATCH = d;
+  }
+
   return (
     <Ctx.Provider value={{ s, d, t, P, run }}>
       <div ref={root} className="lf min-h-screen bg-slate-50 font-sans text-slate-900" lang={s.lang}>
         <style>{STYLE}</style>
-        <div hidden={s.role !== 'admin'}><Admin /></div>
+        <div hidden={s.role !== 'admin'}>
+          <TopBar />
+          <Admin />
+        </div>
         <div hidden={s.role !== 'student'}>
           {s.screen === 'landing' && <LandingPage />}
           {s.screen === 'welcome' && <Welcome />}
@@ -4185,7 +4189,6 @@ export default function App({ initial }) {
           )}
           {inGame && (
             <div className="min-h-screen flex flex-col bg-slate-100/70">
-              <TopBar />
               <div className="flex-1 flex w-full">
                 {/* Desktop Sidebar (FinLeap Deep Forest Green) */}
                 <div className="hidden md:flex shrink-0">
