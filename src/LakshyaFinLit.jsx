@@ -1977,12 +1977,6 @@ function StudentTopBar() {
           {t('per.switch')}
         </button>
 
-        {/* Portal Switch */}
-        <button type="button" onClick={() => d({ type: 'role', v: 'admin' })}
-          className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition cursor-pointer">
-          {t('role.admin')}
-        </button>
-
         {/* Notification Bell */}
         <div className="relative">
           <button type="button" onClick={() => setShowBell(!showBell)}

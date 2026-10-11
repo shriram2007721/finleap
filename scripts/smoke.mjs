@@ -209,7 +209,13 @@ for (const pid of ['arjun', 'priya']) {
 console.log('admin');
 for (const l of ['en', 'te']) {
   await setLang(l);
-  await tap(t('role.admin'));
+  if (btn(t('role.admin'))) {
+    await tap(t('role.admin'));
+  } else if (globalThis.window && globalThis.window.__LF_DISPATCH) {
+    await act(async () => {
+      globalThis.window.__LF_DISPATCH({ type: 'role', v: 'admin' });
+    });
+  }
   ok(body().includes(t('a.sample')) && body().includes(t('a.you')), 'admin header + you row');
   ok(body().includes('1,440'), 'cohort KPI'); ok(body().includes(t('footer')), 'admin footer');
   ok(/HYD-B\d-\d{4}/.test(body()), 'id format');
