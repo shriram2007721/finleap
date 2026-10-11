@@ -1058,7 +1058,7 @@ function useTween(target, ms = 350) {
    ========================================================================== */
 
 const STYLE = `
-.lf{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans Telugu','Nirmala UI',sans-serif;color:${C.ink};line-height:1.45;-webkit-text-size-adjust:100%}
+.lf{font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans Telugu','Nirmala UI',sans-serif;font-optical-sizing:auto;color:${C.ink};line-height:1.45;-webkit-text-size-adjust:100%}
 .lf [hidden]{display:none!important}
 .lf button{cursor:pointer;font-family:inherit}
 .lf button:disabled{cursor:not-allowed}
