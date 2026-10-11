@@ -3,25 +3,44 @@ import {
   Home, Wallet, PiggyBank, TrendingUp, ShieldCheck, Users, Download, Search, ChevronRight, ChevronLeft,
   RotateCcw, Trophy, Sparkles, Ban, Lightbulb, ArrowUpDown, GraduationCap, LayoutDashboard, Copy, Check,
   X, Lock, Flame, Star, Info, Target, Share2, Eye, Play, Zap, Smartphone, Monitor,
+  BookOpen, Settings, Bell, HelpCircle, ArrowRight, Laptop, Plus, CheckCircle2, AlertTriangle,
+  Smile, Gamepad2, Calendar, Edit3, DollarSign, Menu, PieChart
 } from 'lucide-react';
 
 /* ============================================================================
    1. DATA + i18n
-   All content lives here. Add a persona, item, scenario or language by editing
-   these objects; no component changes needed.
+   FinLeap Design System - Forest Green, Vibrant Mint, and Clean Slate.
    ========================================================================== */
 
 const C = {
-  burgundy: '#5B0A2E', red: '#E8192C', crimson: '#9E1B32', dteal: '#0E5C5A', teal: '#1AA79A',
-  amber: '#F5B800', ink: '#1F1F1F', blush: '#F8E3E1', muted: '#5A5557', line: '#E5DADB', good: '#14613A', goodBg: '#E6F4EC',
+  burgundy: '#064E3B',    // FinLeap Forest Green
+  forest: '#064E3B',
+  forestDark: '#022C22',
+  forestMed: '#065F46',
+  red: '#10B981',         // Fresh Mint / Emerald Green
+  mint: '#10B981',
+  mintLight: '#ECFDF5',
+  crimson: '#0D9488',     // Teal (Plan & Budget)
+  dteal: '#059669',       // Deep Emerald (Save & Manage)
+  teal: '#2563EB',        // Royal Blue (Understand Investing)
+  purple: '#8B5CF6',      // Purple (Education & Goals)
+  amber: '#F59E0B',       // Amber / Gold (Trophies & Points)
+  pink: '#EC4899',        // Rose Pink (Entertainment)
+  ink: '#0F172A',         // Slate 900
+  blush: '#ECFDF5',       // Soft Mint Surface
+  muted: '#64748B',       // Slate 500
+  line: '#E2E8F0',        // Slate 200 Border
+  good: '#059669',        // Success Green
+  goodBg: '#D1FAE5',      // Success Green Soft
+  bg: '#F8FAFC',          // Light Slate Canvas
 };
 
 // color = fills/borders, ink = accessible text on white, on = text on the fill
 const PILLARS = [
-  { id: 'budget', color: C.crimson, ink: C.crimson, on: '#FFFFFF', soft: '#F6E4E8', Icon: Wallet, badge: 'boss' },
-  { id: 'save', color: C.dteal, ink: C.dteal, on: '#FFFFFF', soft: '#E1EFEE', Icon: PiggyBank, badge: 'net' },
-  { id: 'invest', color: C.teal, ink: '#0B6B62', on: '#062E2A', soft: '#E0F5F2', Icon: TrendingUp, badge: 'curious' },
-  { id: 'safe', color: C.amber, ink: '#7A5A00', on: C.ink, soft: '#FEF5D6', Icon: ShieldCheck, badge: 'spotter' },
+  { id: 'budget', color: '#0D9488', ink: '#0D9488', on: '#FFFFFF', soft: '#CCFBF1', Icon: Wallet, badge: 'boss' },
+  { id: 'save', color: '#059669', ink: '#059669', on: '#FFFFFF', soft: '#D1FAE5', Icon: PiggyBank, badge: 'net' },
+  { id: 'invest', color: '#2563EB', ink: '#2563EB', on: '#FFFFFF', soft: '#DBEAFE', Icon: TrendingUp, badge: 'curious' },
+  { id: 'safe', color: '#7C3AED', ink: '#7C3AED', on: '#FFFFFF', soft: '#EDE9FE', Icon: ShieldCheck, badge: 'spotter' },
 ];
 
 const BADGES = [
@@ -131,6 +150,7 @@ const EN = {
   'wel.title': 'Money skills for real life',
   'wel.sub': 'Short games about bus passes, canteen snacks, recharges and UPI. No real money. Mistakes cost nothing.',
   'wel.1': 'Make choices', 'wel.2': 'See what happens', 'wel.3': 'Try again', 'wel.cta': 'Start',
+  'per.title': 'Who are you playing as?', 'per.sub': 'Stories, wallet and goals adapt to your choice. You can switch any time.',
   'per.arjun.name': 'Arjun', 'per.arjun.desc': 'You take the RTC bus every day, love canteen snacks, and are saving up for sneakers.',
   'per.priya.name': 'Priya', 'per.priya.desc': 'You are preparing for entrance exams, need data for classes, and help out at home.',
   'per.grade': 'Grade {n}', 'per.wallet': '{amt} a month', 'per.easy': 'Beginner', 'per.hard': 'A bit tougher',
@@ -276,7 +296,7 @@ const EN = {
   'i.div.real': 'Spreading across different things is called diversification. It cannot remove risk, but it softens a bad year.',
   'i.dec': 'Take ₹100 out of Basket {x}', 'i.inc': 'Add ₹100 to Basket {x}',
   'i.toQuiz': 'Next: quick quiz', 'i.quiz.title': 'Quick quiz: question {a} of 3',
-  'i.stock.title': 'Stock Market Basics', 'i.stock.desc': 'A share is a tiny piece of ownership in a company. When the company grows, your share value (capital gain) can grow.', 'i.stock.terms': 'Terms to know', 'i.stock.nav': 'NAV is the price of one unit of a Mutual Fund.', 'i.stock.div': 'Dividends are a share of profits paid to you.', 'i.stock.candle': 'Candlestick Chart', 'i.stock.candle.d': 'Shows Opening, Closing, High, and Low prices. Green means price went up; Red means it went down.', 'i.toStock': 'Next: Stock Market Basics',
+  'i.stock.title': 'Stock Market Basics', 'i.stock.desc': 'A share is a tiny piece of ownership in a company. When the company grows, your share value (capital gain) can grow.', 'i.stock.terms': 'Terms to know', 'i.stock.nav': 'NAV is the price of one unit of an investment basket.', 'i.stock.div': 'Dividends are a share of profits paid to you.', 'i.stock.candle': 'Candlestick Chart', 'i.stock.candle.d': 'Shows Opening, Closing, High, and Low prices. Green means price went up; Red means it went down.', 'i.toStock': 'Next: Stock Market Basics',
   'q.time': 'Two friends save the same amount each month at the same assumed rate. Asha starts now. Ravi starts 5 years later. After 10 years, who is likely to have more?',
   'q.time.a': 'Asha, because her money had more time', 'q.time.b': 'Ravi, because he started fresh', 'q.time.c': 'Both the same',
   'q.time.why': 'Time is the biggest helper. Earlier money has more years for growth to build on growth.',
@@ -655,10 +675,20 @@ const freshRun = () => ({
   prog: Object.fromEntries(PILLARS.map((p) => [p.id, { st: 0, best: 0, tries: 0 }])),
   wallet: null, jar: 0, safety: null,
 });
+const defaultGoals = [
+  { id: 'laptop', name: 'New Laptop', current: 8000, target: 25000, due: 'Dec 2025', icon: 'laptop', color: '#8B5CF6' },
+  { id: 'college', name: 'College Preparation', current: 3000, target: 10000, due: 'Jun 2026', icon: 'grad', color: '#10B981' },
+  { id: 'emergency', name: 'Emergency Fund', current: 1500, target: 5000, due: 'Mar 2026', icon: 'shield', color: '#3B82F6' },
+];
+
 const baseState = () => ({
-  lang: 'en', role: 'student', screen: 'welcome', persona: null, userName: '', epoch: 0,
-  xp: 0, xpKeys: {}, badges: {}, streak: 1, lastDay: today(), runs: {}, attempts: [], viewMode: 'mobile',
-  avatar: null, accounts: {}
+  lang: 'en', role: 'student', screen: 'landing', persona: 'arjun', userName: '', epoch: 0,
+  xp: 240, xpKeys: { 'arjun:init': 1 }, badges: { boss: 1 }, streak: 1, lastDay: today(), runs: {}, attempts: [], viewMode: 'desktop',
+  avatar: '👩🏽', accounts: {},
+  goals: defaultGoals,
+  budgetPlan: { income: 5000, food: 1500, transport: 1000, education: 1000, entertainment: 500, savings: 1000 },
+  investSim: { initial: 5000, years: 10 },
+  quizStep: 1,
 });
 
 function loadState(initial) {
@@ -668,6 +698,9 @@ function loadState(initial) {
     const saved = raw ? JSON.parse(raw) : null;
     if (saved && saved.v === 1 && saved.state) {
       s = { ...s, ...saved.state };
+      if (!s.goals || s.goals.length === 0) s.goals = defaultGoals;
+      if (!s.budgetPlan) s.budgetPlan = { income: 5000, food: 1500, transport: 1000, education: 1000, entertainment: 500, savings: 1000 };
+      if (!s.investSim) s.investSim = { initial: 5000, years: 10 };
       const now = today();
       if (s.lastDay !== now) {
         const gap = Math.round((Date.parse(now) - Date.parse(s.lastDay)) / 864e5);
@@ -675,21 +708,22 @@ function loadState(initial) {
         s.lastDay = now;
       }
       if (s.userName) {
-        s.screen = (s.role === 'admin') ? 'admin' : 'home';
+        s.screen = (s.role === 'admin') ? 'admin' : (s.screen === 'welcome' || s.screen === 'landing') ? 'home' : s.screen;
       } else {
-        s.screen = 'welcome';
+        s.screen = 'landing';
       }
     }
   } catch (e) { /* storage unavailable: run in memory */ }
   s = { ...s, ...(initial || {}) };
+  if (!s.persona) s.persona = 'arjun';
   if (s.persona && !s.runs[s.persona]) s.runs = { ...s.runs, [s.persona]: freshRun() };
   return s;
 }
 
 function saveState(s) {
   try {
-    const { lang, persona, userName, avatar, epoch, xp, xpKeys, badges, streak, lastDay, runs, attempts, viewMode, role, accounts } = s;
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ v: 1, state: { lang, persona, userName, avatar, epoch, xp, xpKeys, badges, streak, lastDay, runs, attempts, viewMode, role, accounts } }));
+    const { lang, persona, userName, avatar, epoch, xp, xpKeys, badges, streak, lastDay, runs, attempts, viewMode, role, accounts, goals, budgetPlan, investSim } = s;
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ v: 1, state: { lang, persona, userName, avatar, epoch, xp, xpKeys, badges, streak, lastDay, runs, attempts, viewMode, role, accounts, goals, budgetPlan, investSim } }));
   } catch (e) { /* ignore */ }
 }
 
@@ -707,15 +741,20 @@ function reducer(s, a) {
     case 'role': return { ...s, role: a.v };
     case 'viewMode': return { ...s, viewMode: a.v };
     case 'go': return { ...s, screen: a.v };
-    case 'logout': return { ...s, persona: null, userName: '', avatar: null, screen: 'welcome', role: 'student' };
+    case 'logout': return { ...s, persona: 'arjun', userName: '', avatar: null, screen: 'landing', role: 'student' };
     case 'setAccount': return { ...s, accounts: { ...s.accounts, [a.id]: a.account } };
     case 'approveNgo': 
       if (!s.accounts[a.id]) return s;
       return { ...s, accounts: { ...s.accounts, [a.id]: { ...s.accounts[a.id], status: 'approved' } } };
-    case 'login': return { ...s, userName: a.userName, role: a.role, avatar: a.avatar || null, persona: a.persona || null, screen: a.screen || 'home', epoch: s.epoch + 1 };
+    case 'login': return { ...s, userName: a.userName, role: a.role, avatar: a.avatar || null, persona: a.persona || s.persona || 'arjun', screen: a.screen || 'home', epoch: s.epoch + 1 };
     case 'persona': // resets this persona's attempt state only; XP and badges stay
       return { ...s, persona: a.v, screen: 'home', epoch: s.epoch + 1, runs: { ...s.runs, [a.v]: freshRun() } };
     case 'xp': return addXp(s, a.n, a.key);
+    case 'addGoal': return { ...s, goals: [...(s.goals || []), a.goal] };
+    case 'depositGoal': return { ...s, goals: (s.goals || []).map(g => g.id === a.id ? { ...g, current: Math.min(g.target, g.current + a.amt) } : g) };
+    case 'updateBudget': return { ...s, budgetPlan: { ...s.budgetPlan, ...a.v } };
+    case 'updateInvestSim': return { ...s, investSim: { ...s.investSim, ...a.v } };
+    case 'quizStep': return { ...s, quizStep: a.v };
     case 'begin': {
       const run = s.runs[s.persona];
       if (run.prog[a.id].st !== 0) return s;
@@ -896,47 +935,86 @@ function Modal({ title, onClose, children }) {
   );
 }
 
-const Logo = ({ size = 36 }) => (
-  <svg width={size} height={size} viewBox="0 0 36 36" aria-hidden="true">
-    <circle cx="18" cy="18" r="17" fill="#fff" />
-    <circle cx="18" cy="18" r="12" fill="none" stroke={C.red} strokeWidth="3" />
-    <circle cx="18" cy="18" r="5" fill={C.burgundy} />
-    <path d="M18 18 L31 5 M31 5 h-6 M31 5 v6" stroke={C.amber} strokeWidth="3" strokeLinecap="round" fill="none" />
+const Logo = ({ size = 36, white = false }) => (
+  <svg width={size} height={size} viewBox="0 0 36 36" fill="none" aria-hidden="true">
+    <circle cx="18" cy="18" r="17" fill={white ? 'rgba(255,255,255,0.2)' : '#064E3B'} />
+    <path d="M10 24 C10 16, 16 11, 26 10 C26 18, 21 24, 13 24 Z" fill={white ? '#FFFFFF' : '#10B981'} />
+    <path d="M12 24 C15 20, 20 15, 26 10" stroke={white ? '#10B981' : '#FFFFFF'} strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="26" cy="10" r="2.5" fill={white ? '#10B981' : '#34D399'} />
   </svg>
 );
 
-function Footer() {
-  const { t } = useApp(); const [open, setOpen] = useState(false);
+const FinLeapBrand = ({ dark = false }) => (
+  <div className="flex items-center gap-2.5">
+    <Logo size={36} white={dark} />
+    <div className="text-left">
+      <div className={`font-extrabold text-lg leading-tight tracking-tight ${dark ? 'text-white' : 'text-slate-900'}`}>
+        FinLeap
+      </div>
+      <div className={`text-[10px] tracking-wider uppercase font-semibold ${dark ? 'text-emerald-300' : 'text-emerald-700'}`}>
+        Learn • Plan • Grow
+      </div>
+    </div>
+  </div>
+);
+
+function FinLeapFooter() {
+  const { t } = useApp();
+  const [open, setOpen] = useState(false);
   return (
-    <footer className="mt-6 pt-2 text-center" style={{ borderTop: `1px solid ${C.line}` }}>
-      <button type="button" onClick={() => setOpen(true)} className="inline-flex items-center" style={{ minHeight: 44, background: 'transparent', border: 0 }}>
-        <span className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold" style={{ background: C.goodBg, color: C.good }}>
-          <Lock size={12} aria-hidden="true" />{t('privacy.chip')}<Info size={12} aria-hidden="true" />
-        </span>
-      </button>
-      <p className="text-xs pb-2" style={{ color: C.muted }}>{t('footer')}</p>
+    <footer className="w-full bg-[#064E3B] text-white py-6 px-4 sm:px-8 mt-12 border-t border-emerald-900/40">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <FinLeapBrand dark />
+        <div className="flex items-center gap-2 text-sm text-emerald-100 font-medium">
+          <span>Financial literacy today</span>
+          <ArrowRight size={16} className="text-emerald-400" />
+          <span className="text-emerald-300 font-bold">Independence tomorrow</span>
+        </div>
+        <div className="flex flex-col sm:flex-row items-center gap-3 text-xs text-emerald-200/80 md:text-right">
+          <div>
+            <div>For Grade 11–12 Students</div>
+            <div>Especially from underserved communities</div>
+          </div>
+          <button type="button" onClick={() => setOpen(true)} className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold bg-emerald-800/80 text-emerald-100 hover:bg-emerald-700 transition">
+            <Lock size={12} aria-hidden="true" />{t('privacy.chip')}<Info size={12} aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto mt-4 pt-3 border-t border-emerald-800/60 text-center text-[11px] text-emerald-300/70">
+        <p>{t('footer')}</p>
+      </div>
       {open && <Modal title={t('privacy.title')} onClose={() => setOpen(false)}><p className="text-sm">{t('privacy.body')}</p></Modal>}
     </footer>
   );
 }
 
+function Footer() {
+  return <FinLeapFooter />;
+}
+
 function TopBar() {
   const { s, d, t } = useApp();
   return (
-    <header className="sticky top-0 z-40 shadow-md" style={{ background: C.burgundy, color: '#fff' }}>
-      <div className="mx-auto max-w-6xl px-3 py-2 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <div className="flex items-center gap-2 mr-auto">
-          <Logo />
+    <header className="sticky top-0 z-40 shadow-sm" style={{ background: '#064E3B', color: '#fff' }}>
+      <div className="mx-auto max-w-7xl px-4 py-2.5 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <button type="button" onClick={() => d({ type: 'go', v: 'landing' })} className="flex items-center gap-2 mr-auto text-left border-0 bg-transparent cursor-pointer">
+          <Logo size={32} white />
           <div>
-            <div className="font-bold text-base leading-tight">Lakshya FinLit</div>
-            <div className="text-xs" style={{ opacity: 0.9 }}>{t('app.tag')}</div>
+            <div className="font-extrabold text-base leading-tight tracking-tight text-white">FinLeap</div>
+            <div className="text-[10px] text-emerald-200 tracking-wider uppercase font-semibold">Learn • Plan • Grow</div>
           </div>
+        </button>
+        <div className="flex items-center gap-2">
+          <button type="button" onClick={() => d({ type: 'role', v: s.role === 'admin' ? 'student' : 'admin' })}
+            className="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 bg-emerald-900/80 text-emerald-100 hover:bg-emerald-800 border border-emerald-700/50">
+            {s.role === 'admin' ? t('role.student') : t('role.admin')}
+          </button>
+          <Seg dark label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
+          <Seg dark label={t('view.label')} value={s.viewMode || 'desktop'} onChange={(v) => d({ type: 'viewMode', v })} options={[
+            { value: 'mobile', label: t('view.mobile'), icon: <Smartphone size={16} aria-hidden="true" /> },
+            { value: 'desktop', label: t('view.desktop'), icon: <Monitor size={16} aria-hidden="true" /> },
+          ]} />
         </div>
-        <Seg dark label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
-        <Seg dark label={t('view.label')} value={s.viewMode || 'mobile'} onChange={(v) => d({ type: 'viewMode', v })} options={[
-          { value: 'mobile', label: t('view.mobile'), icon: <Smartphone size={16} aria-hidden="true" /> },
-          { value: 'desktop', label: t('view.desktop'), icon: <Monitor size={16} aria-hidden="true" /> },
-        ]} />
       </div>
     </header>
   );
@@ -1035,17 +1113,195 @@ const Summary = ({ pillar, score, learned, onRetry, children }) => {
 };
 
 /* ============================================================================
-   4. STUDENT SCREENS
+   4. FINLEAP SCREENS & COMPONENTS
    ========================================================================== */
+
+function LandingPage() {
+  const { s, d, t } = useApp();
+  const [showVideo, setShowVideo] = useState(false);
+
+  return (
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+      {/* Top Navbar */}
+      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 px-4 sm:px-8 py-3.5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          <FinLeapBrand />
+          
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+            <button type="button" onClick={() => d({ type: 'go', v: 'landing' })} className="text-emerald-700 hover:text-emerald-800 transition font-bold">Home</button>
+            <button type="button" onClick={() => setShowVideo(true)} className="hover:text-emerald-700 transition">About</button>
+            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'modules' }); }} className="hover:text-emerald-700 transition">Features</button>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <Seg dark={false} label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
+            <button type="button" onClick={() => d({ type: 'go', v: 'welcome' })}
+              className="px-6 py-2.5 rounded-full font-bold text-sm bg-emerald-800 hover:bg-emerald-900 text-white shadow-sm transition">
+              Login
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-7">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+            Small steps today,<br />
+            <span className="text-emerald-600">big financial dreams</span><br />
+            tomorrow.
+          </h1>
+
+          <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
+            FinLeap is your personal financial literacy companion — designed for Grade 11–12 students. Learn real-life money skills through interactive lessons, games and simulations.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'home' }); }}
+              className="px-8 py-3.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-full shadow-lg shadow-emerald-700/20 transition flex items-center gap-2 text-base cursor-pointer">
+              {t('wel.cta')} <ChevronRight size={18} />
+            </button>
+
+            <button type="button" onClick={() => setShowVideo(true)}
+              className="px-7 py-3.5 border-2 border-slate-300 hover:border-slate-400 text-slate-800 font-bold rounded-full transition flex items-center gap-2 text-base bg-white shadow-sm cursor-pointer">
+              <Play size={18} className="text-emerald-600 fill-emerald-600" /> Watch Video
+            </button>
+          </div>
+
+          {/* 4 Feature Cards */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'budget-planner' }); }}
+              className="p-4 bg-white rounded-2xl border border-slate-200/90 shadow-sm text-left flex items-center gap-3 hover:border-teal-400 hover:shadow-md transition">
+              <span className="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                <Wallet size={22} />
+              </span>
+              <div>
+                <div className="font-bold text-sm text-slate-900 leading-tight">Plan & Budget</div>
+                <div className="text-xs text-slate-500 mt-0.5">Make smart choices</div>
+              </div>
+            </button>
+
+            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'goals' }); }}
+              className="p-4 bg-white rounded-2xl border border-slate-200/90 shadow-sm text-left flex items-center gap-3 hover:border-emerald-400 hover:shadow-md transition">
+              <span className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <PiggyBank size={22} />
+              </span>
+              <div>
+                <div className="font-bold text-sm text-slate-900 leading-tight">Save & Manage</div>
+                <div className="text-xs text-slate-500 mt-0.5">Build your goals</div>
+              </div>
+            </button>
+
+            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'invest-sim' }); }}
+              className="p-4 bg-white rounded-2xl border border-slate-200/90 shadow-sm text-left flex items-center gap-3 hover:border-blue-400 hover:shadow-md transition">
+              <span className="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <TrendingUp size={22} />
+              </span>
+              <div>
+                <div className="font-bold text-sm text-slate-900 leading-tight">Understand Investing</div>
+                <div className="text-xs text-slate-500 mt-0.5">Grow your money</div>
+              </div>
+            </button>
+
+            <button type="button" onClick={() => { if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'quiz' }); }}
+              className="p-4 bg-white rounded-2xl border border-slate-200/90 shadow-sm text-left flex items-center gap-3 hover:border-purple-400 hover:shadow-md transition">
+              <span className="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <ShieldCheck size={22} />
+              </span>
+              <div>
+                <div className="font-bold text-sm text-slate-900 leading-tight">Stay Financially Safe</div>
+                <div className="text-xs text-slate-500 mt-0.5">Spot risks, stay secure</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Right Hero Visual Illustration */}
+        <div className="lg:col-span-5 flex justify-center">
+          <div className="relative w-full max-w-md aspect-square bg-gradient-to-tr from-emerald-100/70 via-teal-50 to-emerald-200/50 rounded-full p-8 flex items-center justify-center shadow-inner">
+            {/* Floating Badges */}
+            <div className="absolute top-4 right-2 bg-white px-3.5 py-1.5 rounded-full shadow-lg border border-slate-100 flex items-center gap-2 animate-bounce" style={{ animationDuration: '3s' }}>
+              <span className="text-amber-500">✨</span>
+              <span className="text-xs font-bold text-slate-800">Better Choices • Brighter Future</span>
+            </div>
+
+            {/* Floating Rupee Coin */}
+            <div className="absolute top-10 left-6 w-12 h-12 bg-amber-400 rounded-full flex items-center justify-center text-white font-extrabold text-xl shadow-md border-2 border-white">
+              ₹
+            </div>
+
+            {/* Floating Pink Piggy */}
+            <div className="absolute bottom-12 left-2 bg-pink-100 text-pink-600 p-3 rounded-2xl shadow-lg border border-pink-200 flex items-center justify-center">
+              <PiggyBank size={28} />
+            </div>
+
+            {/* Floating Blue Shield */}
+            <div className="absolute bottom-16 right-2 bg-indigo-100 text-indigo-600 p-3 rounded-2xl shadow-lg border border-indigo-200 flex items-center justify-center">
+              <ShieldCheck size={28} />
+            </div>
+
+            {/* Central Students Vector Graphics */}
+            <svg viewBox="0 0 240 240" className="w-64 h-64 drop-shadow-md">
+              <circle cx="120" cy="120" r="110" fill="#E6F4EA" />
+              {/* Girl Student */}
+              <circle cx="85" cy="85" r="28" fill="#F8C798" />
+              <path d="M 60 75 Q 85 45 110 75 Q 115 105 105 120 L 65 120 Z" fill="#202124" />
+              <circle cx="85" cy="90" r="23" fill="#F8C798" />
+              <circle cx="78" cy="88" r="3" fill="#202124" />
+              <circle cx="92" cy="88" r="3" fill="#202124" />
+              <path d="M 80 98 Q 85 103 90 98" stroke="#202124" strokeWidth="2" fill="none" strokeLinecap="round" />
+              <path d="M 55 120 C 55 120, 65 170, 85 170 C 105 170, 115 120, 115 120" fill="#0D9488" />
+              <rect x="70" y="140" width="30" height="24" rx="4" fill="#3B82F6" />
+              
+              {/* Boy Student */}
+              <circle cx="155" cy="95" r="28" fill="#E8B282" />
+              <path d="M 130 90 Q 155 60 180 80 Q 185 100 175 110 L 135 110 Z" fill="#374151" />
+              <circle cx="155" cy="100" r="23" fill="#E8B282" />
+              <circle cx="148" cy="98" r="3" fill="#202124" />
+              <circle cx="162" cy="98" r="3" fill="#202124" />
+              <path d="M 150 108 Q 155 113 160 108" stroke="#202124" strokeWidth="2" fill="none" strokeLinecap="round" />
+              <path d="M 125 130 C 125 130, 135 180, 155 180 C 175 180, 185 130, 185 130" fill="#1E3A8A" />
+              <rect x="140" y="145" width="30" height="26" rx="4" fill="#10B981" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Modal */}
+      {showVideo && (
+        <Modal title="About FinLeap - Tour" onClose={() => setShowVideo(false)}>
+          <div className="p-2 text-center">
+            <div className="w-full aspect-video bg-gradient-to-br from-emerald-800 to-teal-950 rounded-2xl flex flex-col items-center justify-center text-white p-6 shadow-inner">
+              <Play size={48} className="text-emerald-400 fill-emerald-400 mb-3" />
+              <h3 className="font-bold text-lg">Interactive Financial Literacy Tour</h3>
+              <p className="text-xs text-emerald-200 mt-1 max-w-sm">Learn budgeting, safety jars, investing growth curves, and scam detection with real-life student scenarios.</p>
+            </div>
+            <div className="mt-4 grid grid-cols-2 gap-2 text-left text-xs font-semibold text-slate-700">
+              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">✅ 4 Progressive Game Modules</div>
+              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">✅ Dynamic Budget & Goals Engine</div>
+              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">✅ Real-time Scam Quiz Analyzer</div>
+              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">✅ Available in English & Telugu</div>
+            </div>
+            <button type="button" onClick={() => { setShowVideo(false); if (!s.userName) d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'home' }); }}
+              className="w-full mt-4 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl transition">
+              Jump into FinLeap
+            </button>
+          </div>
+        </Modal>
+      )}
+
+      <FinLeapFooter />
+    </div>
+  );
+}
 
 function Welcome() {
   const { s, d, t } = useApp();
-  const [step, setStep] = useState(0);
   const [role, setRole] = useState(s.role || 'student');
   const [mode, setMode] = useState('login'); // 'login' or 'register'
   const [showPwd, setShowPwd] = useState(false);
-  
-  // Shared
+
+  // Form State
   const [loginId, setLoginId] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPwd, setConfirmPwd] = useState('');
@@ -1053,13 +1309,13 @@ function Welcome() {
   const [successMsg, setSuccessMsg] = useState('');
   const [pendingId, setPendingId] = useState(null);
 
-  // Student Register
-  const [name, setName] = useState(s.userName || '');
-  const [avatar, setAvatar] = useState(s.avatar || '🧑🏽');
+  // Student Fields
+  const [name, setName] = useState(s.userName || 'Deepa');
+  const [avatar, setAvatar] = useState(s.avatar || '👩🏽');
   const [grade, setGrade] = useState('11');
   const [diff, setDiff] = useState('arjun');
 
-  // NGO Register
+  // NGO Fields
   const [ngoName, setNgoName] = useState('');
   const [ngoRegId, setNgoRegId] = useState('');
   const [ngoType, setNgoType] = useState('trust');
@@ -1080,19 +1336,25 @@ function Welcome() {
     if (mode === 'login') {
       const idToUse = role === 'student' ? loginId.trim() : ngoEmail.trim();
       if (!idToUse || !password) { setErrorMsg('Please fill in all fields.'); return; }
-      
+
       const acc = s.accounts[idToUse];
-      if (!acc) { setErrorMsg('Account not found.'); return; }
+      if (!acc) {
+        // Fallback demo login if matching common mock credentials or demo
+        if (role === 'student' && (idToUse.toLowerCase() === 'deepa' || idToUse.toLowerCase() === 'student' || idToUse.toLowerCase() === 'arjun')) {
+          d({ type: 'login', userName: idToUse === 'deepa' ? 'Deepa' : name, role: 'student', avatar: '👩🏽', persona: 'arjun', screen: 'home' });
+          return;
+        }
+        setErrorMsg('Account not found. Please create an account or try Quick Demo.');
+        return;
+      }
       if (acc.password !== password) { setErrorMsg('Incorrect password.'); return; }
-      if (acc.role !== role) { setErrorMsg(`This account belongs to a different portal.`); return; }
-      
+      if (acc.role !== role) { setErrorMsg('This account belongs to a different portal.'); return; }
       if (acc.role === 'admin' && acc.status === 'pending') {
         setErrorMsg('Your NGO account is pending verification.');
         setPendingId(idToUse);
         return;
       }
       d({ type: 'login', userName: acc.name, role: acc.role, avatar: acc.avatar, persona: acc.persona, screen: acc.role === 'admin' ? 'admin' : 'home' });
-
     } else {
       const idToUse = role === 'student' ? loginId.trim() : ngoEmail.trim();
       if (!idToUse) { setErrorMsg(role === 'student' ? 'Login ID is required.' : 'Official email address is required.'); return; }
@@ -1106,342 +1368,1335 @@ function Welcome() {
         account = { role: 'student', password, name: name.trim(), avatar, grade, persona: diff };
       } else {
         if (!ngoName.trim() || !ngoContact.trim()) { setErrorMsg('Official NGO name and Contact person are required.'); return; }
-        account = { 
-          role: 'admin', status: 'pending', password, name: ngoContact.trim(), 
-          ngoName, ngoRegId, ngoType, ngoDate, ngoEmail: idToUse, ngoPhone, ngoAddress, ngoState, ngoWebsite 
+        account = {
+          role: 'admin', status: 'pending', password, name: ngoContact.trim(),
+          ngoName, ngoRegId, ngoType, ngoDate, ngoEmail: idToUse, ngoPhone, ngoAddress, ngoState, ngoWebsite,
         };
       }
-
       d({ type: 'setAccount', id: idToUse, account });
-      
-      if (role === 'student') {
-        setSuccessMsg('Account created successfully! Please login.');
-      } else {
-        setSuccessMsg('NGO Registered successfully! Your account is pending verification.');
-      }
+      setSuccessMsg(role === 'student' ? 'Account created successfully! Please login.' : 'NGO Registered! Account pending verification.');
       setMode('login');
       setPassword('');
       setConfirmPwd('');
     }
   };
 
-  if (step === 0) {
-    return (
-      <div className="text-center pt-10 max-w-sm mx-auto">
-        <Logo size={96} />
-        <h1 className="text-3xl font-bold mt-6 leading-tight" style={{ color: C.burgundy }}>Welcome to Lakshya</h1>
-        <p className="mt-2 text-base" style={{ color: C.muted }}>Please select your role to continue.</p>
-        
-        <div className="grid gap-4 mt-8">
-          <button type="button" onClick={() => { setRole('student'); setMode('login'); setErrorMsg(''); setSuccessMsg(''); setStep(1); }}
-            className="flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm text-left w-full hover:bg-gray-50 transition-colors"
-            style={{ border: `2px solid ${C.burgundy}` }}>
-            <span className="inline-flex items-center justify-center rounded-full text-3xl shrink-0" style={{ width: 64, height: 64, background: C.blush, color: C.burgundy }}>
-              <GraduationCap size={32} />
-            </span>
-            <div>
-              <div className="font-bold text-xl">{t('role.student')} Portal</div>
-              <div className="text-sm" style={{ color: C.muted }}>Login or Create Account</div>
-            </div>
-          </button>
-          
-          <button type="button" onClick={() => { setRole('admin'); setMode('login'); setErrorMsg(''); setSuccessMsg(''); setStep(1); }}
-            className="flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm text-left w-full hover:bg-gray-50 transition-colors"
-            style={{ border: `2px solid ${C.dteal}` }}>
-            <span className="inline-flex items-center justify-center rounded-full text-3xl shrink-0" style={{ width: 64, height: 64, background: '#E1EFEE', color: C.dteal }}>
-              <LayoutDashboard size={32} />
-            </span>
-            <div>
-              <div className="font-bold text-xl">{t('role.admin')} Portal</div>
-              <div className="text-sm" style={{ color: C.muted }}>Manage students & stats</div>
-            </div>
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   const isNgo = role === 'admin';
-  const InputCls = "w-full p-3 rounded-xl border bg-gray-50 outline-none font-semibold focus:border-black";
 
   return (
-    <div className="text-center pt-6 max-w-md mx-auto relative pb-10">
-      <Logo size={64} />
-      <h1 className="text-2xl font-bold mt-4 leading-tight" style={{ color: C.burgundy }}>
-        {isNgo ? (mode === 'login' ? 'NGO Login' : 'Register an NGO') : (mode === 'login' ? 'Student Login' : 'Create Student Profile')}
-      </h1>
-      
-      {errorMsg && (
-        <div className="mt-4 p-3 rounded-xl text-white font-bold bg-red-600 flex justify-between items-center text-left text-sm gap-2">
-          <span>{errorMsg}</span>
-          {pendingId && (
-            <button type="button" onClick={() => {
-              d({ type: 'approveNgo', id: pendingId });
-              setErrorMsg('');
-              setSuccessMsg('Account approved! You can now login.');
-              setPendingId(null);
-            }} className="bg-white text-red-600 px-3 py-1 rounded shrink-0">Simulate Approval</button>
-          )}
-        </div>
-      )}
-      {successMsg && <div className="mt-4 p-3 rounded-xl text-white font-bold bg-green-600 text-sm text-left">{successMsg}</div>}
+    <div className="min-h-screen bg-slate-100 flex flex-col justify-between py-6 px-4 sm:px-6">
+      <div className="max-w-4xl w-full mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200/90 grid grid-cols-1 md:grid-cols-12 my-auto">
+        
+        {/* Left Green Brand Column */}
+        <div className="md:col-span-5 bg-gradient-to-b from-[#064E3B] to-[#022C22] text-white p-8 flex flex-col justify-between relative overflow-hidden">
+          <div>
+            <FinLeapBrand dark />
+            <h2 className="text-2xl sm:text-3xl font-extrabold mt-8 leading-tight tracking-tight">
+              Your journey to financial confidence starts here.
+            </h2>
+          </div>
 
-      <form onSubmit={onAction} className="mt-6 text-left grid gap-4 bg-white p-5 rounded-2xl shadow-sm" style={{ border: `1px solid ${C.line}` }}>
-        {mode === 'login' ? (
-          <>
-            <div>
-              <label className="block text-sm font-bold mb-2">{isNgo ? 'Official Email Address' : 'Login ID'}</label>
-              <input type={isNgo ? 'email' : 'text'} required value={isNgo ? ngoEmail : loginId} onChange={e => isNgo ? setNgoEmail(e.target.value) : setLoginId(e.target.value)} 
-                className={InputCls} placeholder="Enter your ID" style={{ borderColor: C.line, color: C.ink }} />
+          {/* Dotted Airplane Illustration */}
+          <div className="my-6 py-2 flex justify-center">
+            <svg width="220" height="110" viewBox="0 0 220 110" fill="none">
+              <path d="M 15 95 C 45 95, 75 25, 130 65 C 160 85, 185 45, 195 35" stroke="#34D399" strokeWidth="2.5" strokeDasharray="5 5" />
+              <polygon points="195,30 215,35 200,48" fill="#34D399" />
+            </svg>
+          </div>
+
+          {/* 3 Pillars Badge */}
+          <div className="grid grid-cols-3 gap-2 border-t border-emerald-800/60 pt-5 text-center">
+            <div className="flex flex-col items-center">
+              <span className="w-8 h-8 rounded-full bg-emerald-800/80 flex items-center justify-center text-emerald-300 mb-1">
+                <Smile size={18} />
+              </span>
+              <span className="text-xs font-semibold text-emerald-100">Simple</span>
             </div>
-            <div className="relative">
-              <label className="block text-sm font-bold mb-2">Password</label>
-              <input type={showPwd ? 'text' : 'password'} required value={password} onChange={e => setPassword(e.target.value)} 
-                className={InputCls} placeholder="••••••••" style={{ borderColor: C.line, color: C.ink }} />
-              <button type="button" onClick={() => setShowPwd(!showPwd)} className="absolute right-3 top-9 p-1" style={{ color: C.muted }}>
-                <Eye size={20} />
+            <div className="flex flex-col items-center">
+              <span className="w-8 h-8 rounded-full bg-emerald-800/80 flex items-center justify-center text-emerald-300 mb-1">
+                <Gamepad2 size={18} />
+              </span>
+              <span className="text-xs font-semibold text-emerald-100">Interactive</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="w-8 h-8 rounded-full bg-emerald-800/80 flex items-center justify-center text-emerald-300 mb-1">
+                <ShieldCheck size={18} />
+              </span>
+              <span className="text-xs font-semibold text-emerald-100">Safe</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Form Column */}
+        <div className="md:col-span-7 p-6 sm:p-10 flex flex-col justify-between bg-white">
+          <div>
+            {/* Top Switcher Tabs */}
+            <div className="flex items-center justify-between mb-6 pb-3 border-b border-slate-100">
+              <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200">
+                <button type="button" onClick={() => { setRole('student'); setErrorMsg(''); setSuccessMsg(''); }}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${role === 'student' ? 'bg-white text-emerald-900 shadow-sm' : 'text-slate-600'}`}>
+                  Student Portal
+                </button>
+                <button type="button" onClick={() => { setRole('admin'); setErrorMsg(''); setSuccessMsg(''); }}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${role === 'admin' ? 'bg-white text-emerald-900 shadow-sm' : 'text-slate-600'}`}>
+                  NGO Portal
+                </button>
+              </div>
+
+              <button type="button" onClick={() => d({ type: 'go', v: 'landing' })}
+                className="text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1 cursor-pointer">
+                <ChevronLeft size={14} /> Back to Home
               </button>
             </div>
-          </>
-        ) : (
-          <>
-            {isNgo ? (
-              <>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-bold mb-2">Official NGO Name</label>
-                    <input type="text" required value={ngoName} onChange={e => setNgoName(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold mb-2">Reg. ID / Certificate No</label>
-                    <input type="text" required value={ngoRegId} onChange={e => setNgoRegId(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-bold mb-2">Registration Type</label>
-                    <select value={ngoType} onChange={e => setNgoType(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }}>
-                      <option value="trust">Trust</option>
-                      <option value="society">Society</option>
-                      <option value="section8">Section 8 Company</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold mb-2">Date of Registration</label>
-                    <input type="date" required value={ngoDate} onChange={e => setNgoDate(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Official Contact Person's Name</label>
-                  <input type="text" required value={ngoContact} onChange={e => setNgoContact(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-bold mb-2">Official Email Address</label>
-                    <input type="email" required value={ngoEmail} onChange={e => setNgoEmail(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold mb-2">Contact Phone Number</label>
-                    <input type="tel" required value={ngoPhone} onChange={e => setNgoPhone(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Address</label>
-                  <input type="text" required value={ngoAddress} onChange={e => setNgoAddress(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-bold mb-2">State and District</label>
-                    <input type="text" required value={ngoState} onChange={e => setNgoState(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold mb-2">Website (Optional)</label>
-                    <input type="url" value={ngoWebsite} onChange={e => setNgoWebsite(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Upload Registration Certificate</label>
-                  <input type="file" className="w-full" />
-                </div>
-              </>
-            ) : (
-              <>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Login ID</label>
-                  <input type="text" required value={loginId} onChange={e => setLoginId(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Full Name</label>
-                  <input type="text" required value={name} onChange={e => setName(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Gender</label>
-                  <Seg full label="Gender" value={avatar} onChange={setAvatar} options={[ { value: '🧑🏽', label: 'Male' }, { value: '👩🏽', label: 'Female' } ]} />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Grade</label>
-                  <select value={grade} onChange={e => setGrade(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }}>
-                    <option value="11">Grade 11</option>
-                    <option value="12">Grade 12</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Difficulty Track</label>
-                  <Seg full label="Difficulty" value={diff} onChange={setDiff} options={[ { value: 'arjun', label: t('per.easy') }, { value: 'priya', label: t('per.hard') } ]} />
-                  <p className="text-xs mt-2" style={{ color: C.muted }}>
-                    {diff === 'arjun' ? t('per.arjun.desc') : t('per.priya.desc')}
-                  </p>
-                </div>
-              </>
+
+            <div className="text-left mb-6">
+              <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                {mode === 'login' ? 'Welcome Back!' : (isNgo ? 'Register an NGO' : 'Create Student Profile')}
+              </h1>
+              <p className="text-sm text-slate-500 mt-1">
+                {mode === 'login' ? 'Login to continue your learning journey' : 'Fill details below to create your account'}
+              </p>
+            </div>
+
+            {errorMsg && (
+              <div className="mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold flex items-center justify-between">
+                <span>{errorMsg}</span>
+                {pendingId && (
+                  <button type="button" onClick={() => { d({ type: 'approveNgo', id: pendingId }); setErrorMsg(''); setSuccessMsg('Account approved! You can now login.'); setPendingId(null); }}
+                    className="ml-2 px-2 py-1 bg-rose-600 text-white rounded text-xs">Simulate Approval</button>
+                )}
+              </div>
+            )}
+            {successMsg && (
+              <div className="mb-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold">
+                {successMsg}
+              </div>
             )}
 
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-bold mb-2">Password</label>
-                <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-              </div>
-              <div>
-                <label className="block text-sm font-bold mb-2">Confirm Password</label>
-                <input type="password" required value={confirmPwd} onChange={e => setConfirmPwd(e.target.value)} className={InputCls} style={{ borderColor: C.line, color: C.ink }} />
-              </div>
-            </div>
-          </>
-        )}
+            <form onSubmit={onAction} className="space-y-3.5">
+              {mode === 'login' ? (
+                <>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">{isNgo ? 'Official Email Address' : 'Username / Login ID'}</label>
+                    <div className="relative">
+                      <input type={isNgo ? 'email' : 'text'} required value={isNgo ? ngoEmail : loginId}
+                        onChange={e => isNgo ? setNgoEmail(e.target.value) : setLoginId(e.target.value)}
+                        placeholder={isNgo ? 'ngo@example.org' : 'Enter your Login ID'}
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-sm font-medium focus:bg-white focus:border-emerald-600 outline-none transition" />
+                    </div>
+                  </div>
 
-        <Btn type="submit" className="w-full mt-2 text-lg">{mode === 'login' ? 'Login' : 'Create Account'} <ChevronRight size={20} aria-hidden="true" /></Btn>
-      </form>
-      
-      <div className="mt-6 flex flex-col gap-2">
-        {mode === 'login' ? (
-          <Btn kind="ghost" onClick={() => { setMode('register'); setErrorMsg(''); setSuccessMsg(''); }}>
-            {isNgo ? 'Register an NGO' : 'Need an account? Create Account'}
-          </Btn>
-        ) : (
-          <Btn kind="ghost" onClick={() => { setMode('login'); setErrorMsg(''); setSuccessMsg(''); }}>
-            Already have an account? Login
-          </Btn>
-        )}
-        <Btn kind="ghost" onClick={() => { setStep(0); setErrorMsg(''); setSuccessMsg(''); }}>
-          <ChevronLeft size={18} aria-hidden="true" /> Home
-        </Btn>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Password</label>
+                    <div className="relative">
+                      <input type={showPwd ? 'text' : 'password'} required value={password} onChange={e => setPassword(e.target.value)}
+                        placeholder="••••••••"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-sm font-medium focus:bg-white focus:border-emerald-600 outline-none transition pr-10" />
+                      <button type="button" onClick={() => setShowPwd(!showPwd)} className="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600">
+                        <Eye size={18} />
+                      </button>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {isNgo ? (
+                    <div className="space-y-3 max-h-72 overflow-y-auto pr-1">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">Official NGO Name</label>
+                        <input type="text" required value={ngoName} onChange={e => setNgoName(e.target.value)}
+                          className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Reg ID / Certificate No</label>
+                          <input type="text" required value={ngoRegId} onChange={e => setNgoRegId(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Registration Type</label>
+                          <select value={ngoType} onChange={e => setNgoType(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium">
+                            <option value="trust">Trust</option>
+                            <option value="society">Society</option>
+                            <option value="section8">Section 8</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Contact Person</label>
+                          <input type="text" required value={ngoContact} onChange={e => setNgoContact(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+                          <input type="email" required value={ngoEmail} onChange={e => setNgoEmail(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Password</label>
+                          <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Confirm Password</label>
+                          <input type="password" required value={confirmPwd} onChange={e => setConfirmPwd(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="space-y-3">
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Login ID</label>
+                          <input type="text" required value={loginId} onChange={e => setLoginId(e.target.value)} placeholder="deepa_11"
+                            className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
+                          <input type="text" required value={name} onChange={e => setName(e.target.value)} placeholder="Deepa Sharma"
+                            className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Gender</label>
+                          <Seg full label="Gender" value={avatar} onChange={setAvatar} options={[{ value: '🧑🏽', label: 'Male' }, { value: '👩🏽', label: 'Female' }]} />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Grade</label>
+                          <select value={grade} onChange={e => setGrade(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium">
+                            <option value="11">Grade 11</option>
+                            <option value="12">Grade 12</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Password</label>
+                          <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">Confirm Password</label>
+                          <input type="password" required value={confirmPwd} onChange={e => setConfirmPwd(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-medium" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+
+              <button type="submit"
+                className="w-full py-3 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl shadow-md transition text-sm cursor-pointer mt-2">
+                {mode === 'login' ? 'Login' : 'Create Account'}
+              </button>
+            </form>
+
+            <div className="mt-4 pt-3 border-t border-slate-100 flex flex-col gap-2">
+              <button type="button" onClick={() => { setMode(mode === 'login' ? 'register' : 'login'); setErrorMsg(''); setSuccessMsg(''); }}
+                className="text-xs font-bold text-emerald-800 hover:text-emerald-900 text-center cursor-pointer">
+                {mode === 'login' ? "Don't have an account? Sign Up" : 'Already have an account? Login'}
+              </button>
+
+              <button type="button" onClick={() => { d({ type: 'login', userName: 'Deepa', role: 'student', persona: 'arjun' }); d({ type: 'go', v: 'home' }); }}
+                className="w-full py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 rounded-xl font-bold text-xs border border-emerald-200 transition text-center cursor-pointer">
+                Quick Demo as Deepa (Grade 11)
+              </button>
+            </div>
+          </div>
+
+          {/* Bottom City Skyline Vector & Tagline */}
+          <div className="mt-6 pt-4 border-t border-slate-100 text-center">
+            <svg className="w-full h-10 text-slate-200 fill-current opacity-70 mb-2" viewBox="0 0 500 80">
+              <rect x="20" y="30" width="30" height="50" />
+              <polygon points="50,30 65,10 80,30" />
+              <rect x="50" y="30" width="30" height="50" />
+              <rect x="90" y="20" width="40" height="60" />
+              <rect x="140" y="40" width="35" height="40" />
+              <polygon points="175,40 195,15 215,40" />
+              <rect x="175" y="40" width="40" height="40" />
+              <rect x="230" y="25" width="45" height="55" />
+              <circle cx="300" cy="40" r="15" />
+              <rect x="290" y="40" width="20" height="40" />
+              <rect x="330" y="20" width="50" height="60" />
+              <rect x="390" y="35" width="40" height="45" />
+              <rect x="440" y="15" width="45" height="65" />
+            </svg>
+            <p className="text-[11px] font-semibold text-slate-500">
+              For a financially literate tomorrow 💚
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 function PersonaPick() {
-  return null;
+  const { d, t } = useApp();
+  return (
+    <div className="max-w-md mx-auto py-8 px-4 text-center">
+      <h1 className="text-2xl font-extrabold text-slate-900">{t('per.title')}</h1>
+      <p className="text-sm text-slate-600 mt-1 mb-6">{t('per.sub')}</p>
+      <div className="grid gap-4">
+        {Object.values(PERSONAS).map(p => (
+          <button key={p.id} type="button" onClick={() => d({ type: 'persona', v: p.id })}
+            className="p-5 bg-white rounded-2xl border-2 border-slate-200 hover:border-emerald-600 shadow-sm text-left flex items-center gap-4 transition cursor-pointer">
+            <span className="text-4xl shrink-0">{p.e}</span>
+            <div className="flex-1">
+              <div className="font-bold text-lg text-slate-900">{t(`per.${p.id}.name`)}</div>
+              <div className="text-xs text-slate-500">{t('per.grade', { n: p.grade })} · {t(p.hard ? 'per.hard' : 'per.easy')}</div>
+              <div className="text-sm text-slate-600 mt-1">{t(`per.${p.id}.desc`)}</div>
+            </div>
+            <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-xl shrink-0">
+              {t('per.pick', { name: t(`per.${p.id}.name`) })}
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function StudentSidebar() {
+  const { s, d, t } = useApp();
+  const navItems = [
+    { id: 'home', label: 'Home', Icon: Home },
+    { id: 'modules', label: 'Learning Modules', Icon: BookOpen },
+    { id: 'goals', label: 'My Goals', Icon: Target },
+    { id: 'budget-planner', label: 'Budget Planner', Icon: Wallet },
+    { id: 'quiz', label: 'Quizzes', Icon: HelpCircle },
+    { id: 'invest-sim', label: 'Simulator', Icon: TrendingUp },
+    { id: 'achievements', label: 'Achievements', Icon: Trophy },
+    { id: 'settings', label: 'Settings', Icon: Settings },
+  ];
+
+  return (
+    <aside className="w-64 bg-[#064E3B] text-white flex flex-col justify-between p-5 min-h-screen shrink-0 border-r border-emerald-900/40">
+      <div>
+        <div className="pb-6 border-b border-emerald-800/60">
+          <FinLeapBrand dark />
+        </div>
+
+        <nav className="mt-6 space-y-1">
+          {navItems.map((item) => {
+            const on = s.screen === item.id;
+            return (
+              <button key={item.id} type="button" onClick={() => d({ type: 'go', v: item.id })}
+                className={`w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition text-left cursor-pointer ${
+                  on ? 'bg-emerald-800 text-white shadow-sm' : 'text-emerald-100/80 hover:bg-emerald-800/50 hover:text-white'
+                }`}>
+                <item.Icon size={18} className={on ? 'text-emerald-300' : 'text-emerald-200/70'} />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
+        </nav>
+      </div>
+
+      {/* Student Badge at bottom */}
+      <div className="pt-4 border-t border-emerald-800/60 flex items-center justify-between">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <span className="w-9 h-9 rounded-full bg-emerald-800 flex items-center justify-center text-lg shrink-0">
+            {s.avatar || '👩🏽'}
+          </span>
+          <div className="min-w-0">
+            <div className="font-bold text-xs truncate text-white">Hi, {s.userName || 'Deepa'}</div>
+            <div className="text-[10px] text-emerald-200">Grade 11</div>
+          </div>
+        </div>
+        <button type="button" onClick={() => d({ type: 'logout' })} title="Logout"
+          className="text-emerald-300 hover:text-white p-1.5 rounded-lg hover:bg-emerald-800/60 transition cursor-pointer">
+          <Lock size={16} />
+        </button>
+      </div>
+    </aside>
+  );
+}
+
+function StudentTopBar() {
+  const { s, d, t } = useApp();
+  const [showBell, setShowBell] = useState(false);
+
+  return (
+    <header className="bg-white border-b border-slate-200/80 px-6 py-4 flex items-center justify-between gap-4 sticky top-0 z-30 shadow-xs">
+      <div>
+        <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          Welcome back, {s.userName || 'Deepa'}!
+        </h1>
+        <p className="text-xs text-slate-500 font-medium">Keep learning, keep growing!</p>
+      </div>
+
+      <div className="flex items-center gap-3">
+        {/* Notification Bell */}
+        <div className="relative">
+          <button type="button" onClick={() => setShowBell(!showBell)}
+            className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition relative cursor-pointer">
+            <Bell size={18} />
+            <span className="w-2 h-2 rounded-full bg-emerald-600 absolute top-2 right-2 ring-2 ring-white" />
+          </button>
+
+          {showBell && (
+            <div className="absolute right-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 z-50">
+              <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                <span className="font-bold text-xs text-slate-800">Notifications</span>
+                <span className="text-[10px] text-emerald-600 font-semibold">1 New</span>
+              </div>
+              <div className="mt-3 space-y-2 text-xs text-slate-600">
+                <div className="p-2 rounded-xl bg-emerald-50 text-emerald-900">
+                  🎉 Welcome to FinLeap! Start with the Budget Planner mission.
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Language selector */}
+        <Seg dark={false} label={t('lang.label')} value={s.lang} onChange={(v) => d({ type: 'lang', v })} options={LANGS} />
+
+        {/* Portal Switch */}
+        <button type="button" onClick={() => d({ type: 'role', v: 'admin' })}
+          className="hidden sm:inline-flex px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition cursor-pointer">
+          NGO Portal
+        </button>
+      </div>
+    </header>
+  );
 }
 
 function HomeScreen() {
   const { s, d, t, P, run } = useApp();
   const [badge, setBadge] = useState(null);
-  const lv = levelOf(s.xp); const nextAt = LEVELS[lv + 1];
-  const overall = Math.round(PILLARS.reduce((a, p) => a + pctOf(run.prog[p.id]), 0) / PILLARS.length);
-  const next = PILLARS.find((p) => run.prog[p.id].st !== 2);
-  const name = s.userName || t(`per.${P.id}.name`);
+  const lv = levelOf(s.xp);
+  const overall = run ? Math.round(PILLARS.reduce((a, p) => a + pctOf(run.prog[p.id]), 0) / PILLARS.length) : 65;
+
   return (
-    <div>
-      <div className="rounded-2xl p-4 text-white" style={{ background: C.burgundy }}>
-        <div className="flex items-center gap-3">
-          <span className="inline-flex items-center justify-center rounded-full text-4xl shrink-0" style={{ width: 64, height: 64, background: C.blush }} aria-hidden="true">{s.avatar || P.e}</span>
-          <div className="flex-1 min-w-0">
-            <h1 className="text-xl font-bold leading-tight">{t('home.hi', { name })}</h1>
-            <p className="text-sm">{t('per.grade', { n: P.grade })} · {t(P.hard ? 'per.hard' : 'per.easy')}</p>
-          </div>
-          <Ring pct={overall} size={60} stroke={6} color={C.amber} track="rgba(255,255,255,.25)" label={`${t('home.overall')} ${overall}%`}><b className="text-sm">{overall}%</b></Ring>
-        </div>
-        <div className="mt-3 rounded-xl p-3 flex items-end justify-between gap-2" style={{ background: 'rgba(255,255,255,.14)' }}>
+    <div className="space-y-6">
+      {/* 4 Summary Metric Cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Card 1: Learning Progress */}
+        <div className="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm flex items-center gap-3.5">
+          <Ring pct={overall} size={58} stroke={6} color="#10B981" track="#E2E8F0">
+            <span className="text-xs font-extrabold text-slate-800">{overall}%</span>
+          </Ring>
           <div>
-            <div className="text-xs font-semibold inline-flex items-center gap-1"><Wallet size={14} aria-hidden="true" />{t('home.wallet')} ({t('c.play')})</div>
-            <div className="text-3xl font-bold leading-tight">{inr(run.wallet ?? P.wallet)}</div>
-            {run.jar > 0 && <div className="text-xs">🫙 {t('home.jar', { amt: inr(run.jar) })}</div>}
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Learning Progress</div>
+            <div className="text-xl font-extrabold text-slate-900">{overall}%</div>
+            <div className="text-xs text-emerald-600 font-semibold">6 of 12 lessons</div>
           </div>
-          <div className="text-right text-sm font-semibold">
-            <div className="inline-flex items-center gap-1"><Flame size={16} aria-hidden="true" />{t('home.streak', { n: s.streak })}</div>
+        </div>
+
+        {/* Card 2: Total Points */}
+        <div className="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm flex items-center gap-3.5">
+          <div className="w-12 h-12 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
+            <Star size={24} className="fill-amber-400" />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Points</div>
+            <div className="text-xl font-extrabold text-slate-900">{s.xp || 240}</div>
+            <div className="text-xs text-amber-600 font-semibold">Level {lv + 1}</div>
+          </div>
+        </div>
+
+        {/* Card 3: Goals Achieved */}
+        <div className="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm flex items-center gap-3.5">
+          <div className="w-12 h-12 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+            <Target size={24} />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Goals Achieved</div>
+            <div className="text-xl font-extrabold text-slate-900">1 of 3</div>
+            <div className="text-xs text-purple-600 font-semibold">Active goals</div>
+          </div>
+        </div>
+
+        {/* Card 4: Quiz Accuracy */}
+        <div className="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm flex items-center gap-3.5">
+          <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+            <Trophy size={24} />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Quiz Accuracy</div>
+            <div className="text-xl font-extrabold text-slate-900">85%</div>
+            <div className="text-xs text-blue-600 font-semibold">Last quiz</div>
           </div>
         </div>
       </div>
 
-      <Card className="mt-3">
-        <div className="flex items-center justify-between gap-2">
-          <div className="font-bold inline-flex items-center gap-1"><Star size={18} aria-hidden="true" style={{ color: C.burgundy }} />{t('home.level', { n: lv + 1 })}: {t(`lv.${lv + 1}`)}</div>
-          <div className="font-bold" style={{ color: C.burgundy }}>{s.xp} XP</div>
+      {/* Main Grid: Learning Modules + Today's Challenge */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Left Column: Learning Modules */}
+        <div className="lg:col-span-8 bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm">
+          <div className="flex items-center justify-between mb-5">
+            <div>
+              <h2 className="text-lg font-bold text-slate-900">Learning Modules</h2>
+              <p className="text-xs text-slate-500">Pick a module to build your money confidence</p>
+            </div>
+            <button type="button" onClick={() => d({ type: 'go', v: 'modules' })}
+              className="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 cursor-pointer">
+              View All <ArrowRight size={14} />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Module 1: Plan & Budget */}
+            <div className="p-4 rounded-2xl border border-teal-100 bg-teal-50/40 flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-3">
+                  <Wallet size={20} />
+                </div>
+                <h3 className="font-bold text-slate-900 text-base">Plan & Budget</h3>
+                <p className="text-xs text-slate-600 mt-1">Needs, wants and spending plans</p>
+              </div>
+              <button type="button" onClick={() => d({ type: 'go', v: 'budget' })}
+                className="mt-4 w-full py-2 bg-teal-700 hover:bg-teal-800 text-white rounded-xl text-xs font-bold transition cursor-pointer">
+                Start
+              </button>
+            </div>
+
+            {/* Module 2: Save & Manage */}
+            <div className="p-4 rounded-2xl border border-emerald-100 bg-emerald-50/40 flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
+                  <PiggyBank size={20} />
+                </div>
+                <h3 className="font-bold text-slate-900 text-base">Save & Manage</h3>
+                <p className="text-xs text-slate-600 mt-1">Goals and unexpected expenses</p>
+              </div>
+              <button type="button" onClick={() => d({ type: 'go', v: 'save' })}
+                className="mt-4 w-full py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition cursor-pointer">
+                Start
+              </button>
+            </div>
+
+            {/* Module 3: Understand Investing */}
+            <div className="p-4 rounded-2xl border border-blue-100 bg-blue-50/40 flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-3">
+                  <TrendingUp size={20} />
+                </div>
+                <h3 className="font-bold text-slate-900 text-base">Understand Investing</h3>
+                <p className="text-xs text-slate-600 mt-1">Risk, time and compounding</p>
+              </div>
+              <button type="button" onClick={() => d({ type: 'go', v: 'invest' })}
+                className="mt-4 w-full py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold transition cursor-pointer">
+                Start
+              </button>
+            </div>
+
+            {/* Module 4: Stay Financially Safe */}
+            <div className="p-4 rounded-2xl border border-purple-100 bg-purple-50/40 flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center mb-3">
+                  <ShieldCheck size={20} />
+                </div>
+                <h3 className="font-bold text-slate-900 text-base">Stay Financially Safe</h3>
+                <p className="text-xs text-slate-600 mt-1">Scams and information protection</p>
+              </div>
+              <button type="button" onClick={() => d({ type: 'go', v: 'safe' })}
+                className="mt-4 w-full py-2 bg-purple-700 hover:bg-purple-800 text-white rounded-xl text-xs font-bold transition cursor-pointer">
+                Start
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="rounded-full mt-2 overflow-hidden" style={{ height: 10, background: '#EADFE0' }} aria-hidden="true">
-          <div className="lf-bar h-full rounded-full" style={{ width: `${nextAt ? clamp(((s.xp - LEVELS[lv]) / (nextAt - LEVELS[lv])) * 100, 0, 100) : 100}%`, background: C.red }} />
+
+        {/* Right Column: Today's Challenge */}
+        <div className="lg:col-span-4 bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2.5 text-amber-500 mb-3">
+              <span className="p-2 rounded-xl bg-amber-50 text-amber-500">
+                <Trophy size={20} />
+              </span>
+              <h2 className="font-bold text-base text-slate-900">Today's Challenge</h2>
+            </div>
+
+            <p className="text-xs text-slate-600 leading-relaxed">
+              You have ₹500 for the week. Make a budget, set a savings goal and handle an unexpected expense.
+            </p>
+          </div>
+
+          <div className="mt-6">
+            <button type="button" onClick={() => d({ type: 'go', v: 'budget' })}
+              className="w-full py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl text-sm transition shadow-sm cursor-pointer">
+              Start Challenge
+            </button>
+            <p className="text-[11px] text-center text-slate-400 mt-2 font-medium">
+              Earn points • See the outcome • Try again
+            </p>
+          </div>
         </div>
-        <p className="text-xs mt-1" style={{ color: C.muted }}>{nextAt ? t('home.toNext', { n: nextAt - s.xp }) : t('home.max')}</p>
-      </Card>
+      </div>
 
-      <Card className="mt-3">
-        <h2 className="font-bold text-lg inline-flex items-center gap-2">📋 {t('home.assignments')}</h2>
-        <ul className="mt-2 space-y-2">
-          <li className="flex items-center justify-between p-3 rounded-xl bg-white border" style={{ borderColor: C.line }}>
-            <span className="text-sm font-semibold" style={{ color: C.ink }}>Baseline Assessment</span>
-            <span className="text-xs font-bold px-2 py-1 rounded" style={{ background: C.burgundy, color: '#fff' }}>{t('home.pending')}</span>
-          </li>
-          <li className="flex items-center justify-between p-3 rounded-xl bg-white border" style={{ borderColor: C.line }}>
-            <span className="text-sm font-semibold" style={{ color: C.ink }}>Budget Builder Quiz</span>
-            <span className="text-xs font-bold px-2 py-1 rounded" style={{ background: C.goodBg, color: C.good }}>{t('home.completed')}</span>
-          </li>
-        </ul>
-      </Card>
+      {/* Badges and Progress Details */}
+      <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="font-bold text-base text-slate-900 flex items-center gap-2">
+            <Trophy size={18} className="text-amber-500" />
+            {t('home.badges')}
+          </h2>
+          <span className="text-xs text-slate-500 font-semibold">Keep learning to unlock all</span>
+        </div>
 
-      <Btn className="w-full mt-3 text-lg" onClick={() => d({ type: 'go', v: next ? next.id : 'budget' })}>
-        <Play size={18} aria-hidden="true" />{next ? t('home.continue', { name: t(`pl.${next.id}`) }) : t('home.continue', { name: t('pl.budget') })}
-      </Btn>
-      {!next && <p className="text-sm text-center mt-2">{t('home.allDone')}</p>}
-
-      <h2 className="font-bold text-lg mt-5 mb-2">{t('home.pillars')}</h2>
-      <div className="grid gap-3">
-        {PILLARS.map((p, i) => {
-          const pr = run.prog[p.id];
-          return (
-            <button key={p.id} type="button" onClick={() => d({ type: 'go', v: p.id })}
-              className="text-left bg-white rounded-2xl shadow-sm p-3 flex items-center gap-3 w-full" style={{ border: `2px solid ${p.color}` }}>
-              <Ring pct={pctOf(pr)} size={52} stroke={5} color={p.color}><p.Icon size={22} aria-hidden="true" style={{ color: p.ink }} /></Ring>
-              <span className="flex-1 min-w-0">
-                <span className="block font-bold leading-tight">{i + 1}. {t(`pl.${p.id}`)}</span>
-                <span className="block text-sm" style={{ color: C.muted }}>{t(`pl.${p.id}.sub`)}</span>
-                <span className="inline-flex items-center gap-1 text-xs font-bold mt-1 rounded-full px-2 py-0.5" style={{ background: p.soft, color: p.ink }}>
-                  {pr.st === 2 && <Check size={12} aria-hidden="true" />}{t(`st.${pr.st}`)}{pr.st === 2 && ` · ${t('c.best', { n: pr.best })}`}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+          {BADGES.map((b) => {
+            const got = !!s.badges[b.id];
+            return (
+              <button key={b.id} type="button" onClick={() => setBadge(b)}
+                className={`rounded-2xl p-3 text-center border-2 transition cursor-pointer ${
+                  got ? 'border-amber-400 bg-amber-50/30' : 'border-slate-200 bg-slate-50/50'
+                }`}>
+                <span className={`block text-3xl mb-1 ${got ? '' : 'grayscale opacity-40'}`}>{b.e}</span>
+                <span className="block text-xs font-bold text-slate-800 truncate">{t(`bd.${b.id}`)}</span>
+                <span className={`text-[10px] font-semibold flex items-center justify-center gap-0.5 mt-1 ${got ? 'text-emerald-700' : 'text-slate-400'}`}>
+                  {got ? <Check size={11} /> : <Lock size={11} />}
+                  {t(got ? 'home.earned' : 'home.locked')}
                 </span>
-              </span>
-              <ChevronRight size={20} aria-hidden="true" style={{ color: C.muted }} />
-            </button>
-          );
-        })}
+              </button>
+            );
+          })}
+        </div>
       </div>
-
-      <h2 className="font-bold text-lg mt-5 mb-2 inline-flex items-center gap-1"><Trophy size={18} aria-hidden="true" />{t('home.badges')}</h2>
-      <div className="grid grid-cols-3 gap-2">
-        {BADGES.map((b) => {
-          const got = !!s.badges[b.id];
-          return (
-            <button key={b.id} type="button" onClick={() => setBadge(b)} className="rounded-2xl p-2 text-center bg-white"
-              style={{ minHeight: 92, border: `2px ${got ? 'solid' : 'dashed'} ${got ? C.amber : '#CFC4C6'}` }}>
-              <span className="block text-3xl" aria-hidden="true" style={{ filter: got ? 'none' : 'grayscale(1)', opacity: got ? 1 : 0.45 }}>{b.e}</span>
-              <span className="block text-xs font-bold leading-tight mt-1">{t(`bd.${b.id}`)}</span>
-              <span className="inline-flex items-center gap-0.5 text-xs" style={{ color: got ? C.good : C.muted }}>
-                {got ? <Check size={11} aria-hidden="true" /> : <Lock size={11} aria-hidden="true" />}{t(got ? 'home.earned' : 'home.locked')}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-      <div className="text-center mt-4"><Btn kind="ghost" onClick={() => d({ type: 'logout' })}>Log Out</Btn></div>
 
       {badge && (
         <Modal title={t(`bd.${badge.id}`)} onClose={() => setBadge(null)}>
-          <div className="text-center text-6xl" aria-hidden="true">{badge.e}</div>
-          <p className="text-center font-bold mt-2" style={{ color: s.badges[badge.id] ? C.good : C.muted }}>{t(s.badges[badge.id] ? 'bd.got' : 'home.locked')}</p>
-          <p className="text-sm mt-2"><b>{t('bd.how')}:</b> {t(`bd.${badge.id}.d`)}</p>
+          <div className="text-center text-6xl mb-2">{badge.e}</div>
+          <p className="text-center font-bold" style={{ color: s.badges[badge.id] ? C.good : C.muted }}>
+            {t(s.badges[badge.id] ? 'bd.got' : 'home.locked')}
+          </p>
+          <p className="text-sm mt-3 text-slate-600"><b>{t('bd.how')}:</b> {t(`bd.${badge.id}.d`)}</p>
         </Modal>
       )}
     </div>
   );
 }
+
+function BudgetPlannerScreen() {
+  const { s, d, t } = useApp();
+  const b = s.budgetPlan || { income: 5000, food: 1500, transport: 1000, education: 1000, entertainment: 500, savings: 1000 };
+  const [editingIncome, setEditingIncome] = useState(false);
+  const [incomeVal, setIncomeVal] = useState(b.income);
+
+  const categories = [
+    { id: 'food', label: 'Food', val: b.food, color: '#F59E0B', icon: '🍔' },
+    { id: 'transport', label: 'Transport', val: b.transport, color: '#3B82F6', icon: '🚌' },
+    { id: 'education', label: 'Education', val: b.education, color: '#8B5CF6', icon: '📚' },
+    { id: 'entertainment', label: 'Entertainment', val: b.entertainment, color: '#EC4899', icon: '🎮' },
+    { id: 'savings', label: 'Savings', val: b.savings, color: '#10B981', icon: '💰' },
+  ];
+
+  const totalAllocated = categories.reduce((sum, c) => sum + c.val, 0);
+  const savingsPct = Math.round((b.savings / (b.income || 1)) * 100);
+
+  const handleSlider = (id, val) => {
+    d({ type: 'updateBudget', v: { [id]: Number(val) } });
+  };
+
+  // SVG Donut slices
+  let cumulativePct = 0;
+  const slices = categories.map((c) => {
+    const pct = c.val / (b.income || 1);
+    const startAngle = cumulativePct * 360;
+    cumulativePct += pct;
+    const endAngle = cumulativePct * 360;
+    return { ...c, pct: Math.round(pct * 100), startAngle, endAngle };
+  });
+
+  return (
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Budget Planner</h1>
+          <p className="text-sm text-slate-500">Plan your money. Build better habits.</p>
+        </div>
+        <button type="button" onClick={() => d({ type: 'go', v: 'home' })}
+          className="px-6 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition shadow-sm cursor-pointer">
+          Save
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Left Column: Monthly Income & Sliders */}
+        <div className="lg:col-span-7 space-y-4">
+          {/* Monthly Income Card */}
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Monthly Income</div>
+              {editingIncome ? (
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-lg font-bold text-slate-800">₹</span>
+                  <input type="number" value={incomeVal} onChange={(e) => setIncomeVal(Number(e.target.value))}
+                    className="w-32 px-2 py-1 border rounded-lg font-bold text-xl" />
+                  <button type="button" onClick={() => { d({ type: 'updateBudget', v: { income: incomeVal } }); setEditingIncome(false); }}
+                    className="px-3 py-1 bg-emerald-700 text-white text-xs font-bold rounded-lg">Save</button>
+                </div>
+              ) : (
+                <div className="text-2xl font-extrabold text-slate-900 mt-1">{inr(b.income)}</div>
+              )}
+            </div>
+            <button type="button" onClick={() => setEditingIncome(!editingIncome)}
+              className="p-2 text-slate-400 hover:text-slate-600 rounded-lg border border-slate-200 hover:bg-slate-50 transition cursor-pointer">
+              <Edit3 size={18} />
+            </button>
+          </div>
+
+          {/* Allocate Your Budget */}
+          <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+            <h2 className="font-bold text-base text-slate-900 mb-4">Allocate Your Budget</h2>
+            <div className="space-y-4">
+              {categories.map((c) => {
+                const pct = Math.round((c.val / (b.income || 1)) * 100);
+                return (
+                  <div key={c.id} className="space-y-1.5">
+                    <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center gap-2 font-bold text-slate-800">
+                        <span>{c.icon}</span>
+                        <span>{c.label}</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="font-bold text-slate-900">{inr(c.val)}</span>
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full" style={{ background: `${c.color}20`, color: c.color }}>
+                          {pct}%
+                        </span>
+                      </div>
+                    </div>
+                    <input type="range" min="0" max={b.income} step="100" value={c.val}
+                      onChange={(e) => handleSlider(c.id, e.target.value)}
+                      style={{ accentColor: c.color }} className="w-full cursor-pointer h-2 bg-slate-100 rounded-lg" />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Donut Chart & Advice */}
+        <div className="lg:col-span-5 space-y-4">
+          <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col items-center">
+            {/* SVG Donut */}
+            <div className="relative w-56 h-56 flex items-center justify-center">
+              <svg width="220" height="220" viewBox="0 0 220 220" className="transform -rotate-90">
+                <circle cx="110" cy="110" r="70" fill="none" stroke="#F1F5F9" strokeWidth="26" />
+                {slices.map((s, i) => {
+                  const r = 70;
+                  const c = 2 * Math.PI * r;
+                  const dash = (s.val / (b.income || 1)) * c;
+                  const offset = c - dash;
+                  let rot = 0;
+                  for (let j = 0; j < i; j++) rot += (slices[j].val / (b.income || 1)) * 360;
+                  return (
+                    <circle key={s.id} cx="110" cy="110" r={r} fill="none" stroke={s.color} strokeWidth="26"
+                      strokeDasharray={`${dash} ${c - dash}`}
+                      style={{ transformOrigin: '110px 110px', transform: `rotate(${rot}deg)` }} />
+                  );
+                })}
+              </svg>
+              <div className="absolute text-center">
+                <div className="text-xl font-extrabold text-slate-900">{inr(b.income)}</div>
+                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total</div>
+              </div>
+            </div>
+
+            {/* Category Breakdown Table */}
+            <div className="w-full mt-4 space-y-2 border-t border-slate-100 pt-4">
+              {slices.map((s) => (
+                <div key={s.id} className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full" style={{ background: s.color }} />
+                    <span className="font-semibold text-slate-700">{s.label}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-bold text-slate-800">{inr(s.val)}</span>
+                    <span className="text-slate-400 w-8 text-right">{s.pct}%</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Green Tip Box */}
+          <div className="bg-emerald-50 rounded-2xl p-4 border border-emerald-200/80 flex items-start gap-3">
+            <span className="text-xl">💡</span>
+            <div>
+              <div className="font-bold text-xs text-emerald-900">
+                {savingsPct >= 20 ? `Great! You are saving ${savingsPct}% of your income. Keep it up!` : `Tip: Try to aim for at least 20% savings (₹${Math.round(b.income * 0.2)}).`}
+              </div>
+              <p className="text-[11px] text-emerald-700 mt-0.5">
+                Balancing your needs first ensures you never need high-interest debt when an unexpected expense arises.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GoalsScreen() {
+  const { s, d, t } = useApp();
+  const [showAdd, setShowAdd] = useState(false);
+  const [goalName, setGoalName] = useState('');
+  const [goalTarget, setGoalTarget] = useState(5000);
+  const [goalDue, setGoalDue] = useState('Dec 2026');
+
+  const goals = s.goals || defaultGoals;
+
+  const handleDeposit = (id) => {
+    d({ type: 'depositGoal', id, amt: 500 });
+  };
+
+  const handleCreate = (e) => {
+    e.preventDefault();
+    if (!goalName.trim()) return;
+    d({
+      type: 'addGoal',
+      goal: { id: `g_${Date.now()}`, name: goalName.trim(), current: 0, target: Number(goalTarget), due: goalDue, icon: 'shield', color: '#10B981' }
+    });
+    setGoalName('');
+    setShowAdd(false);
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Savings Goals</h1>
+          <p className="text-sm text-slate-500">Dream it. Save for it. Achieve it.</p>
+        </div>
+        <button type="button" onClick={() => setShowAdd(true)}
+          className="px-5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition shadow-sm flex items-center gap-2 cursor-pointer">
+          <Plus size={16} /> Add Goal
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Left Column: Goals List */}
+        <div className="lg:col-span-8 space-y-4">
+          {goals.map((g) => {
+            const pct = Math.round((g.current / (g.target || 1)) * 100);
+            return (
+              <div key={g.id} className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-3">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3.5">
+                    <span className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 text-xl" style={{ background: `${g.color || '#10B981'}15`, color: g.color || '#10B981' }}>
+                      {g.icon === 'laptop' ? <Laptop size={22} /> : g.icon === 'grad' ? <GraduationCap size={22} /> : <ShieldCheck size={22} />}
+                    </span>
+                    <div>
+                      <h3 className="font-bold text-base text-slate-900">{g.name}</h3>
+                      <div className="text-xs text-slate-500 font-medium">Due: {g.due}</div>
+                    </div>
+                  </div>
+                  <button type="button" onClick={() => handleDeposit(g.id)}
+                    className="px-3 py-1.5 rounded-lg border border-emerald-600 text-emerald-700 hover:bg-emerald-50 text-xs font-bold transition cursor-pointer">
+                    + Add ₹500
+                  </button>
+                </div>
+
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between text-xs font-bold">
+                    <span className="text-slate-800">{inr(g.current)} / {inr(g.target)}</span>
+                    <span style={{ color: g.color || '#10B981' }}>{pct}%</span>
+                  </div>
+                  <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="h-full rounded-full transition-all duration-500" style={{ width: `${Math.min(100, pct)}%`, background: g.color || '#10B981' }} />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Right Column: Motivation Card */}
+        <div className="lg:col-span-4 bg-gradient-to-br from-emerald-50 to-teal-50/50 rounded-3xl p-6 border border-emerald-200/80 shadow-sm text-center flex flex-col items-center justify-center">
+          <div className="w-24 h-24 rounded-full bg-white shadow-md border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4">
+            <PiggyBank size={48} />
+          </div>
+          <h3 className="font-extrabold text-slate-900 text-lg">Small savings today, big dreams tomorrow!</h3>
+          <p className="text-xs text-slate-600 mt-2 leading-relaxed max-w-xs">
+            Saving just ₹50 a week builds the habit that makes college prep, a new laptop, or an emergency buffer possible without stress.
+          </p>
+        </div>
+      </div>
+
+      {showAdd && (
+        <Modal title="Add a New Savings Goal" onClose={() => setShowAdd(false)}>
+          <form onSubmit={handleCreate} className="space-y-3.5 mt-2">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Goal Name</label>
+              <input type="text" required value={goalName} onChange={e => setGoalName(e.target.value)} placeholder="e.g., Coding Course"
+                className="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm font-semibold" />
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Target Amount (₹)</label>
+                <input type="number" required value={goalTarget} onChange={e => setGoalTarget(e.target.value)}
+                  className="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm font-semibold" />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Target Date</label>
+                <input type="text" required value={goalDue} onChange={e => setGoalDue(e.target.value)} placeholder="Dec 2026"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm font-semibold" />
+              </div>
+            </div>
+            <button type="submit" className="w-full py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition mt-2">
+              Create Goal
+            </button>
+          </form>
+        </Modal>
+      )}
+    </div>
+  );
+}
+
+function InvestingSimulatorScreen() {
+  const { s, d, t } = useApp();
+  const [initial, setInitial] = useState(s.investSim?.initial || 5000);
+  const [years, setYears] = useState(s.investSim?.years || 10);
+
+  // Return rates (hypothetical)
+  const rLow = 0.06;
+  const rMed = 0.11;
+  const rHigh = 0.15;
+
+  const lowVal = Math.round(initial * Math.pow(1 + rLow, years));
+  const medVal = Math.round(initial * Math.pow(1 + rMed, years));
+  const highVal = Math.round(initial * Math.pow(1 + rHigh, years));
+
+  // Points for curves (6 points across years)
+  const steps = 6;
+  const ptsLow = Array.from({ length: steps + 1 }, (_, i) => {
+    const y = (years / steps) * i;
+    return Math.round(initial * Math.pow(1 + rLow, y));
+  });
+  const ptsMed = Array.from({ length: steps + 1 }, (_, i) => {
+    const y = (years / steps) * i;
+    return Math.round(initial * Math.pow(1 + rMed, y));
+  });
+  const ptsHigh = Array.from({ length: steps + 1 }, (_, i) => {
+    const y = (years / steps) * i;
+    return Math.round(initial * Math.pow(1 + rHigh, y));
+  });
+
+  const maxVal = Math.max(ptsHigh[steps], 40000);
+
+  const getY = (val) => 180 - (val / maxVal) * 150;
+  const getX = (i) => 40 + (i / steps) * 440;
+
+  const pathLow = ptsLow.map((v, i) => `${i === 0 ? 'M' : 'L'} ${getX(i)} ${getY(v)}`).join(' ');
+  const pathMed = ptsMed.map((v, i) => `${i === 0 ? 'M' : 'L'} ${getX(i)} ${getY(v)}`).join(' ');
+  const pathHigh = ptsHigh.map((v, i) => `${i === 0 ? 'M' : 'L'} ${getX(i)} ${getY(v)}`).join(' ');
+
+  return (
+    <div className="space-y-6">
+      {/* Header */}
+      <div>
+        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Virtual Investing Simulator</h1>
+        <p className="text-sm text-slate-500">Learn how your money can grow over time.</p>
+      </div>
+
+      {/* Simulator Controls Card */}
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+        <div className="md:col-span-5 space-y-1.5">
+          <div className="flex justify-between text-xs font-bold text-slate-700">
+            <span>Initial Investment</span>
+            <span className="text-emerald-700 font-extrabold text-sm">{inr(initial)}</span>
+          </div>
+          <input type="range" min="1000" max="25000" step="1000" value={initial} onChange={e => setInitial(Number(e.target.value))}
+            className="w-full h-2 bg-slate-100 rounded-lg cursor-pointer" style={{ accentColor: '#059669' }} />
+        </div>
+
+        <div className="md:col-span-4 space-y-1.5">
+          <div className="flex justify-between text-xs font-bold text-slate-700">
+            <span>Time Period</span>
+            <span className="text-emerald-700 font-extrabold text-sm">{years} years</span>
+          </div>
+          <input type="range" min="1" max="20" step="1" value={years} onChange={e => setYears(Number(e.target.value))}
+            className="w-full h-2 bg-slate-100 rounded-lg cursor-pointer" style={{ accentColor: '#059669' }} />
+        </div>
+
+        <div className="md:col-span-3">
+          <button type="button" onClick={() => d({ type: 'updateInvestSim', v: { initial, years } })}
+            className="w-full py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-xs transition shadow-sm cursor-pointer">
+            Start Simulation
+          </button>
+        </div>
+      </div>
+
+      {/* Potential Growth Chart Card */}
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+          <h2 className="font-bold text-base text-slate-900">Potential Growth (Hypothetical)</h2>
+          <div className="flex items-center gap-4 text-xs font-bold">
+            <span className="flex items-center gap-1.5 text-teal-600">
+              <span className="w-2.5 h-2.5 rounded-full bg-teal-500" /> Low Risk
+            </span>
+            <span className="flex items-center gap-1.5 text-amber-500">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" /> Medium Risk
+            </span>
+            <span className="flex items-center gap-1.5 text-blue-600">
+              <span className="w-2.5 h-2.5 rounded-full bg-blue-500" /> High Risk
+            </span>
+          </div>
+        </div>
+
+        {/* SVG Multi-curve chart */}
+        <div className="w-full overflow-x-auto">
+          <svg viewBox="0 0 500 220" className="w-full min-w-[450px] h-56">
+            {/* Grid Lines */}
+            <line x1="40" y1="30" x2="480" y2="30" stroke="#F1F5F9" strokeWidth="1" />
+            <text x="35" y="34" fill="#94A3B8" fontSize="10" textAnchor="end">₹40k</text>
+
+            <line x1="40" y1="80" x2="480" y2="80" stroke="#F1F5F9" strokeWidth="1" />
+            <text x="35" y="84" fill="#94A3B8" fontSize="10" textAnchor="end">₹30k</text>
+
+            <line x1="40" y1="130" x2="480" y2="130" stroke="#F1F5F9" strokeWidth="1" />
+            <text x="35" y="134" fill="#94A3B8" fontSize="10" textAnchor="end">₹20k</text>
+
+            <line x1="40" y1="180" x2="480" y2="180" stroke="#CBD5E1" strokeWidth="1.5" />
+            <text x="35" y="184" fill="#94A3B8" fontSize="10" textAnchor="end">₹10k</text>
+
+            {/* X-axis labels */}
+            {Array.from({ length: steps + 1 }, (_, i) => (
+              <text key={i} x={getX(i)} y="200" fill="#94A3B8" fontSize="10" textAnchor="middle">
+                Year {Math.round((years / steps) * i)}
+              </text>
+            ))}
+
+            {/* Curves */}
+            <path d={pathLow} fill="none" stroke="#0D9488" strokeWidth="3" strokeLinecap="round" />
+            <path d={pathMed} fill="none" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round" />
+            <path d={pathHigh} fill="none" stroke="#3B82F6" strokeWidth="3" strokeLinecap="round" />
+          </svg>
+        </div>
+
+        {/* Comparative Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+          <div className="p-3.5 rounded-xl border border-teal-100 bg-teal-50/50">
+            <div className="text-xs font-bold text-teal-800">Low Risk (~6%)</div>
+            <div className="text-lg font-extrabold text-slate-900 mt-0.5">{inr(lowVal)}</div>
+            <div className="text-[10px] text-teal-700 font-medium mt-0.5">Safe, stable value preserve</div>
+          </div>
+          <div className="p-3.5 rounded-xl border border-amber-100 bg-amber-50/50">
+            <div className="text-xs font-bold text-amber-800">Medium Risk (~11%)</div>
+            <div className="text-lg font-extrabold text-slate-900 mt-0.5">{inr(medVal)}</div>
+            <div className="text-[10px] text-amber-700 font-medium mt-0.5">Balanced growth trajectory</div>
+          </div>
+          <div className="p-3.5 rounded-xl border border-blue-100 bg-blue-50/50">
+            <div className="text-xs font-bold text-blue-800">High Risk (~15%)</div>
+            <div className="text-lg font-extrabold text-slate-900 mt-0.5">{inr(highVal)}</div>
+            <div className="text-[10px] text-blue-700 font-medium mt-0.5">High compounding with swings</div>
+          </div>
+        </div>
+
+        <p className="text-[11px] text-slate-400 italic pt-2">
+          Note: This is a simulation for learning purposes only. It does not guarantee returns.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ScamQuizScreen() {
+  const { s, d, t } = useApp();
+  const [qIndex, setQIndex] = useState(1); // 0-based question
+  const [selected, setSelected] = useState(null);
+  const [answered, setAnswered] = useState(false);
+
+  const quizQuestions = [
+    {
+      id: 1,
+      sender: 'SMS from VK-WIN50',
+      text: "You've won a ₹50,000 gift card! Click the link below to claim now: https://bit.ly/win50000",
+      correct: 'scam',
+      why: 'This is a scam. Be careful with messages that promise big rewards, ask for your personal information or include suspicious links.',
+      tip: 'Never share your OTP, password or bank details. Think twice before clicking a link.'
+    },
+    {
+      id: 2,
+      sender: 'Chat from Unknown Buyer',
+      text: "I am sending ₹2,000 for your old textbook. Scan this QR code and enter your UPI PIN to receive money.",
+      correct: 'scam',
+      why: 'Entering your UPI PIN ALWAYS sends money, never receives money. You never need a PIN to receive payments.',
+      tip: 'PIN = Pay. You never enter a PIN to receive cash.'
+    },
+    {
+      id: 3,
+      sender: 'SMS from Bank-Official',
+      text: "OTP for transaction of ₹350 at College Bookstore is 849201. Valid for 10 minutes. Do not share.",
+      correct: 'safe',
+      why: 'This is a legitimate OTP alert sent after an action you initiated. Never share it with anyone calling you.',
+      tip: 'Legitimate banks never call and ask for your OTP over phone.'
+    }
+  ];
+
+  const curr = quizQuestions[qIndex] || quizQuestions[0];
+
+  const handleSelect = (ans) => {
+    if (answered) return;
+    setSelected(ans);
+    setAnswered(true);
+  };
+
+  const handleNext = () => {
+    setSelected(null);
+    setAnswered(false);
+    setQIndex((qIndex + 1) % quizQuestions.length);
+  };
+
+  const isCorrect = selected === curr.correct;
+
+  return (
+    <div className="max-w-2xl mx-auto space-y-6">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Scam Awareness Quiz</h1>
+          <p className="text-sm text-slate-500">Can you spot the red flags?</p>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="text-xs font-bold text-slate-600">Question {qIndex + 1} of {quizQuestions.length}</span>
+          <button type="button" onClick={() => d({ type: 'go', v: 'home' })} className="p-1.5 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition cursor-pointer">
+            <X size={18} />
+          </button>
+        </div>
+      </div>
+
+      {/* Simulated Message Card */}
+      <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-6">
+        <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex items-start gap-3">
+          <span className="p-1 rounded-full bg-amber-400 text-white shrink-0 mt-0.5">
+            <AlertTriangle size={16} />
+          </span>
+          <div>
+            <div className="text-[10px] font-bold uppercase tracking-wider text-amber-800">{curr.sender}</div>
+            <div className="text-sm font-semibold text-slate-900 mt-1 leading-snug">{curr.text}</div>
+          </div>
+        </div>
+
+        {/* Question Options */}
+        <div className="space-y-3">
+          <h3 className="font-bold text-sm text-slate-900">Is this message safe?</h3>
+          <div className="grid gap-2.5">
+            <button type="button" onClick={() => handleSelect('safe')}
+              className={`p-3.5 rounded-xl border text-left text-sm font-semibold flex items-center justify-between transition cursor-pointer ${
+                selected === 'safe' ? (isCorrect ? 'border-emerald-600 bg-emerald-50 text-emerald-900' : 'border-rose-600 bg-rose-50 text-rose-900') : 'border-slate-200 hover:border-slate-300 bg-white'
+              }`}>
+              <span>A. Yes, it looks genuine</span>
+              {selected === 'safe' && (isCorrect ? <CheckCircle2 size={18} className="text-emerald-600" /> : <X size={18} className="text-rose-600" />)}
+            </button>
+
+            <button type="button" onClick={() => handleSelect('scam')}
+              className={`p-3.5 rounded-xl border text-left text-sm font-semibold flex items-center justify-between transition cursor-pointer ${
+                selected === 'scam' ? (isCorrect ? 'border-emerald-600 bg-emerald-50 text-emerald-900' : 'border-rose-600 bg-rose-50 text-rose-900') : 'border-slate-200 hover:border-slate-300 bg-white'
+              }`}>
+              <span>B. No, this is a scam</span>
+              {selected === 'scam' && (isCorrect ? <CheckCircle2 size={18} className="text-emerald-600" /> : <X size={18} className="text-rose-600" />)}
+            </button>
+
+            <button type="button" onClick={() => handleSelect('unsure')}
+              className={`p-3.5 rounded-xl border text-left text-sm font-semibold flex items-center justify-between transition cursor-pointer ${
+                selected === 'unsure' ? 'border-amber-500 bg-amber-50 text-amber-900' : 'border-slate-200 hover:border-slate-300 bg-white'
+              }`}>
+              <span>C. I'm not sure</span>
+              {selected === 'unsure' && <HelpCircle size={18} className="text-amber-600" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Feedback Section */}
+        {answered && (
+          <div className={`p-4 rounded-2xl border space-y-2.5 ${isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-amber-50 border-amber-200 text-amber-900'}`}>
+            <div className="flex items-center gap-2 font-bold text-sm">
+              {isCorrect ? <CheckCircle2 size={18} className="text-emerald-700" /> : <AlertTriangle size={18} className="text-amber-700" />}
+              <span>{isCorrect ? 'Correct!' : 'Rethink!'}</span>
+            </div>
+            <p className="text-xs leading-relaxed">{curr.why}</p>
+            <div className="pt-2 border-t border-current/15 text-[11px] font-medium">
+              <b>Remember:</b> {curr.tip}
+            </div>
+          </div>
+        )}
+
+        {answered && (
+          <button type="button" onClick={handleNext}
+            className="w-full py-3 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition shadow-sm cursor-pointer">
+            Next Question
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function LearningModulesHub() {
+  const { d } = useApp();
+  return (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Learning Modules</h1>
+        <p className="text-sm text-slate-500">Master essential money skills for independence</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
+              <Wallet size={24} />
+            </span>
+            <h2 className="text-lg font-bold text-slate-900">1. Plan & Budget</h2>
+            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+              Learn the golden rule of needs versus wants, monthly spending plans, trade-offs, and setting realistic targets.
+            </p>
+          </div>
+          <button type="button" onClick={() => d({ type: 'go', v: 'budget' })}
+            className="mt-6 w-full py-2.5 bg-teal-700 hover:bg-teal-800 text-white font-bold rounded-xl text-xs transition cursor-pointer">
+            Start Module
+          </button>
+        </div>
+
+        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4">
+              <PiggyBank size={24} />
+            </span>
+            <h2 className="text-lg font-bold text-slate-900">2. Save & Manage</h2>
+            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+              Simulate 4 weeks of living expenses, handling unexpected emergency shocks with a safety jar buffer.
+            </p>
+          </div>
+          <button type="button" onClick={() => d({ type: 'go', v: 'save' })}
+            className="mt-6 w-full py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs transition cursor-pointer">
+            Start Module
+          </button>
+        </div>
+
+        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center mb-4">
+              <TrendingUp size={24} />
+            </span>
+            <h2 className="text-lg font-bold text-slate-900">3. Understand Investing</h2>
+            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+              Explore time horizons, compound growth calculations, diversification across baskets, and navigating bad years.
+            </p>
+          </div>
+          <button type="button" onClick={() => d({ type: 'go', v: 'invest' })}
+            className="mt-6 w-full py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition cursor-pointer">
+            Start Module
+          </button>
+        </div>
+
+        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center mb-4">
+              <ShieldCheck size={24} />
+            </span>
+            <h2 className="text-lg font-bold text-slate-900">4. Stay Financially Safe</h2>
+            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+              Spot fraudulent lottery messages, malicious QR codes, UPI collect requests, and protect your digital footprint.
+            </p>
+          </div>
+          <button type="button" onClick={() => d({ type: 'go', v: 'safe' })}
+            className="mt-6 w-full py-2.5 bg-purple-700 hover:bg-purple-800 text-white font-bold rounded-xl text-xs transition cursor-pointer">
+            Start Module
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AchievementsScreen() {
+  const { s, t } = useApp();
+  const lv = levelOf(s.xp);
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Achievements & Badges</h1>
+        <p className="text-sm text-slate-500">Track your milestones and financial literacy progression</p>
+      </div>
+
+      <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <span className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-2xl font-bold">
+            ★
+          </span>
+          <div>
+            <h2 className="font-extrabold text-lg text-slate-900">Level {lv + 1} - {t(`lv.${lv + 1}`)}</h2>
+            <p className="text-xs text-slate-500 mt-0.5">{s.xp} Total XP accumulated</p>
+          </div>
+        </div>
+        <div className="text-right">
+          <span className="px-3 py-1 bg-emerald-50 text-emerald-800 font-bold text-xs rounded-full border border-emerald-200">
+            {s.streak || 1} Day Streak 🔥
+          </span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        {BADGES.map((b) => {
+          const got = !!s.badges[b.id];
+          return (
+            <div key={b.id} className={`p-5 rounded-3xl border-2 transition text-center ${got ? 'border-amber-400 bg-amber-50/20' : 'border-slate-200 bg-white'}`}>
+              <div className={`text-4xl mb-2 ${got ? '' : 'grayscale opacity-30'}`}>{b.e}</div>
+              <h3 className="font-bold text-sm text-slate-900">{t(`bd.${b.id}`)}</h3>
+              <p className="text-[11px] text-slate-500 mt-1">{t(`bd.${b.id}.d`)}</p>
+              <span className={`inline-flex items-center gap-1 text-xs font-bold mt-3 px-2.5 py-1 rounded-full ${got ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-500'}`}>
+                {got ? <Check size={12} /> : <Lock size={12} />} {t(got ? 'home.earned' : 'home.locked')}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function SettingsScreen() {
+  const { s, d, t } = useApp();
+  return (
+    <div className="max-w-xl mx-auto space-y-6">
+      <div>
+        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Student Settings</h1>
+        <p className="text-sm text-slate-500">Manage your profile, language, and preferences</p>
+      </div>
+
+      <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div>
+          <label className="block text-xs font-bold text-slate-700 mb-1">Student Name</label>
+          <input type="text" value={s.userName || 'Deepa'} onChange={e => d({ type: 'userName', v: e.target.value })}
+            className="w-full px-3 py-2 border rounded-xl font-bold text-sm" />
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-slate-700 mb-1">Gender Avatar</label>
+          <Seg full label="Avatar" value={s.avatar || '👩🏽'} onChange={v => d({ type: 'avatar', v })}
+            options={[{ value: '🧑🏽', label: 'Male' }, { value: '👩🏽', label: 'Female' }]} />
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-slate-700 mb-1">Language</label>
+          <Seg full label={t('lang.label')} value={s.lang} onChange={v => d({ type: 'lang', v })} options={LANGS} />
+        </div>
+
+        <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <button type="button" onClick={() => d({ type: 'persona', v: s.persona === 'arjun' ? 'priya' : 'arjun' })}
+            className="text-xs font-bold text-emerald-700 hover:text-emerald-800 cursor-pointer">
+            {t('per.switch')}
+          </button>
+          <button type="button" onClick={() => d({ type: 'logout' })}
+            className="px-4 py-2 bg-rose-50 text-rose-700 font-bold rounded-xl text-xs hover:bg-rose-100 transition cursor-pointer">
+            Log Out
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 /* ---------- Pillar 1: Plan & Budget ---------- */
 
