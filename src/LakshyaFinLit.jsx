@@ -4,8 +4,9 @@ import {
   RotateCcw, Trophy, Sparkles, Ban, Lightbulb, ArrowUpDown, GraduationCap, LayoutDashboard, Copy, Check,
   X, Lock, Flame, Star, Info, Target, Share2, Eye, Play, Zap, Smartphone, Monitor,
   BookOpen, Settings, Bell, HelpCircle, ArrowRight, Laptop, Plus, CheckCircle2, AlertTriangle,
-  Smile, Gamepad2, Calendar, Edit3, DollarSign, Menu, PieChart
+  Smile, Gamepad2, Calendar, Edit3, DollarSign, Menu, PieChart, Volume2, VolumeX
 } from 'lucide-react';
+import { isSoundEnabled, toggleSound, playCorrectSound, playWrongSound } from './lib/audio';
 
 /* ============================================================================
    1. DATA + i18n
@@ -1150,6 +1151,33 @@ const Feedback = ({ tone = 'good', title, why, real, realLabel, children }) => {
   );
 };
 
+function SoundButton({ className = '' }) {
+  const [enabled, setEnabled] = useState(isSoundEnabled());
+  useEffect(() => {
+    const handler = (e) => setEnabled(e.detail?.enabled ?? isSoundEnabled());
+    if (typeof window !== 'undefined') {
+      window.addEventListener('lf:sound-toggle', handler);
+      return () => window.removeEventListener('lf:sound-toggle', handler);
+    }
+  }, []);
+  return (
+    <button
+      type="button"
+      onClick={() => setEnabled(toggleSound())}
+      title={enabled ? 'Sound Effects Enabled (Click to Mute)' : 'Sound Effects Muted (Click to Unmute)'}
+      aria-label={enabled ? 'Sound Effects Enabled' : 'Sound Effects Muted'}
+      className={`px-2.5 py-1.5 rounded-xl border transition cursor-pointer flex items-center gap-1.5 text-xs font-bold ${
+        enabled
+          ? 'bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100'
+          : 'bg-slate-100 text-slate-500 border-slate-200 hover:bg-slate-200'
+      } ${className}`}
+    >
+      {enabled ? <Volume2 size={16} className="text-emerald-700" /> : <VolumeX size={16} className="text-slate-400" />}
+      <span className="hidden sm:inline">{enabled ? 'Sound On' : 'Muted'}</span>
+    </button>
+  );
+}
+
 function Modal({ title, onClose, maxWidth = 480, children }) {
   const { t } = useApp(); const btn = useRef(null); const close = useRef(onClose);
   close.current = onClose;
@@ -2001,6 +2029,9 @@ function StudentTopBar() {
           {t('per.switch')}
         </button>
 
+        {/* Sound Toggle */}
+        <SoundButton />
+
         {/* Notification Bell */}
         <div className="relative">
           <button type="button" onClick={() => setShowBell(!showBell)}
@@ -2721,87 +2752,179 @@ function InvestingSimulatorScreen() {
 
 function ScamQuizScreen() {
   const { d, t } = useApp();
+  const [activeModule, setActiveModule] = useState('budget');
   const [qIndex, setQIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [answered, setAnswered] = useState(false);
   const [score, setScore] = useState(0);
-  const [showVideoModal, setShowVideoModal] = useState(false);
   const videoRef = useRef(null);
 
-  const videoQuestions = [
-    {
-      id: 1,
-      tag: 'Budgeting & Daily Living',
-      text: 'According to the FinLeap budgeting rules demonstrated in the app, what should you allocate first?',
-      options: [
-        { key: 'wants', label: 'Wants & Entertainment purchases' },
-        { key: 'needs', label: 'Essential Needs (Food, Transport, Rent)' },
-        { key: 'lottery', label: 'High-risk speculative schemes' }
-      ],
-      correct: 'needs',
-      why: 'Needs are essential life foundations that must be funded before discretionary wants and savings.',
-      tip: 'The 50/30/20 guideline recommends fulfilling needs first to avoid high-interest borrowing.'
+  const moduleData = {
+    budget: {
+      title: 'Chapter 1: Plan & Budget',
+      video: '/module-budget.mp4',
+      badge: 'Needs vs Wants & Allocation',
+      questions: [
+        {
+          id: 1,
+          tag: 'Plan & Budget',
+          text: 'According to the FinLeap budgeting rules demonstrated in Chapter 1, what should you allocate first?',
+          options: [
+            { key: 'wants', label: 'Discretionary Wants & Entertainment' },
+            { key: 'needs', label: 'Essential Needs (Food, Transport, Rent)' },
+            { key: 'speculate', label: 'High-risk speculative investments' }
+          ],
+          correct: 'needs',
+          why: 'Needs are essential life foundations that must be funded before discretionary wants and savings.',
+          tip: 'The 50/30/20 guideline recommends fulfilling needs first to avoid high-interest borrowing.'
+        },
+        {
+          id: 2,
+          tag: 'Plan & Budget',
+          text: 'What happens when your expenses exceed your total monthly income in the budget simulation?',
+          options: [
+            { key: 'debt', label: 'You enter a deficit and are forced into costly debt or trade-offs' },
+            { key: 'bonus', label: 'You automatically receive free interest credits' },
+            { key: 'ignore', label: 'Your bank balance stays positive automatically' }
+          ],
+          correct: 'debt',
+          why: 'Living above your income means borrowing from tomorrow to pay for today, leading to debt traps.',
+          tip: 'Track expenses daily to make adjustments before the month ends.'
+        }
+      ]
     },
-    {
-      id: 2,
-      tag: 'Digital Safety & Scam Alerts',
-      text: 'A buyer sends you a QR code claiming: "Scan this and enter your UPI PIN to receive payment." What should you do?',
-      options: [
-        { key: 'scan', label: 'Scan and enter your PIN immediately' },
-        { key: 'block', label: 'Decline and block: entering a PIN ALWAYS sends money, never receives money' },
-        { key: 'half', label: 'Enter half the PIN code to test' }
-      ],
-      correct: 'block',
-      why: 'Entering your UPI PIN authorizes an outgoing transfer from your account. You NEVER need a PIN to receive payments.',
-      tip: 'Remember: PIN = Pay out. Never enter your PIN to receive money.'
+    save: {
+      title: 'Chapter 2: Save & Manage',
+      video: '/module-save.mp4',
+      badge: 'Emergency Shocks & Savings Jar',
+      questions: [
+        {
+          id: 1,
+          tag: 'Save & Manage',
+          text: 'What is the primary benefit of maintaining an Emergency Savings Jar buffer during unexpected expense shocks?',
+          options: [
+            { key: 'buffer', label: 'It cushions emergencies so you do not have to borrow at high interest rates' },
+            { key: 'spend', label: 'It allows you to spend freely without tracking transactions' },
+            { key: 'lottery', label: 'It guarantees instant 100% returns' }
+          ],
+          correct: 'buffer',
+          why: 'A buffer protects your daily living stability and shields your long-term goals when surprise repairs or medical bills strike.',
+          tip: 'Aim for at least 1-3 months of essential expenses in your emergency reserve.'
+        },
+        {
+          id: 2,
+          tag: 'Save & Manage',
+          text: 'In the 4-week living simulation, what is the best strategy when an unexpected expense occurs?',
+          options: [
+            { key: 'jar', label: 'Draw from your emergency savings buffer instead of missing essential payments' },
+            { key: 'ignore', label: 'Ignore the expense and hope it disappears' },
+            { key: 'wants', label: 'Spend even more on non-essentials to feel better' }
+          ],
+          correct: 'jar',
+          why: 'Emergency buffers exist precisely for unforeseen events like clinic visits or urgent transit.',
+          tip: 'Replenish your buffer in subsequent weeks as soon as cash flow allows.'
+        }
+      ]
     },
-    {
-      id: 3,
-      tag: 'Emergency Fund & Savings Jar',
-      text: 'What is the primary benefit of maintaining an Emergency Savings buffer during unexpected expense shocks?',
-      options: [
-        { key: 'buffer', label: 'It cushions emergencies so you do not have to borrow at high interest rates' },
-        { key: 'spend', label: 'It allows you to spend freely without tracking transactions' },
-        { key: 'lottery', label: 'It guarantees 100% stock market returns' }
-      ],
-      correct: 'buffer',
-      why: 'A buffer protects your daily living stability and shields your long-term goals when surprise repairs or medical bills strike.',
-      tip: 'Aim for at least 1-3 months of essential expenses in your emergency reserve.'
+    invest: {
+      title: 'Chapter 3: Understand Investing',
+      video: '/module-invest.mp4',
+      badge: 'Compound Growth & Diversification',
+      questions: [
+        {
+          id: 1,
+          tag: 'Understand Investing',
+          text: 'When investing for long horizons, what minimizes the impact of bad market years?',
+          options: [
+            { key: 'one', label: 'Putting all savings into a single hot stock' },
+            { key: 'diversify', label: 'Diversification across multiple asset baskets and holding patiently' },
+            { key: 'panic', label: 'Selling everything whenever market swings occur' }
+          ],
+          correct: 'diversify',
+          why: 'Diversification spreads risk so that down years in one sector are cushioned by resilience in others.',
+          tip: 'Compound growth rewards consistency and patience over market timing.'
+        },
+        {
+          id: 2,
+          tag: 'Understand Investing',
+          text: 'What is the main difference between simple interest savings and compound investment growth over 10+ years?',
+          options: [
+            { key: 'compound', label: 'Compound growth earns returns on previous returns, snowballing exponentially' },
+            { key: 'same', label: 'Both grow at the exact same flat arithmetic rate' },
+            { key: 'simple', label: 'Simple interest always outperforms compound growth' }
+          ],
+          correct: 'compound',
+          why: 'Compounding multiplies your base because earnings generate their own earnings over extended time horizons.',
+          tip: 'Start investing early—even modest monthly amounts grow tremendously over decades.'
+        }
+      ]
     },
-    {
-      id: 4,
-      tag: 'Smart Long-term Investing',
-      text: 'When investing for long horizons, what minimizes the impact of bad market years?',
-      options: [
-        { key: 'one', label: 'Putting all savings into a single hot stock' },
-        { key: 'diversify', label: 'Diversification across multiple asset baskets and holding patiently' },
-        { key: 'panic', label: 'Selling everything whenever market swings occur' }
-      ],
-      correct: 'diversify',
-      why: 'Diversification spreads risk so that down years in one sector are cushioned by resilience in others.',
-      tip: 'Compound growth rewards consistency and patience over market timing.'
+    safe: {
+      title: 'Chapter 4: Stay Financially Safe',
+      video: '/module-safe.mp4',
+      badge: 'Scam Detection & UPI Security',
+      questions: [
+        {
+          id: 1,
+          tag: 'Stay Financially Safe',
+          text: 'A buyer sends you a QR code claiming: "Scan this and enter your UPI PIN to receive payment." What should you do?',
+          options: [
+            { key: 'scan', label: 'Scan and enter your PIN immediately' },
+            { key: 'block', label: 'Decline and block: entering a PIN ALWAYS sends money, never receives money' },
+            { key: 'half', label: 'Enter half the PIN code to test' }
+          ],
+          correct: 'block',
+          why: 'Entering your UPI PIN authorizes an outgoing transfer from your account. You NEVER need a PIN to receive payments.',
+          tip: 'Remember: PIN = Pay out. Never enter your PIN to receive money.'
+        },
+        {
+          id: 2,
+          tag: 'Stay Financially Safe',
+          text: 'You receive an urgent SMS: "Your bank account will be blocked within 2 hours. Click here to update KYC." What should you do?',
+          options: [
+            { key: 'scam', label: 'Recognize the urgency tactic and contact your bank official branch or app directly' },
+            { key: 'click', label: 'Click the link immediately and submit your password and Aadhaar' },
+            { key: 'forward', label: 'Forward the message to your friends' }
+          ],
+          correct: 'scam',
+          why: 'Artificial urgency is a classic phishing trick. Legitimate financial institutions never freeze accounts via unverified SMS links.',
+          tip: 'Always check the official banking app or customer care number directly.'
+        }
+      ]
     }
-  ];
+  };
 
-  const curr = videoQuestions[qIndex] || videoQuestions[0];
+  const currentMod = moduleData[activeModule] || moduleData.budget;
+  const questions = currentMod.questions;
+  const curr = questions[qIndex] || questions[0];
 
   const handleSelect = (key) => {
     if (answered) return;
     setSelected(key);
     setAnswered(true);
     if (key === curr.correct) {
+      playCorrectSound();
       setScore(s => s + 1);
+    } else {
+      playWrongSound();
     }
   };
 
   const handleNext = () => {
     setSelected(null);
     setAnswered(false);
-    if (qIndex < videoQuestions.length - 1) {
+    if (qIndex < questions.length - 1) {
       setQIndex(qIndex + 1);
     } else {
       setQIndex(0); // restart loop or review
     }
+  };
+
+  const changeChapter = (modKey) => {
+    setActiveModule(modKey);
+    setQIndex(0);
+    setSelected(null);
+    setAnswered(false);
   };
 
   const isCorrect = selected === curr.correct;
@@ -2811,12 +2934,13 @@ function ScamQuizScreen() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Interactive Video & Quiz Challenge</h1>
-          <p className="text-xs sm:text-sm text-slate-500">Watch the FinLeap demonstration video below and answer the checkpoints</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Chapter Videos & Interactive Checkpoints</h1>
+          <p className="text-xs sm:text-sm text-slate-500">Watch the chapter video for each financial module and answer the checkpoint questions</p>
         </div>
         <div className="flex items-center gap-2 self-start sm:self-auto">
+          <SoundButton />
           <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
-            Score: {score} / {videoQuestions.length}
+            Score: {score}
           </span>
           <button type="button" onClick={() => d({ type: 'go', v: 'home' })} className="p-1.5 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition cursor-pointer">
             <X size={18} />
@@ -2824,31 +2948,62 @@ function ScamQuizScreen() {
         </div>
       </div>
 
+      {/* Chapter Navigation Tabs */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        {[
+          { key: 'budget', label: '1. Plan & Budget', color: 'teal', icon: Wallet },
+          { key: 'save', label: '2. Save & Manage', color: 'emerald', icon: PiggyBank },
+          { key: 'invest', label: '3. Investing', color: 'blue', icon: TrendingUp },
+          { key: 'safe', label: '4. Digital Safety', color: 'purple', icon: ShieldCheck }
+        ].map(ch => {
+          const on = activeModule === ch.key;
+          const Icon = ch.icon;
+          return (
+            <button
+              key={ch.key}
+              type="button"
+              onClick={() => changeChapter(ch.key)}
+              className={`p-3 rounded-2xl border text-left transition flex items-center gap-2.5 cursor-pointer ${
+                on
+                  ? 'bg-emerald-800 text-white border-emerald-900 shadow-sm'
+                  : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+              }`}>
+              <Icon size={18} className={on ? 'text-emerald-300' : 'text-slate-500'} />
+              <div className="min-w-0">
+                <div className="font-bold text-xs truncate leading-tight">{ch.label}</div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
       {/* Video Player Card */}
       <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm font-bold text-slate-800">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
             <Play size={18} className="text-emerald-600 fill-emerald-600" />
-            <span>FinLeap Video Demonstration</span>
+            <span>{currentMod.title}</span>
           </div>
-          <span className="text-xs text-slate-500 font-medium">Watch then answer below</span>
+          <span className="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-semibold self-start sm:self-auto">
+            {currentMod.badge}
+          </span>
         </div>
 
         <div className="relative w-full rounded-2xl overflow-hidden bg-black shadow-inner border border-slate-100 aspect-video">
           <video
+            key={currentMod.video}
             ref={videoRef}
-            src="/finleap-video.mp4"
+            src={currentMod.video}
             controls
             playsInline
             className="w-full h-full object-contain"
-            poster=""
           >
             Your browser does not support HTML5 video.
           </video>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs text-slate-500 border-t border-slate-100">
-          <span>💡 Tip: Pay attention to the budgeting pillars, emergency reserves, and safety rules shown.</span>
+          <span>💡 Watch the video walkthrough then test your knowledge with the question below.</span>
           <button
             type="button"
             onClick={() => {
@@ -2858,7 +3013,7 @@ function ScamQuizScreen() {
               }
             }}
             className="font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 cursor-pointer">
-            <RotateCcw size={13} /> Replay Video
+            <RotateCcw size={13} /> Replay Chapter Video
           </button>
         </div>
       </div>
@@ -2872,7 +3027,7 @@ function ScamQuizScreen() {
             </span>
           </div>
           <span className="text-xs font-bold text-slate-500">
-            Question {qIndex + 1} of {videoQuestions.length}
+            Checkpoint {qIndex + 1} of {questions.length}
           </span>
         </div>
 
@@ -2938,7 +3093,7 @@ function ScamQuizScreen() {
             type="button"
             onClick={handleNext}
             className="w-full py-3.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition shadow-sm cursor-pointer flex items-center justify-center gap-2">
-            <span>{qIndex < videoQuestions.length - 1 ? 'Next Question' : 'Complete / Restart Quiz'}</span>
+            <span>{qIndex < questions.length - 1 ? 'Next Checkpoint' : 'Restart Chapter Questions'}</span>
             <ChevronRight size={18} />
           </button>
         )}
@@ -2949,78 +3104,148 @@ function ScamQuizScreen() {
 
 function LearningModulesHub() {
   const { d } = useApp();
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const modules = [
+    {
+      id: 'budget',
+      num: '1',
+      title: 'Plan & Budget',
+      video: '/module-budget.mp4',
+      Icon: Wallet,
+      color: 'teal',
+      desc: 'Learn the golden rule of needs versus wants, monthly spending plans, trade-offs, and setting realistic targets.'
+    },
+    {
+      id: 'save',
+      num: '2',
+      title: 'Save & Manage',
+      video: '/module-save.mp4',
+      Icon: PiggyBank,
+      color: 'emerald',
+      desc: 'Simulate 4 weeks of living expenses, handling unexpected emergency shocks with a safety jar buffer.'
+    },
+    {
+      id: 'invest',
+      num: '3',
+      title: 'Understand Investing',
+      video: '/module-invest.mp4',
+      Icon: TrendingUp,
+      color: 'blue',
+      desc: 'Explore time horizons, compound growth calculations, diversification across baskets, and navigating bad years.'
+    },
+    {
+      id: 'safe',
+      num: '4',
+      title: 'Stay Financially Safe',
+      video: '/module-safe.mp4',
+      Icon: ShieldCheck,
+      color: 'purple',
+      desc: 'Spot fraudulent lottery messages, malicious QR codes, UPI collect requests, and protect your digital footprint.'
+    }
+  ];
+
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Learning Modules</h1>
-        <p className="text-sm text-slate-500">Master essential money skills for independence</p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Learning Modules & Video Lessons</h1>
+          <p className="text-sm text-slate-500">Master essential money skills with video tutorials and interactive simulations</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => d({ type: 'go', v: 'quiz' })}
+          className="px-4 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-xs transition shadow-sm flex items-center gap-2 self-start sm:self-auto cursor-pointer">
+          <Play size={14} className="fill-white" />
+          <span>Take Video Quiz</span>
+        </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-          <div>
-            <span className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
-              <Wallet size={24} />
-            </span>
-            <h2 className="text-lg font-bold text-slate-900">1. Plan & Budget</h2>
-            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-              Learn the golden rule of needs versus wants, monthly spending plans, trade-offs, and setting realistic targets.
-            </p>
-          </div>
-          <button type="button" onClick={() => d({ type: 'go', v: 'budget' })}
-            className="mt-6 w-full py-2.5 bg-teal-700 hover:bg-teal-800 text-white font-bold rounded-xl text-xs transition cursor-pointer">
-            Start Module
-          </button>
-        </div>
+        {modules.map((m) => {
+          const Icon = m.Icon;
+          return (
+            <div key={m.id} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className={`w-12 h-12 rounded-2xl bg-${m.color}-50 text-${m.color}-700 flex items-center justify-center`}>
+                    <Icon size={24} />
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedVideo(m)}
+                    className="px-3 py-1.5 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-800 text-xs font-bold hover:bg-emerald-100 transition flex items-center gap-1.5 cursor-pointer">
+                    <Play size={12} className="fill-emerald-800" />
+                    <span>Watch Lesson</span>
+                  </button>
+                </div>
+                <h2 className="text-lg font-bold text-slate-900">{m.num}. {m.title}</h2>
+                <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                  {m.desc}
+                </p>
+              </div>
 
-        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-          <div>
-            <span className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4">
-              <PiggyBank size={24} />
-            </span>
-            <h2 className="text-lg font-bold text-slate-900">2. Save & Manage</h2>
-            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-              Simulate 4 weeks of living expenses, handling unexpected emergency shocks with a safety jar buffer.
-            </p>
-          </div>
-          <button type="button" onClick={() => d({ type: 'go', v: 'save' })}
-            className="mt-6 w-full py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs transition cursor-pointer">
-            Start Module
-          </button>
-        </div>
-
-        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-          <div>
-            <span className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center mb-4">
-              <TrendingUp size={24} />
-            </span>
-            <h2 className="text-lg font-bold text-slate-900">3. Understand Investing</h2>
-            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-              Explore time horizons, compound growth calculations, diversification across baskets, and navigating bad years.
-            </p>
-          </div>
-          <button type="button" onClick={() => d({ type: 'go', v: 'invest' })}
-            className="mt-6 w-full py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition cursor-pointer">
-            Start Module
-          </button>
-        </div>
-
-        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-          <div>
-            <span className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center mb-4">
-              <ShieldCheck size={24} />
-            </span>
-            <h2 className="text-lg font-bold text-slate-900">4. Stay Financially Safe</h2>
-            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-              Spot fraudulent lottery messages, malicious QR codes, UPI collect requests, and protect your digital footprint.
-            </p>
-          </div>
-          <button type="button" onClick={() => d({ type: 'go', v: 'safe' })}
-            className="mt-6 w-full py-2.5 bg-purple-700 hover:bg-purple-800 text-white font-bold rounded-xl text-xs transition cursor-pointer">
-            Start Module
-          </button>
-        </div>
+              <div className="flex items-center gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => d({ type: 'go', v: m.id })}
+                  className="flex-1 py-2.5 bg-slate-900 hover:bg-black text-white font-bold rounded-xl text-xs transition cursor-pointer text-center">
+                  Start Interactive Sim
+                </button>
+                <button
+                  type="button"
+                  onClick={() => d({ type: 'go', v: 'quiz' })}
+                  className="py-2.5 px-3 border border-slate-200 hover:bg-slate-50 rounded-xl text-xs font-bold text-slate-700 transition cursor-pointer">
+                  Quiz Checkpoint
+                </button>
+              </div>
+            </div>
+          );
+        })}
       </div>
+
+      {/* Video Modal for Module Lesson */}
+      {selectedVideo && (
+        <Modal title={`${selectedVideo.title} - Video Lesson`} maxWidth={680} onClose={() => setSelectedVideo(null)}>
+          <div className="p-1 space-y-4 text-left">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-inner border border-slate-100">
+              <video
+                src={selectedVideo.video}
+                controls
+                autoPlay
+                playsInline
+                className="w-full h-full object-contain"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              {selectedVideo.desc}
+            </p>
+            <div className="flex items-center gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  const modId = selectedVideo.id;
+                  setSelectedVideo(null);
+                  d({ type: 'go', v: modId });
+                }}
+                className="flex-1 py-3 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-xs transition cursor-pointer text-center">
+                Launch {selectedVideo.title} Simulation
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedVideo(null);
+                  d({ type: 'go', v: 'quiz' });
+                }}
+                className="py-3 px-4 border border-slate-300 text-slate-800 font-bold rounded-xl text-xs hover:bg-slate-50 transition cursor-pointer">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 }
@@ -3099,6 +3324,14 @@ function SettingsScreen() {
           <Seg full label={t('lang.label')} value={s.lang} onChange={v => d({ type: 'lang', v })} options={LANGS} />
         </div>
 
+        <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
+          <div>
+            <div className="text-xs font-bold text-slate-800">Quiz Sound Effects</div>
+            <div className="text-[11px] text-slate-500">Audio feedback for correct and wrong answers</div>
+          </div>
+          <SoundButton />
+        </div>
+
         <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
           <button type="button" onClick={() => d({ type: 'persona', v: s.persona === 'arjun' ? 'priya' : 'arjun' })}
             className="text-xs font-bold text-emerald-700 hover:text-emerald-800 cursor-pointer">
@@ -3139,6 +3372,11 @@ function BudgetGame() {
     if (!ansOf(it)) return; // "it depends" items need their context first
     d({ type: 'begin', id: 'budget' });
     const good = verdict(it, b) !== 'learn';
+    if (good) {
+      playCorrectSound();
+    } else {
+      playWrongSound();
+    }
     if (!(it.id in first)) {
       setFirst((f) => ({ ...f, [it.id]: good }));
       if (good) d({ type: 'xp', n: 5, key: `b:${it.id}:first` });
@@ -3595,7 +3833,14 @@ function InvestGame() {
   const answer = (o) => {
     setAns(o);
     if (!(q.id in firstTry)) setFirstTry((f) => ({ ...f, [q.id]: o === q.ans }));
-    if (o === q.ans) { d({ type: 'xp', n: 10, key: `i:q:${q.id}` }); if (!(q.id in firstTry)) d({ type: 'xp', n: 5, key: `i:q:${q.id}:first` }); else setRetried(true); }
+    if (o === q.ans) {
+      playCorrectSound();
+      d({ type: 'xp', n: 10, key: `i:q:${q.id}` });
+      if (!(q.id in firstTry)) d({ type: 'xp', n: 5, key: `i:q:${q.id}:first` });
+      else setRetried(true);
+    } else {
+      playWrongSound();
+    }
   };
   const nextQ = () => {
     if (qi < QUIZ.length - 1) { setQi(qi + 1); setAns(null); return; }
@@ -3821,7 +4066,14 @@ function SafeGame() {
     const ok = c === sc.ans; const first = !(id in firstTry);
     d({ type: 'attempt', v: { id, choice: c, ok, first } });
     if (first) setFirstTry((f) => ({ ...f, [id]: ok }));
-    if (ok) { d({ type: 'xp', n: 10, key: `f:${id}` }); if (first) d({ type: 'xp', n: 5, key: `f:${id}:first` }); else setRetried(true); }
+    if (ok) {
+      playCorrectSound();
+      d({ type: 'xp', n: 10, key: `f:${id}` });
+      if (first) d({ type: 'xp', n: 5, key: `f:${id}:first` });
+      else setRetried(true);
+    } else {
+      playWrongSound();
+    }
     setChoice(c); setReveal(!ok);
   };
   const next = () => {
